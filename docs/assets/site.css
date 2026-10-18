@@ -1,0 +1,782 @@
+/* Nightcore Tracker public page. Mobile first; desktop enhancements at 48rem+. */
+
+:root {
+  --bg: #06071a;
+  --bg-2: #0b0d2a;
+  --panel: rgba(18, 20, 56, 0.78);
+  --panel-solid: #12143a;
+  --line: rgba(160, 150, 255, 0.18);
+  --text: #eceeff;
+  --muted: #a3a8d6;
+  --violet: #a35cff;
+  --cyan: #29e0ff;
+  --red: #ff3d6e;
+  --gold: #ffd166;
+  --radius: 18px;
+  /* The ESR credit is a vertical tab pinned to the right edge. Its width plus
+     a small margin is reserved as a right gutter on the whole page, so the
+     tab never covers cards at any scroll position or viewport width. */
+  --credit-width: 2.25rem;
+  --credit-gutter: calc(var(--credit-width) + 0.35rem + env(safe-area-inset-right, 0px));
+  --credit-space: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(163, 92, 255, 0.22), transparent 60%),
+    radial-gradient(50rem 30rem at -10% 30%, rgba(41, 224, 255, 0.12), transparent 60%),
+    radial-gradient(40rem 30rem at 110% 80%, rgba(255, 61, 110, 0.12), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font: 400 1rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", "Noto Sans JP", sans-serif;
+  padding-right: var(--credit-gutter);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-bottom: var(--credit-space);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 20;
+  padding: 0.5rem 1rem;
+  background: var(--panel-solid);
+  border: 1px solid var(--cyan);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* --- Header ----------------------------------------------------------- */
+
+.masthead {
+  position: relative;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 0.75rem;
+}
+
+.masthead-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--cyan);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.logo {
+  margin: 0.15rem 0 0.35rem;
+  font-size: clamp(2rem, 9vw, 3.75rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--violet);
+  text-shadow: 0 0 18px rgba(163, 92, 255, 0.75), 0 0 42px rgba(163, 92, 255, 0.35);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.meta time {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.date-picker {
+  margin-top: 0.9rem;
+}
+
+.date-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.4rem;
+  max-width: 32rem;
+}
+
+.date-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
+  min-height: 3.25rem;
+  padding: 0.4rem 0.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(18, 20, 56, 0.6);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.date-btn-day {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.date-btn-date {
+  font-weight: 700;
+}
+
+.date-btn-note {
+  font-size: 0.625rem;
+  color: var(--muted);
+}
+
+.date-btn[aria-pressed="true"] {
+  border-color: var(--cyan);
+  background: rgba(41, 224, 255, 0.14);
+  box-shadow: 0 0 0 1px var(--cyan), 0 0 18px rgba(41, 224, 255, 0.35);
+}
+
+.date-btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.45;
+  border-style: dashed;
+}
+
+.date-btn[aria-busy="true"] {
+  cursor: progress;
+}
+
+/* --- Character artwork slots ------------------------------------------ */
+/* Placeholders until authorized artwork exists. Replace the background with
+   the optimized cutout (for example assets/crimson-host.webp). */
+
+.art-slot {
+  pointer-events: none;
+  background: url("host-slot.svg") center / contain no-repeat;
+  opacity: 0.55;
+}
+
+.art-slot--host {
+  display: none;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+/* Only show the host slot once there is room beside the title. */
+@media (min-width: 36rem) {
+  .art-slot--host {
+    display: block;
+  }
+}
+
+.art-slot--side,
+.art-slot--closing {
+  display: none;
+}
+
+/* --- Boards and cards --------------------------------------------------- */
+
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  transition: opacity 0.18s var(--ease);
+}
+
+main.is-swapping {
+  opacity: 0.25;
+}
+
+.board {
+  position: relative;
+  margin: 1.25rem 0 2.5rem;
+}
+
+.board-head h2,
+.closing h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.board--songs h2 {
+  color: var(--text);
+  text-shadow: 0 0 16px rgba(255, 61, 110, 0.55);
+}
+
+.board--channels h2 {
+  text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
+}
+
+.board--growth h2 {
+  text-shadow: 0 0 16px rgba(163, 92, 255, 0.6);
+}
+
+.board-note {
+  margin: 0.25rem 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card {
+  --accent: var(--violet);
+  position: relative;
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.cards--songs .card {
+  --accent: var(--red);
+}
+
+.cards--channels .card {
+  --accent: var(--cyan);
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+}
+
+.card-thumb {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+}
+
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar {
+  display: block;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--panel-solid);
+  box-shadow: 0 0 0 2px var(--accent), 0 0 18px rgba(41, 224, 255, 0.35);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+.rank {
+  position: absolute;
+  left: -0.35rem;
+  top: -0.6rem;
+  min-width: 2.1rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1rem;
+  text-align: center;
+  text-shadow: 0 0 10px var(--accent);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
+  min-width: 0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 0.975rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.card-title a {
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+.card-sub {
+  margin: 0.15rem 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  margin: 0;
+}
+
+.stat {
+  min-width: 0;
+}
+
+.stat dt {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.stat dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat--accent dd {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+}
+
+.move {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.6rem;
+  margin: 0;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.move--up {
+  color: #5dffb0;
+}
+
+.move--down {
+  color: var(--red);
+}
+
+.move--new {
+  color: var(--bg);
+  background: var(--gold);
+}
+
+.move--entry {
+  color: var(--bg);
+  background: var(--cyan);
+}
+
+.card-body .card-title {
+  padding-right: 2.75rem;
+}
+
+/* The leading song gets a larger composition and is visible on load. */
+.card--lead {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 0.9rem;
+  border-color: rgba(255, 61, 110, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 61, 110, 0.35), 0 18px 50px rgba(255, 61, 110, 0.18),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card--lead .rank {
+  font-size: 1.5rem;
+  min-width: 3rem;
+}
+
+.card--lead .card-title {
+  font-size: 1.25rem;
+}
+
+.card--lead .stat dd {
+  font-size: 1.15rem;
+}
+
+.empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Reserved, disabled advertisement slot: fixed height avoids layout shifts. */
+.ad-slot {
+  min-height: 6.5rem;
+  margin: 0 0 2rem;
+  border: 1px dashed rgba(160, 150, 255, 0.12);
+  border-radius: var(--radius);
+}
+
+/* --- Closing ------------------------------------------------------------ */
+
+.closing {
+  position: relative;
+  margin: 2rem 0 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(11, 13, 42, 0.8);
+}
+
+.closing h3 {
+  margin: 1.25rem 0 0.4rem;
+  color: var(--cyan);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.closing p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.summary {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.summary li {
+  margin: 0.2rem 0;
+  overflow-wrap: anywhere;
+}
+
+.coverage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+
+.coverage dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.coverage dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.fine {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+
+.fine code {
+  font-size: 0.75rem;
+  color: var(--text);
+}
+
+.site-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.footer-links a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--text);
+}
+
+/* --- Legal pages ---------------------------------------------------------- */
+
+.legal {
+  max-width: 48rem;
+}
+
+.legal .closing a,
+.legal-page .eyebrow a {
+  color: var(--cyan);
+}
+
+.legal .closing h2 {
+  margin-bottom: 0.25rem;
+}
+
+/* --- ESR credit ----------------------------------------------------------- */
+
+.esr-credit {
+  position: fixed;
+  right: env(safe-area-inset-right, 0px);
+  bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  box-sizing: border-box;
+  width: var(--credit-width);
+  min-height: 7.5rem;
+  padding: 0.75rem 0;
+  /* Reads bottom to top; the rotation keeps the tab hugging the right edge. */
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  border: 1px solid rgba(255, 61, 110, 0.6);
+  border-left-width: 0;
+  border-radius: 0 12px 12px 0;
+  background: rgba(6, 7, 26, 0.92);
+  color: var(--text);
+  font-size: 0.8125rem;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(255, 61, 110, 0.35);
+}
+
+.esr-credit strong {
+  color: var(--red);
+  text-shadow: 0 0 10px rgba(255, 61, 110, 0.8);
+}
+
+.esr-credit:hover {
+  border-color: var(--red);
+}
+
+.esr-credit:focus-visible {
+  /* Drawn inside so the focus ring is not clipped by the viewport edge. */
+  outline: 3px solid var(--cyan);
+  outline-offset: -4px;
+  border-radius: 0 12px 12px 0;
+}
+
+/* --- Entrance animation (enabled by app.js only) ------------------------ */
+
+.reveal-pending {
+  opacity: 0;
+  transform: translate3d(0, 1.5rem, 0) scale(0.98);
+}
+
+.reveal-in {
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  transition-delay: calc(min(var(--i, 0), 6) * 55ms);
+}
+
+/* --- Desktop -------------------------------------------------------------- */
+
+@media (min-width: 48rem) {
+  .masthead {
+    padding: 2rem 1.5rem 1rem;
+  }
+
+  main {
+    padding: 0 1.5rem;
+  }
+
+  .art-slot--host {
+    width: 11rem;
+    height: 11rem;
+    right: 1.5rem;
+    top: 0.75rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+
+  /* Alternate depth: even cards float lower with a softer shadow. */
+  .cards > .card:nth-child(even) {
+    translate: 0 1.25rem;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  }
+
+  .cards > .card--lead {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .cards--songs > .card:nth-child(even) {
+    translate: none;
+  }
+
+  .cards--songs > .card:nth-child(odd):not(.card--lead) {
+    translate: 0 1.25rem;
+  }
+
+  .card--lead .card-title {
+    font-size: 1.6rem;
+  }
+
+  .card {
+    grid-template-columns: 9rem minmax(0, 1fr);
+  }
+
+  .board--channels {
+    padding-right: 0;
+  }
+
+  .art-slot--side {
+    display: block;
+    position: absolute;
+    right: -1rem;
+    top: -3.5rem;
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .art-slot--closing {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    width: 7rem;
+    height: 7rem;
+    opacity: 0.3;
+  }
+
+  .closing {
+    padding: 1.75rem 2rem;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .coverage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 72rem) {
+  /* Wide screens: mirror the credit gutter so the centred content stays
+     centred; the right side keeps the full reservation. */
+  body {
+    padding-left: calc(var(--credit-width) + 0.35rem + env(safe-area-inset-left, 0px));
+  }
+
+  .cards--channels {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cards--channels > .card:nth-child(even) {
+    translate: none;
+  }
+
+  .cards--channels > .card:nth-child(3n + 2) {
+    translate: 0 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
