@@ -1,6 +1,12 @@
 /* Channel aquarium (channels.html). Builds on site.css variables; every
    class is prefixed with aquarium- so the homepage is unaffected. */
 
+/* Use the available screen width, keeping the shared page padding and credit gutter. */
+.aquarium-main {
+  max-width: none;
+  width: 100%;
+}
+
 .aquarium {
   margin: 1.25rem 0 1.5rem;
 }

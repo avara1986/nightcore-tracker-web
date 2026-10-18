@@ -60,8 +60,6 @@
   };
 
   var CAMERA = {
-    mobileWidth: 768,
-    readableZoom: 0.8,
     maxZoom: 3,
     minZoomOfFit: 0.85,
     zoomStep: 1.5,
@@ -77,12 +75,13 @@
 
   /* --- Radius scale and world ------------------------------------------ */
 
-  // Logarithmic subscriber scale; mirrors channel_aquarium.log_radius().
+  // Logarithmic subscriber scale with a 1,000-subscriber knee;
+  // mirrors channel_aquarium.log_radius().
   function radiusFor(subscribers, maxSubscribers, minRadius, maxRadius) {
     if (subscribers === null || subscribers === undefined || !(maxSubscribers > 0)) {
       return minRadius;
     }
-    var weight = Math.log1p(Math.max(0, subscribers)) / Math.log1p(maxSubscribers);
+    var weight = Math.log1p(Math.max(0, subscribers) / 1000) / Math.log1p(maxSubscribers / 1000);
     weight = Math.min(1, Math.max(0, weight));
     return minRadius + (maxRadius - minRadius) * weight;
   }
@@ -105,16 +104,17 @@
     });
   }
 
-  // World area from the final radii at the target occupancy, ~16:10, plus a
+  // World area from the final radii at the target occupancy and viewport aspect, plus a
   // margin of a few maximum radii so edge avatars have room to drift.
-  function worldSize(radii, maxRadius) {
+  function worldSize(radii, maxRadius, viewportAspect) {
+    var aspect = viewportAspect > 0 && Number.isFinite(viewportAspect) ? viewportAspect : WORLD.aspect;
     var area = 0;
     for (var i = 0; i < radii.length; i++) {
       area += Math.PI * radii[i] * radii[i];
     }
     area /= WORLD.occupancy;
-    var width = Math.max(Math.sqrt(area * WORLD.aspect), 4 * maxRadius);
-    var height = Math.max(width / WORLD.aspect, 4 * maxRadius);
+    var width = Math.max(Math.sqrt(area * aspect), 4 * maxRadius);
+    var height = Math.max(area / width, 4 * maxRadius);
     var margin = WORLD.marginRadii * maxRadius;
     return {
       width: Math.ceil(width + 2 * margin),
@@ -656,18 +656,9 @@
     };
   }
 
-  // Desktop starts with the overview; narrow screens at a readable zoom.
+  // Every screen starts with all selected channels in view.
   function initialTransform(world, view) {
-    var fit = fitTransform(world, view);
-    if (view.width >= CAMERA.mobileWidth) {
-      return fit;
-    }
-    var k = Math.min(CAMERA.maxZoom, Math.max(fit.k, CAMERA.readableZoom));
-    return {
-      k: k,
-      x: view.width / 2 - (world.width / 2) * k,
-      y: view.height / 2 - (world.height / 2) * k
-    };
+    return fitTransform(world, view);
   }
 
   function flowAngle(x, y, t, phase) {
@@ -989,7 +980,7 @@
         return;
       }
       if (typeof win.fetch !== "function") {
-        fail(gen, "This browser cannot load the aquarium.");
+        fail(gen, "This browser cannot load the channels.");
         return;
       }
       var download = fetchJson(dataSrc, {
@@ -1025,7 +1016,7 @@
         true
       ],
       network: ["The channel data could not be loaded.", false],
-      code: ["The aquarium could not be prepared.", false]
+      code: ["The channel view could not be prepared.", false]
     };
 
     function failWith(gen, kind) {
@@ -1052,8 +1043,8 @@
         }
         loader = null;
         setState("preparing-scene");
-        ui.loaderText.textContent = "Preparing aquarium…";
-        announce("Preparing aquarium");
+        ui.loaderText.textContent = "Preparing channels…";
+        announce("Preparing channels");
         scene = createScene(gen, data, outcome.images);
       })
         .catch(function () {
@@ -1070,13 +1061,13 @@
       var nodes = channels.map(function (channel, index) {
         return { id: channel.channel_id, channel: channel, radius: radii[index], index: index };
       });
-      var world = worldSize(radii, maxRadius);
+      var world = worldSize(radii, maxRadius, stage.clientWidth / stage.clientHeight);
       seedPositions(nodes, world, data.snapshot_date);
 
       var svg = doc.createElementNS(SVG_NS, "svg");
       svg.setAttribute("class", "aquarium-svg");
       svg.setAttribute("role", "group");
-      svg.setAttribute("aria-label", "Channel aquarium with " + nodes.length + " channels");
+      svg.setAttribute("aria-label", "Nightcore channels: " + nodes.length + " channels");
       // Tab goes straight to the avatar links, not to the drawing itself.
       svg.setAttribute("tabindex", "-1");
       var defs = doc.createElementNS(SVG_NS, "defs");
@@ -1147,7 +1138,7 @@
           }
           reveal();
         } catch (err) {
-          fail(gen, "The aquarium could not be prepared.");
+          fail(gen, "The channel view could not be prepared.");
         }
       }
       self.timers.push(win.setTimeout(packChunk, 0));
@@ -1161,7 +1152,7 @@
         setupInteraction();
         self.ready = true;
         setState("ready");
-        announce("Aquarium ready: " + nodes.length + " channels");
+        announce("Channels ready: " + nodes.length + " channels");
         updatePauseButton();
         updateRunning();
       }
@@ -1322,7 +1313,7 @@
             [view.width, view.height]
           ])
           .scaleExtent([
-            Math.min(fit.k * CAMERA.minZoomOfFit, CAMERA.readableZoom),
+            fit.k * CAMERA.minZoomOfFit,
             Math.max(CAMERA.maxZoom, fit.k)
           ])
           .translateExtent([
@@ -1336,8 +1327,8 @@
           return;
         }
         applyExtents();
-        // scaleBy(1) re-clamps both the scale and the translation.
-        d3.select(svg).call(self.zoom.scaleBy, 1);
+        // Refit automatically when the viewport changes (including rotation).
+        fitAll();
         if (self.selected) {
           showPanel(self.selected);
         }
