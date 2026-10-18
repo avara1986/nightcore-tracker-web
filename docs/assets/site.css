@@ -13,9 +13,8 @@
   --red: #ff3d6e;
   --gold: #ffd166;
   --radius: 18px;
-  /* The ESR credit is a vertical tab pinned to the right edge. Its width plus
-     a small margin is reserved as a right gutter on the whole page, so the
-     tab never covers cards at any scroll position or viewport width. */
+  /* Tablet/desktop reserve a gutter for the fixed vertical credit tab.
+     On mobile the credit sits after the footer and needs no side gutter. */
   --credit-width: 2.25rem;
   --credit-gutter: calc(var(--credit-width) + 0.35rem + env(safe-area-inset-right, 0px));
   --credit-space: calc(1.5rem + env(safe-area-inset-bottom, 0px));
@@ -677,6 +676,32 @@ main.is-swapping {
   outline: 3px solid var(--cyan);
   outline-offset: -4px;
   border-radius: 0 12px 12px 0;
+}
+
+/* Mobile cards use the full content width with balanced side padding.
+   Keep the credit in normal flow so it cannot cover cards or controls. */
+@media (max-width: 47.999rem) {
+  body {
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .esr-credit {
+    position: static;
+    display: flex;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    min-height: 2.75rem;
+    margin: 1rem auto 0;
+    padding: 0.65rem 1rem;
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-left-width: 1px;
+    border-radius: 999px;
+  }
+
+  .esr-credit:focus-visible {
+    border-radius: 999px;
+  }
 }
 
 /* --- Entrance animation (enabled by app.js only) ------------------------ */
