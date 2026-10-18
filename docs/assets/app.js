@@ -326,6 +326,10 @@
   }
 
   function render(snap) {
+    var warning = document.querySelector("[data-collection-warning]");
+    if (warning) {
+      warning.hidden = Boolean(snap.collection_run && snap.collection_run.verified);
+    }
     var bound = document.querySelectorAll("[data-bind]");
     Array.prototype.forEach.call(bound, function (node) {
       var value = lookup(snap, node.getAttribute("data-bind"));

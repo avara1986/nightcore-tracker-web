@@ -1,0 +1,316 @@
+/* Channel aquarium (channels.html). Builds on site.css variables; every
+   class is prefixed with aquarium- so the homepage is unaffected. */
+
+.aquarium {
+  margin: 1.25rem 0 1.5rem;
+}
+
+.aquarium-head h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  line-height: 1.1;
+  text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
+}
+
+.aquarium-meta {
+  margin: 0 0 0.35rem;
+}
+
+.aquarium-note,
+.aquarium-hint {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.aquarium-hint {
+  margin: 0.6rem 0 0;
+}
+
+/* The scene area is reserved from the first render, so nothing shifts when
+   the loader is replaced by the aquarium. */
+.aquarium-stage {
+  position: relative;
+  height: clamp(22rem, 68vh, 46rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(40rem 22rem at 20% 0%, rgba(41, 224, 255, 0.08), transparent 70%),
+    radial-gradient(36rem 26rem at 90% 100%, rgba(163, 92, 255, 0.1), transparent 70%),
+    repeating-radial-gradient(circle at 30% 40%, rgba(41, 224, 255, 0.025) 0 2px, transparent 2px 46px),
+    var(--bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.aquarium-viewport,
+.aquarium-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.aquarium-svg {
+  display: block;
+  cursor: grab;
+}
+
+.aquarium-svg:active {
+  cursor: grabbing;
+}
+
+.aquarium-world {
+  fill: rgba(41, 224, 255, 0.015);
+  stroke: rgba(160, 150, 255, 0.1);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.aquarium-node {
+  cursor: pointer;
+  outline: none;
+}
+
+.aquarium-fallback {
+  fill: var(--panel-solid);
+}
+
+.aquarium-initials {
+  fill: var(--cyan);
+  font-weight: 800;
+  pointer-events: none;
+  user-select: none;
+}
+
+.aquarium-ring {
+  fill: none;
+  stroke: rgba(41, 224, 255, 0.45);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.aquarium-node.is-active .aquarium-ring {
+  stroke: var(--cyan);
+  stroke-width: 3;
+}
+
+.aquarium-node:focus-visible .aquarium-ring {
+  stroke: var(--violet);
+  stroke-width: 4;
+}
+
+/* --- Controls and detail (outside the camera transform) ----------------- */
+
+.aquarium-controls {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.aquarium-btn {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.aquarium-btn:hover {
+  border-color: var(--cyan);
+}
+
+.aquarium-btn[aria-pressed="true"] {
+  border-color: var(--cyan);
+  background: rgba(41, 224, 255, 0.14);
+}
+
+.aquarium-detail {
+  position: absolute;
+  z-index: 4;
+  max-width: min(18rem, calc(100% - 1.5rem));
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel-solid);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.aquarium-detail--tooltip {
+  pointer-events: none;
+}
+
+.aquarium-detail--panel {
+  left: 0.75rem;
+  right: 0.75rem;
+  max-width: 22rem;
+}
+
+.aquarium-detail--bottom {
+  bottom: 0.75rem;
+}
+
+.aquarium-detail--top {
+  top: 3.6rem;
+}
+
+.aquarium-detail-name {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.aquarium-detail-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.aquarium-detail-stats dt {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.aquarium-detail-stats dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.aquarium-detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.6rem 0 0;
+}
+
+.aquarium-detail-actions[hidden] {
+  display: none;
+}
+
+.aquarium-detail-link {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+/* --- Loader --------------------------------------------------------------- */
+
+.aquarium-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(6, 7, 26, 0.88);
+  text-align: center;
+}
+
+.aquarium-loader[hidden],
+.aquarium-controls[hidden],
+.aquarium-detail[hidden],
+.aquarium-viewport[hidden] {
+  display: none;
+}
+
+.aquarium-loader-text {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.aquarium-message {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+.aquarium-message a {
+  color: var(--cyan);
+}
+
+.aquarium-message .aquarium-btn {
+  margin-top: 0.75rem;
+}
+
+.aquarium-progress {
+  width: min(16rem, 80%);
+  height: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(160, 150, 255, 0.15);
+  accent-color: var(--cyan);
+}
+
+.aquarium-progress::-webkit-progress-bar {
+  background: rgba(160, 150, 255, 0.15);
+}
+
+.aquarium-progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+}
+
+.aquarium-progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+}
+
+.aquarium-spinner {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 3px solid rgba(160, 150, 255, 0.2);
+  border-top-color: var(--cyan);
+  border-right-color: var(--violet);
+  border-radius: 50%;
+  animation: aquarium-spin 1s linear infinite;
+}
+
+/* Without JavaScript only the noscript message is meaningful. */
+.aquarium-stage:not([data-js]) .aquarium-spinner,
+.aquarium-stage:not([data-js]) .aquarium-loader-text,
+.aquarium-stage:not([data-js]) .aquarium-progress,
+.aquarium-spinner[hidden],
+.aquarium-loader-text[hidden],
+.aquarium-progress[hidden],
+.aquarium-message[hidden] {
+  display: none;
+}
+
+@keyframes aquarium-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 48rem) {
+  .aquarium-stage {
+    height: clamp(28rem, 72vh, 52rem);
+  }
+}
+
+/* site.css already disables animations and transitions; keep a static ring. */
+@media (prefers-reduced-motion: reduce) {
+  .aquarium-spinner {
+    animation: none;
+    border-color: var(--cyan);
+    border-right-color: var(--violet);
+  }
+}

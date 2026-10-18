@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Channel aquarium | Nightcore Tracker</title>
+<meta name="description" content="Top 300 monitored channels by total views in one Nightcore aquarium: floating channel avatars sized on a logarithmic subscriber scale.">
+<link rel="canonical" href="https://avara1986.github.io/nightcore-tracker-web/channels.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nightcore Tracker channel aquarium">
+<meta property="og:description" content="Top 300 monitored channels by total views, floating in one Nightcore aquarium.">
+<meta property="og:url" content="https://avara1986.github.io/nightcore-tracker-web/channels.html">
+<meta name="theme-color" content="#070818">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="assets/favicon.svg?v=b1ecb16a00" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css?v=ebe9f3aefd">
+<link rel="stylesheet" href="assets/aquarium.css?v=5bed30545e">
+<script src="assets/d3.min.js?v=b5e553aa1b" defer></script>
+<script src="assets/aquarium.js?v=88c55a86d9" defer></script>
+</head>
+<body class="aquarium-page">
+<a class="skip-link" href="#aquarium-title">Skip to the aquarium</a>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Channel aquarium &middot; among monitored channels</p>
+    <h1 class="logo">Nightcore <span>Tracker</span></h1>
+<nav class="site-nav" aria-label="Site">
+  <a href="index.html">Rankings</a>
+  <a href="channels.html" aria-current="page">Channel aquarium</a>
+</nav>
+  </div>
+</header>
+
+<main id="main" class="aquarium-main">
+  <section class="aquarium" aria-labelledby="aquarium-title">
+    <div class="aquarium-head">
+      <h2 id="aquarium-title">Channel aquarium</h2>
+      <p class="board-note">Top 300 monitored channels by total views</p>
+      <p class="meta aquarium-meta">
+        <span>Data date <time datetime="2026-10-18">Sun 18 Oct 2026</time></span>
+        <span>Showing 300 of 557 eligible channels</span>
+      </p>
+      <p class="aquarium-note">Avatar size uses a logarithmic subscriber scale: bigger channels look bigger, but size is not proportional to subscribers. Views decide which channels appear.</p>
+      <p class="collection-warning">Collection is unverified. Rankings may be incomplete.</p>
+    </div>
+
+    <div class="aquarium-stage" id="aquarium-stage" aria-busy="false" data-state="loading-data" data-channels-src="data/channels.json?v=8ff1e892d4" data-snapshot-date="2026-10-18" data-limit="300" data-count="300" data-min-radius="22" data-max-radius="56">
+      <div class="aquarium-viewport" data-role="viewport" hidden></div>
+
+      <div class="aquarium-controls" data-role="controls" role="toolbar" aria-label="Aquarium controls" hidden>
+        <button type="button" class="aquarium-btn" data-action="pause" aria-pressed="false">Pause</button>
+        <button type="button" class="aquarium-btn" data-action="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" class="aquarium-btn" data-action="zoom-out" aria-label="Zoom out">&minus;</button>
+        <button type="button" class="aquarium-btn" data-action="fit">Fit all</button>
+      </div>
+
+      <div class="aquarium-detail" data-role="detail" hidden>
+        <p class="aquarium-detail-name" data-field="name"></p>
+        <dl class="aquarium-detail-stats">
+          <div><dt>Subscribers</dt><dd data-field="subscribers"></dd></div>
+          <div><dt>Total views</dt><dd data-field="views"></dd></div>
+        </dl>
+        <p class="aquarium-detail-actions" data-role="detail-actions">
+          <a class="aquarium-detail-link" data-field="link" href="index.html" target="_blank" rel="noopener noreferrer">View channel</a>
+          <button type="button" class="aquarium-btn aquarium-detail-close" data-action="close">Close</button>
+        </p>
+      </div>
+
+      <div class="aquarium-loader" data-role="loader">
+        <span class="aquarium-spinner" data-role="spinner" aria-hidden="true"></span>
+        <p class="aquarium-loader-text" data-role="loader-text" aria-hidden="true">Loading channels&hellip;</p>
+        <progress class="aquarium-progress" data-role="progress" max="300" value="0" aria-label="Channels prepared"></progress>
+        <div class="aquarium-message" data-role="error" hidden>
+          <p data-field="error-text">The aquarium could not be loaded.</p>
+          <button type="button" class="aquarium-btn" data-action="retry">Try again</button>
+        </div>
+        <p class="aquarium-message" data-role="empty" hidden>No monitored channel has a total view count for this date, so the aquarium is empty.</p>
+        <noscript><p class="aquarium-message">The channel aquarium needs JavaScript to draw and animate the channel avatars. The <a href="index.html">rankings on the homepage</a> work without it.</p></noscript>
+      </div>
+      <p class="sr-only" data-role="status" role="status" aria-live="polite"></p>
+    </div>
+    <p class="aquarium-hint">Drag to pan. Use the buttons, pinch, or Ctrl + scroll to zoom. Hover, focus or tap an avatar for details.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Public YouTube counters collected daily by Nightcore Tracker. Not affiliated with YouTube.</p>
+  <nav class="footer-links" aria-label="Legal">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</footer>
+
+<a
+  class="esr-credit"
+  href="https://linktr.ee/crimson.esr"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  created by <strong>ESR</strong>
+</a>
+</body>
+</html>

@@ -96,6 +96,14 @@ button:focus-visible {
   top: 1rem;
 }
 
+.collection-warning {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--gold);
+  background: var(--panel-solid);
+  color: var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
 /* --- Header ----------------------------------------------------------- */
 
 .masthead {
@@ -144,6 +152,34 @@ button:focus-visible {
 .meta time {
   color: var(--text);
   font-weight: 600;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.35rem 0 0.6rem;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(18, 20, 56, 0.6);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  border-color: var(--cyan);
+}
+
+.site-nav a[aria-current="page"] {
+  border-color: var(--cyan);
+  background: rgba(41, 224, 255, 0.14);
 }
 
 .date-picker {

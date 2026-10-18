@@ -1,0 +1,633 @@
+{
+  "collection_run": {
+    "id": null,
+    "verified": false
+  },
+  "coverage": {
+    "channels": 553,
+    "channels_measured": 539,
+    "excluded_shorts": 13474,
+    "negative_corrections": 208,
+    "new_uploads": 474,
+    "videos": 132888,
+    "videos_measured": 131109
+  },
+  "data_as_of": "2026-10-16T08:00:48Z",
+  "methodology": {
+    "breakout_min_start_views": 1000,
+    "breakout_min_views_gained": 500,
+    "channel_metric": "channel_total_views",
+    "content_scope": "long_form_videos",
+    "tolerance_hours": 6.0
+  },
+  "ranking_date": "2026-10-16",
+  "rankings": {
+    "channels": [
+      {
+        "avatar_url": "https://yt3.ggpht.com/fArjiOmS3nBDsD7DkE7RjBGB45600jPryZZ9E_KGBnDZEILukls59yGB5BF4-SuNiIWs6MYsKA=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCBVVFXMWtQJzneuuWOg6j4g",
+        "growth_pct": 0.8,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 1
+        },
+        "name": "Kenke",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 1,
+        "subscribers": 391000,
+        "url": "https://www.youtube.com/channel/UCBVVFXMWtQJzneuuWOg6j4g",
+        "views": 489462439,
+        "views_gained": 3951285,
+        "views_start": 485511154
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/VhW5FOO33RG_LNjAOZU-cc8kPhbztfT--X3C7nynyIoNcLVKev3w3woX2wawEEs9dr3kqTmf=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCP6BkraJeY88LdcNJ5QL9KQ",
+        "growth_pct": 1.3,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 2
+        },
+        "name": "TWXNY - Topic",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 2,
+        "subscribers": 154,
+        "url": "https://www.youtube.com/channel/UCP6BkraJeY88LdcNJ5QL9KQ",
+        "views": 262992515,
+        "views_gained": 3438061,
+        "views_start": 259554454
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/gBT0Eb4xKnFu-c9xFD3KeVdIftc8GAUPFnR7CiW8izZGNt5ecSW9-W6eRlhq_Gc3gvkpUMnDeg=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCXhxZkigzlQMsRSla5vq4ow",
+        "growth_pct": 0.3,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 3
+        },
+        "name": "Eiden XII",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 3,
+        "subscribers": 1260000,
+        "url": "https://www.youtube.com/channel/UCXhxZkigzlQMsRSla5vq4ow",
+        "views": 887423326,
+        "views_gained": 2658551,
+        "views_start": 884764775
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/nll0GYpWHTkEcPM_2L07vesrl8-KVLRJKzeXP8a41VVXOHSToEaOw7wA7zNoJbaunMUOpchAXA=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCeZje_7vr6CPK9vPQDfV3WA",
+        "growth_pct": 0.1,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 4
+        },
+        "name": "Syrex",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 4,
+        "subscribers": 1900000,
+        "url": "https://www.youtube.com/channel/UCeZje_7vr6CPK9vPQDfV3WA",
+        "views": 2018390152,
+        "views_gained": 2195384,
+        "views_start": 2016194768
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/ytc/AIdro_l_QN_56zGmh849Wdlpep3PJWE2f38ld7-KxEOKwC6Qqdg=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCKKP4nA488RovLmzpY6Sv6w",
+        "growth_pct": 0.6,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 5
+        },
+        "name": "Nightcore Venyx",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 5,
+        "subscribers": 201000,
+        "url": "https://www.youtube.com/channel/UCKKP4nA488RovLmzpY6Sv6w",
+        "views": 308618061,
+        "views_gained": 1849429,
+        "views_start": 306768632
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/e2DE8JA-Gz5tfYnyvtkAnlZ9kmIQslpErAp4GpWNx1CtZwmKOZbobbNFsOJbJu4zsA5yTL_TDA=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCqX8hO4JWM6IJfEabbZmhUw",
+        "growth_pct": 0.0,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 6
+        },
+        "name": "NightcoreReality",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 6,
+        "subscribers": 3870000,
+        "url": "https://www.youtube.com/channel/UCqX8hO4JWM6IJfEabbZmhUw",
+        "views": 3654204918,
+        "views_gained": 1670214,
+        "views_start": 3652534704
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/EX73jiRXmMnzsWaRWj1CCilgX3KBIxomsGfL2ifU4kVrNvOuKdm6SgLA_9kAJ0Va4mgH2agO=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCxGWi9Li-zk2hMbUO3JfV6A",
+        "growth_pct": 1.0,
+        "movement": {
+          "kind": "up",
+          "previous_rank": 8
+        },
+        "name": "AJ DiSpirito",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 7,
+        "subscribers": 195000,
+        "url": "https://www.youtube.com/channel/UCxGWi9Li-zk2hMbUO3JfV6A",
+        "views": 138550864,
+        "views_gained": 1419783,
+        "views_start": 137131081
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/24_Ya4Pv6fbkP-Y2fyDc0Rv6zVN7-jqlC-KrvTnz1UyKMHvQ8FR3V4J1pDQW2swfdd3dyYKWEG8=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCo4c1M2_6IlWjsGy4m_3GSQ",
+        "growth_pct": 0.1,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 7
+        },
+        "name": "Nightcore Zodiac",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 8,
+        "subscribers": 1740000,
+        "url": "https://www.youtube.com/channel/UCo4c1M2_6IlWjsGy4m_3GSQ",
+        "views": 1379462704,
+        "views_gained": 1333455,
+        "views_start": 1378129249
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/hjbikCnewtEB8FeHS0hN9OdfB8_mGuQFB8cN35YbzN-60NCdAPkSmyHl_qzeL_U0xdqGDntA=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCPMhsGX1A6aPmpFPRWJUkag",
+        "growth_pct": 0.1,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 9
+        },
+        "name": "Sinnon Nightcore",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 9,
+        "subscribers": 2360000,
+        "url": "https://www.youtube.com/channel/UCPMhsGX1A6aPmpFPRWJUkag",
+        "views": 1325248169,
+        "views_gained": 1309949,
+        "views_start": 1323938220
+      },
+      {
+        "avatar_url": "https://yt3.ggpht.com/EUS_kZlhBfMFKInAEbJ3SIu3oBY4zm8HAHuST0lq0xTJQKJihn--DA_D5_dMGMZwpY2CMhMuZvw=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCPwndiuAdJMB6OyAs1Ou4dw",
+        "growth_pct": 0.1,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 10
+        },
+        "name": "U N D E R D O G S.",
+        "observed_end": null,
+        "observed_start": null,
+        "rank": 10,
+        "subscribers": 1970000,
+        "url": "https://www.youtube.com/channel/UCPwndiuAdJMB6OyAs1Ou4dw",
+        "views": 1814034189,
+        "views_gained": 1090972,
+        "views_start": 1812943217
+      }
+    ],
+    "growth": [
+      {
+        "channel_id": "UChcALBaPNAeQo11fwd6ea6g",
+        "channel_name": "Nightcore - Topic",
+        "growth_pct": 9153.4,
+        "movement": {
+          "kind": "entry",
+          "previous_rank": null
+        },
+        "observed_end": "2026-10-16T07:59:59Z",
+        "observed_start": "2026-10-09T07:59:51Z",
+        "published_on": "2026-10-06",
+        "rank": 1,
+        "thumbnail_url": "https://i.ytimg.com/vi/pbuG7hT21rI/hqdefault.jpg",
+        "title": "Nevada",
+        "url": "https://www.youtube.com/watch?v=pbuG7hT21rI",
+        "video_id": "pbuG7hT21rI",
+        "views": 119369,
+        "views_gained": 118079,
+        "views_start": 1290
+      },
+      {
+        "channel_id": "UCTaTkZDu7OdC1c4zUEdAVkw",
+        "channel_name": "VibeX Mix",
+        "growth_pct": 1113.2,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 1
+        },
+        "observed_end": "2026-10-16T07:56:57Z",
+        "observed_start": "2026-10-09T07:57:02Z",
+        "published_on": "2026-09-17",
+        "rank": 2,
+        "thumbnail_url": "https://i.ytimg.com/vi/DOQXB8Kz1Dw/hqdefault.jpg",
+        "title": "Badass Songs 2026 🔥Top 50 NEFFEX Tracks for Gaming🔥 Ultimate Gaming & Motivation Mix",
+        "url": "https://www.youtube.com/watch?v=DOQXB8Kz1Dw",
+        "video_id": "DOQXB8Kz1Dw",
+        "views": 38603,
+        "views_gained": 35421,
+        "views_start": 3182
+      },
+      {
+        "channel_id": "UCKKP4nA488RovLmzpY6Sv6w",
+        "channel_name": "Nightcore Venyx",
+        "growth_pct": 404.6,
+        "movement": {
+          "kind": "new_upload",
+          "previous_rank": null
+        },
+        "observed_end": "2026-10-16T08:00:18Z",
+        "observed_start": "2026-10-09T08:00:08Z",
+        "published_on": "2026-10-08",
+        "rank": 3,
+        "thumbnail_url": "https://i.ytimg.com/vi/m-ooWdvO1uE/hqdefault.jpg",
+        "title": "「Nightcore」 Never Forget You - Zara Larsson, MNEK ♡ (Lyrics)",
+        "url": "https://www.youtube.com/watch?v=m-ooWdvO1uE",
+        "video_id": "m-ooWdvO1uE",
+        "views": 14583,
+        "views_gained": 11693,
+        "views_start": 2890
+      },
+      {
+        "channel_id": "UCB8UeunlNJIhHchU11Vu5cw",
+        "channel_name": "Liona Nightcore",
+        "growth_pct": 233.1,
+        "movement": {
+          "kind": "entry",
+          "previous_rank": null
+        },
+        "observed_end": "2026-10-16T08:00:18Z",
+        "observed_start": "2026-10-09T08:00:07Z",
+        "published_on": "2026-10-07",
+        "rank": 4,
+        "thumbnail_url": "https://i.ytimg.com/vi/hz653Wpz9DY/hqdefault.jpg",
+        "title": "Nightcore - On My Own | waytides (ft. Linney) (Lyrics)",
+        "url": "https://www.youtube.com/watch?v=hz653Wpz9DY",
+        "video_id": "hz653Wpz9DY",
+        "views": 3684,
+        "views_gained": 2578,
+        "views_start": 1106
+      },
+      {
+        "channel_id": "UCSNGW10NwMWVntzTgehHFQQ",
+        "channel_name": "Azusa",
+        "growth_pct": 185.9,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 2
+        },
+        "observed_end": "2026-10-16T08:00:17Z",
+        "observed_start": "2026-10-09T08:00:07Z",
+        "published_on": "2026-10-07",
+        "rank": 5,
+        "thumbnail_url": "https://i.ytimg.com/vi/lQ635YKq5Hk/hqdefault.jpg",
+        "title": "Best Nightcore Songs Mix 2026 ♫ Nightcore Gaming Music Mix ♫ House, Trap, Bass, Dubstep, DnB",
+        "url": "https://www.youtube.com/watch?v=lQ635YKq5Hk",
+        "video_id": "lQ635YKq5Hk",
+        "views": 16718,
+        "views_gained": 10871,
+        "views_start": 5847
+      },
+      {
+        "channel_id": "UCtitcLH68qM1h3JFz6JAhsA",
+        "channel_name": "crnvv567",
+        "growth_pct": 185.7,
+        "movement": {
+          "kind": "new_upload",
+          "previous_rank": null
+        },
+        "observed_end": "2026-10-16T08:00:19Z",
+        "observed_start": "2026-10-09T08:00:09Z",
+        "published_on": "2026-10-08",
+        "rank": 6,
+        "thumbnail_url": "https://i.ytimg.com/vi/YmmQVaXWk5I/hqdefault.jpg",
+        "title": "CH4NGE - Nightcore Remix",
+        "url": "https://www.youtube.com/watch?v=YmmQVaXWk5I",
+        "video_id": "YmmQVaXWk5I",
+        "views": 21684,
+        "views_gained": 14093,
+        "views_start": 7591
+      },
+      {
+        "channel_id": "UC-RI5rQVGqNae-WpAPitj7w",
+        "channel_name": "Kirito",
+        "growth_pct": 156.8,
+        "movement": {
+          "kind": "new_upload",
+          "previous_rank": null
+        },
+        "observed_end": "2026-10-16T08:00:18Z",
+        "observed_start": "2026-10-09T08:00:08Z",
+        "published_on": "2026-10-08",
+        "rank": 7,
+        "thumbnail_url": "https://i.ytimg.com/vi/dwY52Bh6N7I/hqdefault.jpg",
+        "title": "Nightcore - Let Her Fly (ZVC) - (Lyrics)",
+        "url": "https://www.youtube.com/watch?v=dwY52Bh6N7I",
+        "video_id": "dwY52Bh6N7I",
+        "views": 6986,
+        "views_gained": 4266,
+        "views_start": 2720
+      },
+      {
+        "channel_id": "UC2ueDw3N3Sb9LZ26_ziv2yw",
+        "channel_name": "Ryn",
+        "growth_pct": 156.5,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 3
+        },
+        "observed_end": "2026-10-16T08:00:17Z",
+        "observed_start": "2026-10-09T08:00:07Z",
+        "published_on": "2026-10-07",
+        "rank": 8,
+        "thumbnail_url": "https://i.ytimg.com/vi/OaSTmSTRy88/hqdefault.jpg",
+        "title": "Monster x Animal I Have Become - Ryn x Xena | Nightcore Rock Mashup | Lyrics",
+        "url": "https://www.youtube.com/watch?v=OaSTmSTRy88",
+        "video_id": "OaSTmSTRy88",
+        "views": 6615,
+        "views_gained": 4036,
+        "views_start": 2579
+      },
+      {
+        "channel_id": "UCpkR5I-E0bcdE_Tyq9OZI3Q",
+        "channel_name": "Bwah Core",
+        "growth_pct": 146.4,
+        "movement": {
+          "kind": "up",
+          "previous_rank": 15
+        },
+        "observed_end": "2026-10-16T07:58:38Z",
+        "observed_start": "2026-10-09T07:58:36Z",
+        "published_on": "2026-10-01",
+        "rank": 9,
+        "thumbnail_url": "https://i.ytimg.com/vi/jUWgTY71aT0/hqdefault.jpg",
+        "title": "Jealousy - Paris Hilton (Nightcore Remix)",
+        "url": "https://www.youtube.com/watch?v=jUWgTY71aT0",
+        "video_id": "jUWgTY71aT0",
+        "views": 3826,
+        "views_gained": 2273,
+        "views_start": 1553
+      },
+      {
+        "channel_id": "UCENgm_VduV3UxaSfSEGtGgQ",
+        "channel_name": "Aiyun",
+        "growth_pct": 131.4,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 9
+        },
+        "observed_end": "2026-10-16T08:00:18Z",
+        "observed_start": "2026-10-09T08:00:07Z",
+        "published_on": "2026-10-07",
+        "rank": 10,
+        "thumbnail_url": "https://i.ytimg.com/vi/TgbHZhanj5A/hqdefault.jpg",
+        "title": "「Nightcore」Haunted House - by Aiyun (Lyric Video)┃[Commission]",
+        "url": "https://www.youtube.com/watch?v=TgbHZhanj5A",
+        "video_id": "TgbHZhanj5A",
+        "views": 11003,
+        "views_gained": 6248,
+        "views_start": 4755
+      }
+    ],
+    "songs": [
+      {
+        "channel_id": "UCP6BkraJeY88LdcNJ5QL9KQ",
+        "channel_name": "TWXNY - Topic",
+        "growth_pct": 1.6,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 1
+        },
+        "observed_end": "2026-10-16T07:54:32Z",
+        "observed_start": "2026-10-09T07:54:44Z",
+        "published_on": "2025-12-08",
+        "rank": 1,
+        "thumbnail_url": "https://i.ytimg.com/vi/DWv8ZkHpCx4/hqdefault.jpg",
+        "title": "HEAVENLY JUMPSTYLE (Slowed)",
+        "url": "https://www.youtube.com/watch?v=DWv8ZkHpCx4",
+        "video_id": "DWv8ZkHpCx4",
+        "views": 63267146,
+        "views_gained": 1024284,
+        "views_start": 62242862
+      },
+      {
+        "channel_id": "UCP6BkraJeY88LdcNJ5QL9KQ",
+        "channel_name": "TWXNY - Topic",
+        "growth_pct": 1.8,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 2
+        },
+        "observed_end": "2026-10-16T07:54:31Z",
+        "observed_start": "2026-10-09T07:54:44Z",
+        "published_on": "2025-12-08",
+        "rank": 2,
+        "thumbnail_url": "https://i.ytimg.com/vi/D2TB3I9hRgA/hqdefault.jpg",
+        "title": "HEAVENLY JUMPSTYLE",
+        "url": "https://www.youtube.com/watch?v=D2TB3I9hRgA",
+        "video_id": "D2TB3I9hRgA",
+        "views": 31317024,
+        "views_gained": 538777,
+        "views_start": 30778247
+      },
+      {
+        "channel_id": "UCP6BkraJeY88LdcNJ5QL9KQ",
+        "channel_name": "TWXNY - Topic",
+        "growth_pct": 4.5,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 3
+        },
+        "observed_end": "2026-10-16T07:54:29Z",
+        "observed_start": "2026-10-09T07:54:42Z",
+        "published_on": "2026-06-29",
+        "rank": 3,
+        "thumbnail_url": "https://i.ytimg.com/vi/tNK1_aLFMrY/hqdefault.jpg",
+        "title": "Heavenly jumpstyle (But it hits hard) (feat. Eiden XII)",
+        "url": "https://www.youtube.com/watch?v=tNK1_aLFMrY",
+        "video_id": "tNK1_aLFMrY",
+        "views": 11516002,
+        "views_gained": 499032,
+        "views_start": 11016970
+      },
+      {
+        "channel_id": "UC5HUS1c5OK4iES3iRMQnooQ",
+        "channel_name": "RubyChan's Nightcore",
+        "growth_pct": 0.8,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 4
+        },
+        "observed_end": "2026-10-16T07:40:49Z",
+        "observed_start": "2026-10-09T07:41:03Z",
+        "published_on": "2023-09-10",
+        "rank": 4,
+        "thumbnail_url": "https://i.ytimg.com/vi/u9zVhsyV8qc/hqdefault.jpg",
+        "title": "Nightcore - Sweet Little Bumblebee (Lyrics)",
+        "url": "https://www.youtube.com/watch?v=u9zVhsyV8qc",
+        "video_id": "u9zVhsyV8qc",
+        "views": 42086250,
+        "views_gained": 336260,
+        "views_start": 41749990
+      },
+      {
+        "channel_id": "UC1Isl5kPQCsiBvqUdMhM0qw",
+        "channel_name": "CUTLoveRx",
+        "growth_pct": 0.1,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 5
+        },
+        "observed_end": "2026-10-16T07:41:25Z",
+        "observed_start": "2026-10-09T07:41:54Z",
+        "published_on": "2012-02-15",
+        "rank": 5,
+        "thumbnail_url": "https://i.ytimg.com/vi/cvaIgq5j2Q8/hqdefault.jpg",
+        "title": "Nightcore - Angel With A Shotgun",
+        "url": "https://www.youtube.com/watch?v=cvaIgq5j2Q8",
+        "video_id": "cvaIgq5j2Q8",
+        "views": 276595248,
+        "views_gained": 317584,
+        "views_start": 276277664
+      },
+      {
+        "channel_id": "UCP6BkraJeY88LdcNJ5QL9KQ",
+        "channel_name": "TWXNY - Topic",
+        "growth_pct": 0.9,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 6
+        },
+        "observed_end": "2026-10-16T07:54:32Z",
+        "observed_start": "2026-10-09T07:54:44Z",
+        "published_on": "2025-12-08",
+        "rank": 6,
+        "thumbnail_url": "https://i.ytimg.com/vi/pSkW_rR65-g/hqdefault.jpg",
+        "title": "HEAVENLY JUMPSTYLE",
+        "url": "https://www.youtube.com/watch?v=pSkW_rR65-g",
+        "video_id": "pSkW_rR65-g",
+        "views": 27313484,
+        "views_gained": 237105,
+        "views_start": 27076379
+      },
+      {
+        "channel_id": "UCkZSsVotFjw2KKYbcyL7lmA",
+        "channel_name": "AliceBloodRabbit",
+        "growth_pct": 0.2,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 7
+        },
+        "observed_end": "2026-10-16T07:40:20Z",
+        "observed_start": "2026-10-09T07:40:33Z",
+        "published_on": "2011-10-05",
+        "rank": 7,
+        "thumbnail_url": "https://i.ytimg.com/vi/cmlCuzn_mqI/hqdefault.jpg",
+        "title": "Nightcore - Bad boy",
+        "url": "https://www.youtube.com/watch?v=cmlCuzn_mqI",
+        "video_id": "cmlCuzn_mqI",
+        "views": 127010776,
+        "views_gained": 225577,
+        "views_start": 126785199
+      },
+      {
+        "channel_id": "UCxGWi9Li-zk2hMbUO3JfV6A",
+        "channel_name": "AJ DiSpirito",
+        "growth_pct": 0.6,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 8
+        },
+        "observed_end": "2026-10-16T07:42:49Z",
+        "observed_start": "2026-10-09T07:43:19Z",
+        "published_on": "2024-08-30",
+        "rank": 8,
+        "thumbnail_url": "https://i.ytimg.com/vi/lNoUP579nQ8/hqdefault.jpg",
+        "title": "♫BITE ME♫ 「Nightcore」 → AJ DiSpirito ft. Zephyrianna ♡【LYRICS】",
+        "url": "https://www.youtube.com/watch?v=lNoUP579nQ8",
+        "video_id": "lNoUP579nQ8",
+        "views": 31133198,
+        "views_gained": 179811,
+        "views_start": 30953387
+      },
+      {
+        "channel_id": "UCF0PN8Fa3JtNGiBFVP7dMUg",
+        "channel_name": "Roy Bee - Topic",
+        "growth_pct": 0.9,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 9
+        },
+        "observed_end": "2026-10-16T07:58:33Z",
+        "observed_start": "2026-10-09T07:58:32Z",
+        "published_on": "2023-06-19",
+        "rank": 9,
+        "thumbnail_url": "https://i.ytimg.com/vi/7tNoSD0cei4/hqdefault.jpg",
+        "title": "Kiss Me Again (Nightcore Mix)",
+        "url": "https://www.youtube.com/watch?v=7tNoSD0cei4",
+        "video_id": "7tNoSD0cei4",
+        "views": 17924741,
+        "views_gained": 161946,
+        "views_start": 17762795
+      },
+      {
+        "channel_id": "UCVX4_aohMOOC5hbojezKpeQ",
+        "channel_name": "Nightcore Lab NCL",
+        "growth_pct": 0.4,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 10
+        },
+        "observed_end": "2026-10-16T07:41:06Z",
+        "observed_start": "2026-10-09T07:41:24Z",
+        "published_on": "2018-03-01",
+        "rank": 10,
+        "thumbnail_url": "https://i.ytimg.com/vi/LUKH9lwQ300/hqdefault.jpg",
+        "title": "Nightcore - Policeman",
+        "url": "https://www.youtube.com/watch?v=LUKH9lwQ300",
+        "video_id": "LUKH9lwQ300",
+        "views": 42918162,
+        "views_gained": 160547,
+        "views_start": 42757615
+      }
+    ]
+  },
+  "schema_version": 1,
+  "summary": {
+    "biggest_climber": {
+      "from_rank": 15,
+      "id": "jUWgTY71aT0",
+      "name": "Jealousy - Paris Hilton (Nightcore Remix)",
+      "section": "growth",
+      "to_rank": 9
+    },
+    "entered": {
+      "channels": 0,
+      "growth": 6,
+      "songs": 0
+    }
+  },
+  "timezone": "Europe/Madrid",
+  "window": {
+    "end_date": "2026-10-16",
+    "start_date": "2026-10-09"
+  },
+  "window_days": 7
+}

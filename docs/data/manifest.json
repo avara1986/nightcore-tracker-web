@@ -1,0 +1,41 @@
+{
+  "data_id": "c501d4ce80529649",
+  "dates": [
+    {
+      "available": true,
+      "date": "2026-10-18",
+      "file": "data/2026-10-18.json",
+      "sha256": "c501d4ce805296493a5f9b2b52b38b96a0eca9bdad2f1dc95f832fc4cf041f7c"
+    },
+    {
+      "available": true,
+      "date": "2026-10-17",
+      "file": "data/2026-10-17.json",
+      "sha256": "444bb883e50f7de62b43d2fb51bc5880afeaccf601cdb5239688d7b5081f63fa"
+    },
+    {
+      "available": true,
+      "date": "2026-10-16",
+      "file": "data/2026-10-16.json",
+      "sha256": "2235420e7987ed6139acf1e7f2d1ceb8de9d3442fbd2bae14a65f1eacf46ae4c"
+    },
+    {
+      "available": true,
+      "date": "2026-10-15",
+      "file": "data/2026-10-15.json",
+      "sha256": "3f0b1f7f256805092b4e20ae32b1b7b836d90f045880b073fb107aae37fa661f"
+    },
+    {
+      "available": true,
+      "date": "2026-10-14",
+      "file": "data/2026-10-14.json",
+      "sha256": "26cc24c3725a6448bf3f5266860b3390c50b5b7dc45d5aa599644f01c3f2ecdf"
+    }
+  ],
+  "history_days": 5,
+  "latest": "2026-10-18",
+  "run_id": null,
+  "schema_version": 1,
+  "site_url": "https://avara1986.github.io/nightcore-tracker-web/",
+  "timezone": "Europe/Madrid"
+}
