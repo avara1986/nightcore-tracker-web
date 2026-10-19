@@ -157,7 +157,7 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin: 0.35rem 0 0.6rem;
+  margin: 1rem 0;
 }
 
 .site-nav a {
@@ -244,8 +244,8 @@ button:focus-visible {
 }
 
 /* --- Character artwork slots ------------------------------------------ */
-/* Placeholders until authorized artwork exists. Replace the background with
-   the optimized cutout (for example assets/crimson-host.webp). */
+/* The homepage header uses the supplied transparent Crimson cutout.
+   Other decorative slots retain the lightweight headphones placeholder. */
 
 .art-slot {
   pointer-events: none;
@@ -255,18 +255,9 @@ button:focus-visible {
 
 .art-slot--host {
   display: none;
-  position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
-  width: 6.5rem;
-  height: 6.5rem;
-}
-
-/* Only show the host slot once there is room beside the title. */
-@media (min-width: 36rem) {
-  .art-slot--host {
-    display: block;
-  }
+  background-image: url("crimson-host.webp");
+  background-position: center bottom;
+  opacity: 1;
 }
 
 .art-slot--side,
@@ -733,13 +724,6 @@ main.is-swapping {
     padding: 0 1.5rem;
   }
 
-  .art-slot--host {
-    width: 11rem;
-    height: 11rem;
-    right: 1.5rem;
-    top: 0.75rem;
-  }
-
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem 1.5rem;
@@ -780,13 +764,19 @@ main.is-swapping {
     padding-right: 0;
   }
 
+  .board--channels .board-head {
+    position: relative;
+    min-height: 6rem;
+    padding-right: 6rem;
+  }
+
   .art-slot--side {
     display: block;
     position: absolute;
-    right: -1rem;
-    top: -3.5rem;
-    width: 8rem;
-    height: 8rem;
+    right: 0;
+    top: 0;
+    width: 5rem;
+    height: 5rem;
   }
 
   .art-slot--closing {
@@ -811,6 +801,29 @@ main.is-swapping {
 
   .coverage {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Reserve a real column for Crimson rather than overlaying the logo or controls.
+   The row grows with the text, so warnings and wrapped dates remain unobstructed. */
+@media (min-width: 64rem) {
+  .masthead--host {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(22rem, 34vw, 27rem);
+    column-gap: 1.5rem;
+  }
+
+  .masthead--host .masthead-inner {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .art-slot--host {
+    display: block;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
   }
 }
 
