@@ -1513,14 +1513,6 @@
       "views": 9390572
     },
     {
-      "avatar_url": "https://yt3.ggpht.com/Qj5ccyfGyu-hBy5My_d4YICXF43pJVhuIwKRMQMG8m9AI3fMkIqamwHWVwle_8OlPUAGaAWOcg=s240-c-k-c0x00ffffff-no-rj",
-      "channel_id": "UCTaTkZDu7OdC1c4zUEdAVkw",
-      "name": "VibeX Mix",
-      "subscribers": 26800,
-      "url": "https://www.youtube.com/channel/UCTaTkZDu7OdC1c4zUEdAVkw",
-      "views": 9352558
-    },
-    {
       "avatar_url": "https://yt3.ggpht.com/ytc/AIdro_lXgckQjeMl_HWF4BKXWWqyD2IoKF3gLUz_dunnJgEmhQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCQMxK26bJvIBU-dMIOZUYbw",
       "name": "WorldOfNightcore",
@@ -3599,6 +3591,14 @@
       "subscribers": 1100,
       "url": "https://www.youtube.com/channel/UCcyg09xAIJC9fc84P9xpG7g",
       "views": 250614
+    },
+    {
+      "avatar_url": "https://yt3.ggpht.com/8Mx31lj0mPAALlOSI6Ti9jsV-IV_oxco1WL8OngkMlCnfFNnTHaCNckQb5htJm2i9Q8HtyFvOt8=s240-c-k-c0x00ffffff-no-rj",
+      "channel_id": "UCK4X35W8jfPQ4E1bmhoMGiQ",
+      "name": "Anime Nightcore",
+      "subscribers": 880,
+      "url": "https://www.youtube.com/channel/UCK4X35W8jfPQ4E1bmhoMGiQ",
+      "views": 240377
     }
   ],
   "collection_run": {
@@ -3607,7 +3607,7 @@
   },
   "schema_version": 1,
   "selection": {
-    "eligible_count": 517,
+    "eligible_count": 516,
     "limit": 450,
     "metric": "channel_total_views"
   },
