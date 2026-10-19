@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://avara1986.github.io/nightcore-tracker-web/sitemap.xml
+Sitemap: https://nightcore-tracker.com/sitemap.xml

@@ -1,0 +1,23 @@
+# Nightcore Tracker
+
+> Daily Nightcore charts among monitored YouTube channels: breakout songs and rising channels by seven-day view growth, plus top songs and top channels by views gained. Rankings cover monitored channels only, not all of YouTube.
+
+All pages are static HTML readable without JavaScript. The public data is plain JSON with no login. Dates are Europe/Madrid calendar days; timestamps are UTC.
+
+## Documentation
+
+- [Public data guide](https://nightcore-tracker.com/data-guide.html): files, schemas, units, null handling, time zone, cutoff, coverage and completeness status
+- [Methodology](https://nightcore-tracker.com/#about): how the seven-day rankings are calculated
+
+## Pages
+
+- [Latest rankings](https://nightcore-tracker.com/): the four charts of the latest date
+- [Latest discoveries](https://nightcore-tracker.com/discover.html): breakout songs and rising channels with the figures behind each entry, and links to every dated edition
+- [Nightcore channels](https://nightcore-tracker.com/channels.html): monitored channels by total views
+
+## Data and feeds
+
+- [Manifest](https://nightcore-tracker.com/data/manifest.json): latest date and the dated snapshots currently published
+- [Editions index](https://nightcore-tracker.com/data/editions/index.json): every dated discovery edition with its permanent page and data file
+- [Channels](https://nightcore-tracker.com/data/channels.json): the channels shown on the channels page
+- [Discoveries feed](https://nightcore-tracker.com/feed.xml): RSS 2.0, newest editions first

@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://avara1986.github.io/nightcore-tracker-web/</loc>
+    <loc>https://nightcore-tracker.com/</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://avara1986.github.io/nightcore-tracker-web/channels.html</loc>
+    <loc>https://nightcore-tracker.com/channels.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://avara1986.github.io/nightcore-tracker-web/privacy.html</loc>
+    <loc>https://nightcore-tracker.com/discover.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
   <url>
-    <loc>https://avara1986.github.io/nightcore-tracker-web/terms.html</loc>
+    <loc>https://nightcore-tracker.com/data-guide.html</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/editions/2026-10-19.html</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/editions/2026-10-18.html</loc>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/editions/2026-10-17.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/editions/2026-10-16.html</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/editions/2026-10-15.html</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/privacy.html</loc>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://nightcore-tracker.com/terms.html</loc>
     <lastmod>2026-10-19</lastmod>
   </url>
 </urlset>

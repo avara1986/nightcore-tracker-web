@@ -531,6 +531,117 @@ main.is-swapping {
   border-radius: var(--radius);
 }
 
+/* --- Discoveries, editions and the channel directory ------------------ */
+
+.board-link {
+  margin: -0.4rem 0 0.9rem;
+  font-size: 0.875rem;
+}
+
+.board-link a,
+.edition-nav a,
+.archive-list a,
+.discovery a,
+.directory-list a {
+  color: var(--cyan);
+}
+
+.discoveries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.discovery {
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow-wrap: anywhere;
+}
+
+.discovery > p {
+  margin: 0.35rem 0;
+}
+
+.discovery-rank {
+  color: var(--violet);
+  font-variant-numeric: tabular-nums;
+}
+
+.edition-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.archive-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.archive-note {
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+.directory-list {
+  margin: 0.75rem 0 0;
+  padding-left: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.directory-list li {
+  margin: 0.15rem 0;
+  overflow-wrap: anywhere;
+}
+
+.directory-stats {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.channel-directory {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Data guide tables wrap long field names instead of widening the page. */
+.data-table {
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.85rem;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.4rem 0.5rem;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.data-table td {
+  color: var(--muted);
+}
+
+.data-table a {
+  color: var(--cyan);
+}
+
 /* --- Closing ------------------------------------------------------------ */
 
 .closing {
@@ -824,6 +935,18 @@ main.is-swapping {
     grid-column: 2;
     grid-row: 1;
     align-self: stretch;
+  }
+}
+
+@media (min-width: 48rem) {
+  .discoveries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+
+  .directory-list {
+    columns: 2;
+    column-gap: 2.5rem;
   }
 }
 

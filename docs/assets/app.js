@@ -237,6 +237,73 @@
     return url.href;
   }
 
+  /* --- Image sources (mirror public_site/images.py) ------------------------ */
+
+  var VIDEO_ID_RE = /^[A-Za-z0-9_-]{11}$/;
+  var AVATAR_HOSTS = ["yt3.ggpht.com", "yt3.googleusercontent.com"];
+  var THUMB_SIZES = "(min-width: 48rem) 9rem, 7.5rem";
+  var LEAD_THUMB_SIZES = "(min-width: 72rem) 38rem, (min-width: 48rem) 52vw, calc(100vw - 3.5rem)";
+  var CARD_AVATAR_SIZES = [88, 176];
+
+  function ytThumb(videoId, variant) {
+    return "https://i.ytimg.com/vi/" + videoId + "/" + variant + ".jpg";
+  }
+
+  // Song card thumbnail: mqdefault (320 x 180) for cards, hqdefault for the
+  // lead, with both in srcset. Unknown IDs fall back to the snapshot URL.
+  function thumbnailSources(entry, lead) {
+    if (typeof entry.video_id !== "string" || !VIDEO_ID_RE.test(entry.video_id)) {
+      return { src: entry.thumbnail_url, srcset: null, sizes: null };
+    }
+    var small = ytThumb(entry.video_id, "mqdefault");
+    var large = ytThumb(entry.video_id, "hqdefault");
+    return {
+      src: lead ? large : small,
+      srcset: small + " 320w, " + large + " 480w",
+      sizes: lead ? LEAD_THUMB_SIZES : THUMB_SIZES
+    };
+  }
+
+  // The same avatar at size x size, never larger than the stored size; null
+  // when the URL is not a resizable avatar URL.
+  function sizedAvatarUrl(value, size) {
+    if (typeof value !== "string" || /[\s,]/.test(value)) {
+      return null;
+    }
+    var url;
+    try {
+      url = new URL(value);
+    } catch (err) {
+      return null;
+    }
+    if (url.protocol !== "https:" || AVATAR_HOSTS.indexOf(url.hostname) === -1 || url.username ||
+        url.search || url.hash) {
+      return null;
+    }
+    var path = url.pathname;
+    var cut = path.lastIndexOf("=");
+    var m = cut >= 0 ? /^=s(\d{1,4})(?=-|$)/.exec(path.slice(cut)) : null;
+    if (!m) {
+      return null;
+    }
+    var stored = Number(m[1]);
+    var target = stored > 0 ? Math.min(size, stored) : size;
+    url.pathname = path.slice(0, cut) + "=s" + target + path.slice(cut + m[0].length);
+    return url.href;
+  }
+
+  function avatarSources(value) {
+    var one = sizedAvatarUrl(value, CARD_AVATAR_SIZES[0]);
+    var two = sizedAvatarUrl(value, CARD_AVATAR_SIZES[1]);
+    if (!one || !two) {
+      return { src: value, srcset: null, sizes: null };
+    }
+    if (one === two) {
+      return { src: one, srcset: null, sizes: null };
+    }
+    return { src: one, srcset: one + " 1x, " + two + " 2x", sizes: null };
+  }
+
   /* --- Page ------------------------------------------------------------------ */
 
   function boot(win) {
@@ -282,8 +349,8 @@
       return a;
     }
 
-    function image(src, width, height, priority) {
-      var safe = safeUrl(src, IMAGE_HOSTS);
+    function image(sources, width, height, priority) {
+      var safe = safeUrl(sources.src, IMAGE_HOSTS);
       if (!safe) {
         return null;
       }
@@ -296,6 +363,13 @@
         img.setAttribute("fetchpriority", "high");
       } else {
         img.loading = "lazy";
+      }
+      // srcset candidates are derived from checked URLs on the same hosts.
+      if (sources.srcset) {
+        if (sources.sizes) {
+          img.sizes = sources.sizes;
+        }
+        img.srcset = sources.srcset;
       }
       img.src = safe;
       return img;
@@ -354,7 +428,7 @@
       var thumb = externalLink(entry.url, "card-thumb");
       thumb.tabIndex = -1;
       thumb.setAttribute("aria-hidden", "true");
-      var img = image(entry.thumbnail_url, 480, 360, section.lead && entry.rank <= 2);
+      var img = image(thumbnailSources(entry, lead), 320, 180, lead);
       if (img) {
         thumb.appendChild(img);
       }
@@ -367,7 +441,7 @@
     function channelCard(entry, section) {
       var li = cardShell(entry, "card card--channel", section);
       var avatar = el("span", "avatar");
-      var img = image(entry.avatar_url, 88, 88, false);
+      var img = image(avatarSources(entry.avatar_url), 88, 88, false);
       if (img) {
         avatar.appendChild(img);
       } else {
@@ -627,6 +701,9 @@
     looksValid: looksValid,
     summaryLines: summaryLines,
     safeUrl: safeUrl,
+    thumbnailSources: thumbnailSources,
+    sizedAvatarUrl: sizedAvatarUrl,
+    avatarSources: avatarSources,
     boot: boot
   };
 });

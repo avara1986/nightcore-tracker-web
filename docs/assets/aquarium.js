@@ -66,6 +66,14 @@
     clickDistance: 6
   };
 
+  // Avatar files requested per drawn diameter at zoom 1 (world units = CSS
+  // px): small avatars no longer download the stored 240 px image. With a
+  // full selection the initial fitted view is well below zoom 1, so these
+  // stay sharp there on 2x screens; only close zooms soften small avatars.
+  // Sizes are yt3 =sNN tokens; see sizedAvatarUrl().
+  var AVATAR_PIXELS = [88, 176, 240];
+  var AVATAR_HOSTS = ["yt3.ggpht.com", "yt3.googleusercontent.com"];
+
   var SVG_NS = "http://www.w3.org/2000/svg";
   var IMAGE_HOSTS = ["i.ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com"];
   var CHANNEL_URL_PREFIX = "https://www.youtube.com/channel/";
@@ -327,6 +335,65 @@
     return errors;
   }
 
+  /* --- Avatar sizing (mirrors public_site/images.py) -------------------- */
+
+  // Smallest listed size covering the avatar's diameter at zoom 1.
+  function avatarPixels(radius) {
+    var needed = Math.ceil(2 * radius);
+    for (var i = 0; i < AVATAR_PIXELS.length; i++) {
+      if (AVATAR_PIXELS[i] >= needed) {
+        return AVATAR_PIXELS[i];
+      }
+    }
+    return AVATAR_PIXELS[AVATAR_PIXELS.length - 1];
+  }
+
+  // The same avatar at size x size, never larger than the stored size; null
+  // when the URL is not a resizable avatar URL (the caller keeps it as is).
+  function sizedAvatarUrl(value, size) {
+    if (typeof value !== "string" || /[\s,]/.test(value)) {
+      return null;
+    }
+    var url;
+    try {
+      url = new URL(value);
+    } catch (err) {
+      return null;
+    }
+    if (url.protocol !== "https:" || AVATAR_HOSTS.indexOf(url.hostname) < 0 || url.username ||
+        url.search || url.hash) {
+      return null;
+    }
+    var path = url.pathname;
+    var cut = path.lastIndexOf("=");
+    var m = cut >= 0 ? /^=s(\d{1,4})(?=-|$)/.exec(path.slice(cut)) : null;
+    if (!m) {
+      return null;
+    }
+    var stored = Number(m[1]);
+    var target = stored > 0 ? Math.min(size, stored) : size;
+    url.pathname = path.slice(0, cut) + "=s" + target + path.slice(cut + m[0].length);
+    return url.href;
+  }
+
+  // Per-channel image URL to load: a smaller variant of a checked avatar URL
+  // on the same host, the original when it cannot be resized, null without one.
+  function avatarLoadUrls(channels, radii) {
+    return channels.map(function (channel, index) {
+      if (!channel.avatar_url) {
+        return null;
+      }
+      var sized = sizedAvatarUrl(channel.avatar_url, avatarPixels(radii[index]));
+      return sized && allowedImageUrl(sized) ? sized : channel.avatar_url;
+    });
+  }
+
+  // Whether motion is paused after the reduced-motion preference changes: an
+  // explicit Pause/Resume by the visitor wins, otherwise the preference does.
+  function pausedForPreference(scene, reduced) {
+    return scene.userToggled ? scene.userPaused : Boolean(reduced);
+  }
+
   /* --- Clock, data download and image queue ---------------------------- */
 
   var realClock = {
@@ -517,13 +584,14 @@
 
   // Track per-channel preparation: duplicate URLs load once and count for
   // every channel using them; null avatars count at once (fallback ready).
+  // options.urls optionally holds the URL to load per channel (same order).
   function prepareChannels(channels, options) {
     var byUrl = {};
     var urls = [];
     var prepared = 0;
     var total = channels.length;
-    channels.forEach(function (channel) {
-      var url = channel.avatar_url;
+    channels.forEach(function (channel, index) {
+      var url = options.urls ? options.urls[index] : channel.avatar_url;
       if (!url) {
         prepared++;
         return;
@@ -1027,7 +1095,10 @@
     function loadAvatars(gen, data) {
       setState("loading-images");
       announce("Loading " + data.channels.length + " channel avatars");
+      var radii = computeRadii(data.channels, minRadius, maxRadius);
+      var urls = avatarLoadUrls(data.channels, radii);
       loader = prepareChannels(data.channels, {
+        urls: urls,
         createImage: function () {
           return new win.Image();
         },
@@ -1045,7 +1116,7 @@
         setState("preparing-scene");
         ui.loaderText.textContent = "Preparing channels…";
         announce("Preparing channels");
-        scene = createScene(gen, data, outcome.images);
+        scene = createScene(gen, data, outcome.images, urls);
       })
         .catch(function () {
           failWith(gen, "code");
@@ -1054,12 +1125,18 @@
 
     /* --- Scene -------------------------------------------------------- */
 
-    function createScene(gen, data, images) {
+    function createScene(gen, data, images, imageUrls) {
       var d3 = win.d3;
       var channels = data.channels;
       var radii = computeRadii(channels, minRadius, maxRadius);
       var nodes = channels.map(function (channel, index) {
-        return { id: channel.channel_id, channel: channel, radius: radii[index], index: index };
+        return {
+          id: channel.channel_id,
+          channel: channel,
+          radius: radii[index],
+          index: index,
+          imageUrl: imageUrls[index]
+        };
       });
       var world = worldSize(radii, maxRadius, stage.clientWidth / stage.clientHeight);
       seedPositions(nodes, world, data.snapshot_date);
@@ -1107,6 +1184,7 @@
         layer: layer,
         simTime: 0,
         userPaused: reducedMotion(),
+        userToggled: false,
         ready: false,
         raf: 0,
         lastTs: 0,
@@ -1177,7 +1255,8 @@
         text.setAttribute("font-size", (node.radius * 0.72).toFixed(1));
         text.textContent = initials(c.name);
         a.appendChild(text);
-        var loaded = c.avatar_url && imageResults[c.avatar_url] && imageResults[c.avatar_url].ok;
+        var src = node.imageUrl;
+        var loaded = src && imageResults[src] && imageResults[src].ok;
         if (loaded) {
           var image = doc.createElementNS(SVG_NS, "image");
           image.setAttribute("class", "aquarium-avatar");
@@ -1193,7 +1272,7 @@
               image.parentNode.removeChild(image);
             }
           });
-          image.setAttribute("href", c.avatar_url);
+          image.setAttribute("href", src);
           a.appendChild(image);
         }
         var ring = doc.createElementNS(SVG_NS, "circle");
@@ -1566,6 +1645,12 @@
 
       self.togglePause = function () {
         self.userPaused = !self.userPaused;
+        self.userToggled = true;
+        updatePauseButton();
+        updateRunning();
+      };
+      self.followMotionPreference = function (reduced) {
+        self.userPaused = pausedForPreference(self, reduced);
         updatePauseButton();
         updateRunning();
       };
@@ -1635,6 +1720,20 @@
       });
     });
 
+    // Follow a reduced-motion change made while the page is open.
+    if (motionQuery) {
+      var onMotionChange = function () {
+        if (scene && scene.ready) {
+          scene.followMotionPreference(reducedMotion());
+        }
+      };
+      if (typeof motionQuery.addEventListener === "function") {
+        motionQuery.addEventListener("change", onMotionChange);
+      } else if (typeof motionQuery.addListener === "function") {
+        motionQuery.addListener(onMotionChange);
+      }
+    }
+
     doc.addEventListener("visibilitychange", function () {
       hidden = doc.hidden;
       if (scene && scene.ready) {
@@ -1690,6 +1789,11 @@
     unpin: unpin,
     isPinned: isPinned,
     validatePayload: validatePayload,
+    AVATAR_PIXELS: AVATAR_PIXELS,
+    avatarPixels: avatarPixels,
+    sizedAvatarUrl: sizedAvatarUrl,
+    avatarLoadUrls: avatarLoadUrls,
+    pausedForPreference: pausedForPreference,
     fetchJson: fetchJson,
     loadImages: loadImages,
     prepareChannels: prepareChannels,
