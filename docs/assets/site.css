@@ -308,7 +308,8 @@ main.is-swapping {
   text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
 }
 
-.board--growth h2 {
+.board--growth h2,
+.board--rising h2 {
   text-shadow: 0 0 16px rgba(163, 92, 255, 0.6);
 }
 
@@ -350,6 +351,11 @@ main.is-swapping {
 .cards--channels .card {
   --accent: var(--cyan);
   grid-template-columns: 4.25rem minmax(0, 1fr);
+}
+
+/* Rising channels share the channel layout; violet marks percentage charts. */
+.cards--rising .card {
+  --accent: var(--violet);
 }
 
 .card-thumb {
@@ -499,7 +505,7 @@ main.is-swapping {
   padding-right: 2.75rem;
 }
 
-/* The leading song gets a larger composition and is visible on load. */
+/* The leading breakout song gets a larger composition and is visible on load. */
 .card--lead {
   grid-template-columns: minmax(0, 1fr);
   padding: 0.9rem;
@@ -753,11 +759,12 @@ main.is-swapping {
     padding: 1.25rem;
   }
 
-  .cards--songs > .card:nth-child(even) {
+  /* Breakout songs open with the full-width lead card, so its zigzag shifts. */
+  .cards--growth > .card:nth-child(even) {
     translate: none;
   }
 
-  .cards--songs > .card:nth-child(odd):not(.card--lead) {
+  .cards--growth > .card:nth-child(odd):not(.card--lead) {
     translate: 0 1.25rem;
   }
 

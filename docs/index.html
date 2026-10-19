@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nightcore Tracker: weekly Nightcore rankings</title>
-<meta name="description" content="Daily-updated Nightcore charts: the songs and channels with the largest seven-day YouTube view gains among monitored channels.">
+<meta name="description" content="Daily-updated Nightcore charts among monitored channels: breakout songs and rising channels by seven-day YouTube view growth, plus the top songs and channels by views gained.">
 <link rel="canonical" href="https://avara1986.github.io/nightcore-tracker-web/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nightcore Tracker">
-<meta property="og:description" content="Top Nightcore songs, rising channels and breakout songs of the week, among monitored channels.">
+<meta property="og:description" content="Breakout Nightcore songs, rising channels, top songs and top channels of the week, among monitored channels.">
 <meta property="og:url" content="https://avara1986.github.io/nightcore-tracker-web/">
 <meta name="theme-color" content="#070818">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="assets/favicon.svg?v=b1ecb16a00" type="image/svg+xml">
 <link rel="preconnect" href="https://i.ytimg.com">
-<link rel="stylesheet" href="assets/site.css?v=6b7a379b10">
-<script src="assets/app.js?v=19d77b700d" defer></script>
+<link rel="stylesheet" href="assets/site.css?v=bd3470c9d2">
+<script src="assets/app.js?v=1c2494511e" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#songs">Skip to rankings</a>
+<a class="skip-link" href="#breakout">Skip to rankings</a>
 <header class="masthead">
   <div class="art-slot art-slot--host" aria-hidden="true" data-art-slot="crimson-host"></div>
   <div class="masthead-inner">
@@ -29,236 +29,246 @@
   <a href="channels.html">Nightcore channels</a>
 </nav>
     <p class="meta">
-      <span>Ranking date <time data-bind="ranking_date" data-format="date" datetime="2026-10-18">Sun 18 Oct 2026</time></span>
-      <span>Last data update <time data-bind="data_as_of" data-format="timestamp" datetime="2026-10-18T17:44:30Z">18 Oct 2026, 17:44 UTC</time></span>
+      <span>Ranking date <time data-bind="ranking_date" data-format="date" datetime="2026-10-19">Mon 19 Oct 2026</time></span>
+      <span>Last data update <time data-bind="data_as_of" data-format="timestamp" datetime="2026-10-19T09:47:13Z">19 Oct 2026, 09:47 UTC</time></span>
     </p>
     <nav class="date-picker" aria-label="Ranking date" hidden>
       <div class="date-list" role="group" aria-label="Choose a ranking date">
-        <button type="button" class="date-btn" data-date="2026-10-18" data-file="data/2026-10-18.json" aria-pressed="true"><span class="date-btn-day">Sun</span><span class="date-btn-date">18 Oct</span></button>
+        <button type="button" class="date-btn" data-date="2026-10-19" data-file="data/2026-10-19.json" aria-pressed="true"><span class="date-btn-day">Mon</span><span class="date-btn-date">19 Oct</span></button>
+        <button type="button" class="date-btn" data-date="2026-10-18" data-file="data/2026-10-18.json" aria-pressed="false"><span class="date-btn-day">Sun</span><span class="date-btn-date">18 Oct</span></button>
         <button type="button" class="date-btn" data-date="2026-10-17" data-file="data/2026-10-17.json" aria-pressed="false"><span class="date-btn-day">Sat</span><span class="date-btn-date">17 Oct</span></button>
         <button type="button" class="date-btn" data-date="2026-10-16" data-file="data/2026-10-16.json" aria-pressed="false"><span class="date-btn-day">Fri</span><span class="date-btn-date">16 Oct</span></button>
         <button type="button" class="date-btn" data-date="2026-10-15" data-file="data/2026-10-15.json" aria-pressed="false"><span class="date-btn-day">Thu</span><span class="date-btn-date">15 Oct</span></button>
-        <button type="button" class="date-btn" data-date="2026-10-14" data-file="data/2026-10-14.json" aria-pressed="false"><span class="date-btn-day">Wed</span><span class="date-btn-date">14 Oct</span></button>
       </div>
     </nav>
     <p class="sr-only" id="live-status" role="status" aria-live="polite"></p>
-    <p class="collection-warning" data-collection-warning role="status">Collection is unverified. Rankings may be incomplete.</p>
+    <p class="collection-warning" data-collection-warning role="status" hidden>Collection is unverified. Rankings may be incomplete.</p>
   </div>
 </header>
 
-<main id="main" data-ranking-date="2026-10-18" data-top-n="10">
-  <section class="board board--songs" id="songs" aria-labelledby="songs-title">
+<main id="main" data-ranking-date="2026-10-19" data-top-n="10">
+  <section class="board board--growth" id="breakout" aria-labelledby="breakout-title">
     <div class="board-head">
-      <h2 id="songs-title">Top songs</h2>
-      <p class="board-note">Largest seven-day view gains, older uploads included</p>
+      <h2 id="breakout-title">Breakout songs</h2>
+      <p class="board-note">Highest seven-day growth among songs starting with at least <span data-bind="methodology.breakout_min_start_views" data-format="num">1,000</span> views and gaining at least <span data-bind="methodology.breakout_min_views_gained" data-format="num">500</span></p>
     </div>
-    <ol class="cards cards--songs" data-list="songs">
-<li class="card card--song card--lead" style="--i:0" data-id="DWv8ZkHpCx4">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=DWv8ZkHpCx4" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/DWv8ZkHpCx4/hqdefault.jpg" alt="" width="480" height="360" decoding="async" fetchpriority="high">
+    <ol class="cards cards--growth" data-list="growth">
+<li class="card card--song card--lead" style="--i:0" data-id="growth:EoGyMgcWPbI">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=EoGyMgcWPbI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/EoGyMgcWPbI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" fetchpriority="high">
   </a>
   <span class="rank" aria-hidden="true">1</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/watch?v=DWv8ZkHpCx4" target="_blank" rel="noopener noreferrer">HEAVENLY JUMPSTYLE (Slowed)</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/watch?v=EoGyMgcWPbI" target="_blank" rel="noopener noreferrer">Nightcore - Headlights - Alok &amp; Alan Walker ft. KIDDO - (Lyrics)</a></h3>
+    <p class="card-sub">NightcoreChase</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,018,649</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+1,658.8%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+1.6%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+103,495</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>63,589,972</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>109,734</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:1" data-id="D2TB3I9hRgA">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=D2TB3I9hRgA" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/D2TB3I9hRgA/hqdefault.jpg" alt="" width="480" height="360" decoding="async" fetchpriority="high">
+<li class="card card--song" style="--i:1" data-id="growth:HMfpcdlUGes">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=HMfpcdlUGes" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/HMfpcdlUGes/hqdefault.jpg" alt="" width="480" height="360" decoding="async" fetchpriority="high">
   </a>
   <span class="rank" aria-hidden="true">2</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/watch?v=D2TB3I9hRgA" target="_blank" rel="noopener noreferrer">HEAVENLY JUMPSTYLE</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/watch?v=HMfpcdlUGes" target="_blank" rel="noopener noreferrer">Best Nightcore Mix 2026 ♫ Gaming Music Mix ♫ New Music 2026 EDM Gaming Music</a></h3>
+    <p class="card-sub">Aria</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+536,559</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+1,620.0%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+1.7%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+16,735</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>31,485,902</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>17,768</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:2" data-id="tNK1_aLFMrY">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=tNK1_aLFMrY" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/tNK1_aLFMrY/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:2" data-id="growth:_wnk1Zb1_pI">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=_wnk1Zb1_pI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/_wnk1Zb1_pI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">3</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/watch?v=tNK1_aLFMrY" target="_blank" rel="noopener noreferrer">Heavenly jumpstyle (But it hits hard) (feat. Eiden XII)</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/watch?v=_wnk1Zb1_pI" target="_blank" rel="noopener noreferrer">Nightcore - Lonely Lonely (I Guess I&#39;m Lonely / EVA) - Lyrics</a></h3>
+    <p class="card-sub">Mya</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+488,818</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+1,181.9%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+4.4%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+16,842</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>11,653,665</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>18,267</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:3" data-id="u9zVhsyV8qc">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=u9zVhsyV8qc" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/u9zVhsyV8qc/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:3" data-id="growth:DOQXB8Kz1Dw">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=DOQXB8Kz1Dw" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/DOQXB8Kz1Dw/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">4</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/watch?v=u9zVhsyV8qc" target="_blank" rel="noopener noreferrer">Nightcore - Sweet Little Bumblebee (Lyrics)</a></h3>
-    <p class="card-sub">RubyChan&#39;s Nightcore</p>
+    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/watch?v=DOQXB8Kz1Dw" target="_blank" rel="noopener noreferrer">Badass Songs 2026 🔥Top 50 NEFFEX Tracks for Gaming🔥 Ultimate Gaming &amp; Motivation Mix</a></h3>
+    <p class="card-sub">VibeX Mix</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+330,709</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+456.4%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.8%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+47,054</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>42,193,426</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>57,363</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--down" title="Down 1 from #3 yesterday"><span aria-hidden="true">▼1</span><span class="sr-only">Down 1 from #3 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:4" data-id="cvaIgq5j2Q8">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=cvaIgq5j2Q8" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/cvaIgq5j2Q8/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:4" data-id="growth:E4fIDNh4qMM">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=E4fIDNh4qMM" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/E4fIDNh4qMM/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">5</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/watch?v=cvaIgq5j2Q8" target="_blank" rel="noopener noreferrer">Nightcore - Angel With A Shotgun</a></h3>
-    <p class="card-sub">CUTLoveRx</p>
+    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/watch?v=E4fIDNh4qMM" target="_blank" rel="noopener noreferrer">♪ Nightcore - Paparazzi → Lady Gaga (Lyrics)</a></h3>
+    <p class="card-sub">Andy Katsuki</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+316,691</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+360.0%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+10,515</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>276,687,698</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>13,436</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--down" title="Down 3 from #2 yesterday"><span aria-hidden="true">▼3</span><span class="sr-only">Down 3 from #2 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:5" data-id="cmlCuzn_mqI">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=cmlCuzn_mqI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/cmlCuzn_mqI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:5" data-id="growth:IOBNTvM7wd0">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=IOBNTvM7wd0" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/IOBNTvM7wd0/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">6</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/watch?v=cmlCuzn_mqI" target="_blank" rel="noopener noreferrer">Nightcore - Bad boy</a></h3>
-    <p class="card-sub">AliceBloodRabbit</p>
+    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/watch?v=IOBNTvM7wd0" target="_blank" rel="noopener noreferrer">Cry For Me (WA WA WA) Ironmouse. ft. Bubi (Lyrics)</a></h3>
+    <p class="card-sub">Choi-Seong꽃</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+225,510</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+247.4%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.2%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+2,739</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>127,077,848</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>3,846</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--entry" title="Not ranked yesterday"><span aria-hidden="true">IN</span><span class="sr-only">Not ranked yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:6" data-id="pSkW_rR65-g">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=pSkW_rR65-g" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/pSkW_rR65-g/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:6" data-id="growth:-9ZE0bf1X6w">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=-9ZE0bf1X6w" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/-9ZE0bf1X6w/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">7</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/watch?v=pSkW_rR65-g" target="_blank" rel="noopener noreferrer">HEAVENLY JUMPSTYLE</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/watch?v=-9ZE0bf1X6w" target="_blank" rel="noopener noreferrer">「Nightcore」Parasite - by Aiyun (Lyric Video)</a></h3>
+    <p class="card-sub">Aiyun</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+223,919</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+210.2%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.8%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+6,677</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>27,380,414</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>9,853</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--down" title="Down 3 from #4 yesterday"><span aria-hidden="true">▼3</span><span class="sr-only">Down 3 from #4 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:7" data-id="lNoUP579nQ8">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=lNoUP579nQ8" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/lNoUP579nQ8/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:7" data-id="growth:VSQJt-WwhMk">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=VSQJt-WwhMk" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/VSQJt-WwhMk/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">8</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/watch?v=lNoUP579nQ8" target="_blank" rel="noopener noreferrer">♫BITE ME♫ 「Nightcore」 → AJ DiSpirito ft. Zephyrianna ♡【LYRICS】</a></h3>
-    <p class="card-sub">AJ DiSpirito</p>
+    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/watch?v=VSQJt-WwhMk" target="_blank" rel="noopener noreferrer">「Nightcore」 Classic - MKTO ♡ (Lyrics)</a></h3>
+    <p class="card-sub">Nightcore Venyx</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+181,949</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+180.1%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.6%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+6,722</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>31,189,299</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>10,454</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--down" title="Down 2 from #6 yesterday"><span aria-hidden="true">▼2</span><span class="sr-only">Down 2 from #6 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:8" data-id="7tNoSD0cei4">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=7tNoSD0cei4" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/7tNoSD0cei4/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:8" data-id="growth:PXrVXujtygk">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=PXrVXujtygk" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/PXrVXujtygk/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">9</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/watch?v=7tNoSD0cei4" target="_blank" rel="noopener noreferrer">Kiss Me Again (Nightcore Mix)</a></h3>
-    <p class="card-sub">Roy Bee - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/watch?v=PXrVXujtygk" target="_blank" rel="noopener noreferrer">Nightcore - OUTWEST - TEN (Lyrics)</a></h3>
+    <p class="card-sub">Chino</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+165,049</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+176.2%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.9%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+4,725</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>17,974,568</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>7,407</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:9" data-id="LUKH9lwQ300">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=LUKH9lwQ300" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/LUKH9lwQ300/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+<li class="card card--song" style="--i:9" data-id="growth:EZFsD5ISxqU">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=EZFsD5ISxqU" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/EZFsD5ISxqU/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
   </a>
   <span class="rank" aria-hidden="true">10</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/watch?v=LUKH9lwQ300" target="_blank" rel="noopener noreferrer">Nightcore - Policeman</a></h3>
-    <p class="card-sub">Nightcore Lab NCL</p>
+    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/watch?v=EZFsD5ISxqU" target="_blank" rel="noopener noreferrer">Nightcore Top 30 Songs of TheFatRat 2026 - Best Of TheFatRat - TheFatRat Mega Mix</a></h3>
+    <p class="card-sub">Kiomi</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+159,990</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+149.0%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.4%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+8,022</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>42,969,386</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>13,407</dd></div>
 
     </dl>
-    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+    <p class="move move--down" title="Down 5 from #5 yesterday"><span aria-hidden="true">▼5</span><span class="sr-only">Down 5 from #5 yesterday</span></p>
 
   </div>
 </li>
@@ -270,219 +280,461 @@
 
   <div class="ad-slot" data-ad-state="disabled" aria-hidden="true"></div>
 
-  <section class="board board--channels" id="channels" aria-labelledby="channels-title">
-    <div class="art-slot art-slot--side" aria-hidden="true" data-art-slot="crimson-channels"></div>
+  <section class="board board--rising" id="rising-channels" aria-labelledby="rising-channels-title">
     <div class="board-head">
-      <h2 id="channels-title">Rising channels</h2>
-      <p class="board-note">Largest seven-day gains in each channel's YouTube total view counter</p>
+      <h2 id="rising-channels-title">Rising channels</h2>
+      <p class="board-note" data-requires="methodology.rising_channels_min_start_views" data-requires-section="rising_channels">Highest seven-day view growth among channels starting with at least <span data-bind="methodology.rising_channels_min_start_views" data-format="num">100,000</span> total views</p>
     </div>
-    <ol class="cards cards--channels" data-list="channels">
-<li class="card card--channel" style="--i:0" data-id="UCBVVFXMWtQJzneuuWOg6j4g">
+    <ol class="cards cards--channels cards--rising" data-list="rising_channels">
+<li class="card card--channel" style="--i:0" data-id="rising_channels:UCigcg2NpOhYqp4CHt9zZw3Q">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/fArjiOmS3nBDsD7DkE7RjBGB45600jPryZZ9E_KGBnDZEILukls59yGB5BF4-SuNiIWs6MYsKA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/xSMOL0P_niGaIXgNErQsnJpM7iDL6Q93hu-WL79pjdeVyfYPHQ4BVkvwi25fjflh7SRpnm0f=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">1</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/channel/UCBVVFXMWtQJzneuuWOg6j4g" target="_blank" rel="noopener noreferrer">Kenke</a></h3>
-    <p class="card-sub">391,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/channel/UCigcg2NpOhYqp4CHt9zZw3Q" target="_blank" rel="noopener noreferrer">Sen Nightcore - Topic</a></h3>
+    <p class="card-sub">158 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+4,442,324</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+40.0%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.9%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+94,798</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>490,774,698</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>331,538</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:1" data-id="UCP6BkraJeY88LdcNJ5QL9KQ">
+<li class="card card--channel" style="--i:1" data-id="rising_channels:UC5ZH9k3sru1vspHypWexPzA">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/VhW5FOO33RG_LNjAOZU-cc8kPhbztfT--X3C7nynyIoNcLVKev3w3woX2wawEEs9dr3kqTmf=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/ZF5bI6-ea9hgUOE-qOyiYygz3DsB54efgB6CooKVTcU08hWUAtpomvBNd3AD3KDgeVfdpOCqtw=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">2</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/channel/UCP6BkraJeY88LdcNJ5QL9KQ" target="_blank" rel="noopener noreferrer">TWXNY - Topic</a></h3>
-    <p class="card-sub">153 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/channel/UC5ZH9k3sru1vspHypWexPzA" target="_blank" rel="noopener noreferrer">Lyra IX</a></h3>
+    <p class="card-sub">856 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+4,059,723</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+26.6%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+1.6%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+85,333</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>264,751,900</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>406,542</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:2" data-id="UCXhxZkigzlQMsRSla5vq4ow">
+<li class="card card--channel" style="--i:2" data-id="rising_channels:UCO-Zdd5qOX9I5f8eP-qaoCg">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/gBT0Eb4xKnFu-c9xFD3KeVdIftc8GAUPFnR7CiW8izZGNt5ecSW9-W6eRlhq_Gc3gvkpUMnDeg=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/zVu80haZRcK2V0j0deTM_KlKw3PywUwEp_69M6q79myFkf9FF6Jc1S3CgmFaRjwRENrXnYNkNaE=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">3</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/channel/UCXhxZkigzlQMsRSla5vq4ow" target="_blank" rel="noopener noreferrer">Eiden XII</a></h3>
-    <p class="card-sub">1,260,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/channel/UCO-Zdd5qOX9I5f8eP-qaoCg" target="_blank" rel="noopener noreferrer">Commander-in-Chieff</a></h3>
+    <p class="card-sub">927 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+3,208,171</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+19.0%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.4%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+54,062</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>888,777,180</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>339,136</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:3" data-id="UCeZje_7vr6CPK9vPQDfV3WA">
+<li class="card card--channel" style="--i:3" data-id="rising_channels:UCvOO8Mp81I32hm3VDXgXh6g">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/nll0GYpWHTkEcPM_2L07vesrl8-KVLRJKzeXP8a41VVXOHSToEaOw7wA7zNoJbaunMUOpchAXA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/6ubPk3XRqGyzoVCtUBAjJkRnfRTAJTwcqJiwoGFBMKImY1VIWzXilhKK2-QzC742DqZjR7EwJQ=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">4</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/channel/UCeZje_7vr6CPK9vPQDfV3WA" target="_blank" rel="noopener noreferrer">Syrex</a></h3>
-    <p class="card-sub">1,900,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/channel/UCvOO8Mp81I32hm3VDXgXh6g" target="_blank" rel="noopener noreferrer">Etethia</a></h3>
+    <p class="card-sub">406 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+2,552,458</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+13.5%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+26,567</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>2,019,436,728</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>222,844</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:4" data-id="UCKKP4nA488RovLmzpY6Sv6w">
+<li class="card card--channel" style="--i:4" data-id="rising_channels:UCqIRHR1pJcrJNo2Ykl74c8A">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/ytc/AIdro_l_QN_56zGmh849Wdlpep3PJWE2f38ld7-KxEOKwC6Qqdg=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/gyh2z3WJczpOtlkhtSVDHKG0XvWb8K2tQgvSRcpGhh5M6smNDvZCjewCnK5TH1fRBHvLKeR_8Rc=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">5</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/channel/UCKKP4nA488RovLmzpY6Sv6w" target="_blank" rel="noopener noreferrer">Nightcore Venyx</a></h3>
-    <p class="card-sub">202,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/channel/UCqIRHR1pJcrJNo2Ykl74c8A" target="_blank" rel="noopener noreferrer">𝑱𝒐𝒉𝒏 𝑵𝒊𝒈𝒉𝒕𝒄𝒐𝒓𝒆</a></h3>
+    <p class="card-sub">248 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+2,165,375</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+12.6%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.7%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+31,610</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>309,505,251</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>283,451</dd></div>
 
     </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:5" data-id="UCqX8hO4JWM6IJfEabbZmhUw">
+<li class="card card--channel" style="--i:5" data-id="rising_channels:UCMUJWQ-pv2XrHeGGpPwTz2Q">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/e2DE8JA-Gz5tfYnyvtkAnlZ9kmIQslpErAp4GpWNx1CtZwmKOZbobbNFsOJbJu4zsA5yTL_TDA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/NPhvTb8CMYTDb6fZhzz182GG3BcaOIoeZ2H7_lWsaEd02cnV48FVx8YSn6x100Ip4eOoD2YxqA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">6</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/channel/UCqX8hO4JWM6IJfEabbZmhUw" target="_blank" rel="noopener noreferrer">NightcoreReality</a></h3>
-    <p class="card-sub">3,870,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/channel/UCMUJWQ-pv2XrHeGGpPwTz2Q" target="_blank" rel="noopener noreferrer">Syvar</a></h3>
+    <p class="card-sub">1,440 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,950,172</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+8.3%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+64,895</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>3,655,012,664</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>846,839</dd></div>
 
     </dl>
+
+    <p class="move move--up" title="Up 1 from #7 yesterday"><span aria-hidden="true">▲1</span><span class="sr-only">Up 1 from #7 yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:6" data-id="rising_channels:UCEY5o0kYU6vK7jAfv1H3oCQ">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/Z_YKPrHlI_-nqZJS-7AvAvSeDqZGx0SAubz4OCYq25eHN6-WrZf0Czm-KtZnWnGbbGp9HQ_4=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">7</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/channel/UCEY5o0kYU6vK7jAfv1H3oCQ" target="_blank" rel="noopener noreferrer">angeldelaferrere2005</a></h3>
+    <p class="card-sub">12,900 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+6.9%</dd></div>
+
+      <div class="stat"><dt>7-day gain</dt><dd>+76,657</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>1,179,958</dd></div>
+
+    </dl>
+
+    <p class="move move--up" title="Up 2 from #9 yesterday"><span aria-hidden="true">▲2</span><span class="sr-only">Up 2 from #9 yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:7" data-id="rising_channels:UCB8UeunlNJIhHchU11Vu5cw">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/8FUGSyjPZHP0f_N2HjgKh2l_E2IR9unG8s0F54M3PiSBGfW_d7X3rft5KFxmvZHnE5Px7aUv=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">8</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/channel/UCB8UeunlNJIhHchU11Vu5cw" target="_blank" rel="noopener noreferrer">Liona Nightcore</a></h3>
+    <p class="card-sub">3,320 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+6.6%</dd></div>
+
+      <div class="stat"><dt>7-day gain</dt><dd>+99,258</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>1,596,201</dd></div>
+
+    </dl>
+
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:6" data-id="UCo4c1M2_6IlWjsGy4m_3GSQ">
+<li class="card card--channel" style="--i:8" data-id="rising_channels:UCvkJ0g7pFMHVTBvOin2DjoA">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/24_Ya4Pv6fbkP-Y2fyDc0Rv6zVN7-jqlC-KrvTnz1UyKMHvQ8FR3V4J1pDQW2swfdd3dyYKWEG8=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
-  </span>
-  <span class="rank" aria-hidden="true">7</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/channel/UCo4c1M2_6IlWjsGy4m_3GSQ" target="_blank" rel="noopener noreferrer">Nightcore Zodiac</a></h3>
-    <p class="card-sub">1,740,000 subscribers</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,562,380</dd></div>
-
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>1,380,113,393</dd></div>
-
-    </dl>
-    <p class="move move--up" title="Up 1 from #8 yesterday"><span aria-hidden="true">▲1</span><span class="sr-only">Up 1 from #8 yesterday</span></p>
-
-  </div>
-</li>
-
-<li class="card card--channel" style="--i:7" data-id="UCPwndiuAdJMB6OyAs1Ou4dw">
-  <span class="avatar">
-    <img src="https://yt3.ggpht.com/EUS_kZlhBfMFKInAEbJ3SIu3oBY4zm8HAHuST0lq0xTJQKJihn--DA_D5_dMGMZwpY2CMhMuZvw=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
-  </span>
-  <span class="rank" aria-hidden="true">8</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/channel/UCPwndiuAdJMB6OyAs1Ou4dw" target="_blank" rel="noopener noreferrer">U N D E R D O G S.</a></h3>
-    <p class="card-sub">1,970,000 subscribers</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,270,222</dd></div>
-
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>1,814,555,422</dd></div>
-
-    </dl>
-    <p class="move move--up" title="Up 2 from #10 yesterday"><span aria-hidden="true">▲2</span><span class="sr-only">Up 2 from #10 yesterday</span></p>
-
-  </div>
-</li>
-
-<li class="card card--channel" style="--i:8" data-id="UCl2fdq_CzdrDhauV85aXQDQ">
-  <span class="avatar">
-    <img src="https://yt3.ggpht.com/_yZ86M5d-K9a9E4J2QwYJjsSNSmUHPkjkF2bIV2O94k5zi6znoMurxgZ1NMlhQKiXiUd0NoTWw=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/itfHFzudkYb15UBsk99sA7tJ4DOe0b-TnVhrvgIqSv7ow3sIKveJ6oRgnMjKsmfjvhVndFgn=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">9</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/channel/UCl2fdq_CzdrDhauV85aXQDQ" target="_blank" rel="noopener noreferrer">Zen - Kun</a></h3>
-    <p class="card-sub">2,110,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/channel/UCvkJ0g7pFMHVTBvOin2DjoA" target="_blank" rel="noopener noreferrer">Xsenzo</a></h3>
+    <p class="card-sub">11,500 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,250,184</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+6.3%</dd></div>
 
-      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+      <div class="stat"><dt>7-day gain</dt><dd>+462,959</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>1,719,627,284</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>7,816,881</dd></div>
 
     </dl>
+
     <p class="move move--up" title="Entered the top 10 from #11"><span aria-hidden="true">▲2</span><span class="sr-only">Entered the top 10 from #11</span></p>
 
   </div>
 </li>
 
-<li class="card card--channel" style="--i:9" data-id="UCPMhsGX1A6aPmpFPRWJUkag">
+<li class="card card--channel" style="--i:9" data-id="rising_channels:UCF35RrXG9qQFrlJt7852CwQ">
   <span class="avatar">
-    <img src="https://yt3.ggpht.com/hjbikCnewtEB8FeHS0hN9OdfB8_mGuQFB8cN35YbzN-60NCdAPkSmyHl_qzeL_U0xdqGDntA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+    <img src="https://yt3.ggpht.com/4pswMps5QmZcdKXB54pppCS2a-CBuG3vRYpVoGcEjjc8CC2oeGLMChA5ssnsKm1zzHtp4Kp3=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
   </span>
   <span class="rank" aria-hidden="true">10</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/channel/UCPMhsGX1A6aPmpFPRWJUkag" target="_blank" rel="noopener noreferrer">Sinnon Nightcore</a></h3>
-    <p class="card-sub">2,360,000 subscribers</p>
+    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/channel/UCF35RrXG9qQFrlJt7852CwQ" target="_blank" rel="noopener noreferrer">Kosmilk</a></h3>
+    <p class="card-sub">1,470 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,169,830</dd></div>
+      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+5.8%</dd></div>
+
+      <div class="stat"><dt>7-day gain</dt><dd>+10,262</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>187,672</dd></div>
+
+    </dl>
+
+    <p class="move move--up" title="Entered the top 10 from #16"><span aria-hidden="true">▲6</span><span class="sr-only">Entered the top 10 from #16</span></p>
+
+  </div>
+</li>
+
+    </ol>
+    <p class="empty" data-empty hidden>No eligible entries for this date.</p>
+
+    <p class="empty" data-unavailable hidden>This ranking is not available for this date.</p>
+
+  </section>
+
+  <section class="board board--songs" id="songs" aria-labelledby="songs-title">
+    <div class="board-head">
+      <h2 id="songs-title">Top songs</h2>
+      <p class="board-note">Largest seven-day view gains, older uploads included</p>
+    </div>
+    <ol class="cards cards--songs" data-list="songs">
+<li class="card card--song" style="--i:0" data-id="songs:u9zVhsyV8qc">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=u9zVhsyV8qc" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/u9zVhsyV8qc/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">1</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/watch?v=u9zVhsyV8qc" target="_blank" rel="noopener noreferrer">Nightcore - Sweet Little Bumblebee (Lyrics)</a></h3>
+    <p class="card-sub">RubyChan&#39;s Nightcore</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+327,424</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.8%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>42,243,916</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:1" data-id="songs:cvaIgq5j2Q8">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=cvaIgq5j2Q8" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/cvaIgq5j2Q8/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">2</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/watch?v=cvaIgq5j2Q8" target="_blank" rel="noopener noreferrer">Nightcore - Angel With A Shotgun</a></h3>
+    <p class="card-sub">CUTLoveRx</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+315,182</dd></div>
 
       <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>1,325,652,966</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>276,731,186</dd></div>
 
     </dl>
-    <p class="move move--down" title="Down 1 from #9 yesterday"><span aria-hidden="true">▼1</span><span class="sr-only">Down 1 from #9 yesterday</span></p>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:2" data-id="songs:cmlCuzn_mqI">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=cmlCuzn_mqI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/cmlCuzn_mqI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">3</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/watch?v=cmlCuzn_mqI" target="_blank" rel="noopener noreferrer">Nightcore - Bad boy</a></h3>
+    <p class="card-sub">AliceBloodRabbit</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+225,134</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.2%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>127,108,971</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:3" data-id="songs:lNoUP579nQ8">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=lNoUP579nQ8" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/lNoUP579nQ8/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">4</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/watch?v=lNoUP579nQ8" target="_blank" rel="noopener noreferrer">♫BITE ME♫ 「Nightcore」 → AJ DiSpirito ft. Zephyrianna ♡【LYRICS】</a></h3>
+    <p class="card-sub">AJ DiSpirito</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+181,098</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.6%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>31,214,361</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:4" data-id="songs:7tNoSD0cei4">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=7tNoSD0cei4" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/7tNoSD0cei4/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">5</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/watch?v=7tNoSD0cei4" target="_blank" rel="noopener noreferrer">Kiss Me Again (Nightcore Mix)</a></h3>
+    <p class="card-sub">Roy Bee - Topic</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+164,736</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.9%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>17,997,233</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:5" data-id="songs:LUKH9lwQ300">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=LUKH9lwQ300" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/LUKH9lwQ300/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">6</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/watch?v=LUKH9lwQ300" target="_blank" rel="noopener noreferrer">Nightcore - Policeman</a></h3>
+    <p class="card-sub">Nightcore Lab NCL</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+157,789</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.4%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>42,992,998</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:6" data-id="songs:TpIqDm031gg">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=TpIqDm031gg" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/TpIqDm031gg/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">7</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/watch?v=TpIqDm031gg" target="_blank" rel="noopener noreferrer">Nightcore - Apollo - (Lyrics)</a></h3>
+    <p class="card-sub">Sinnon Nightcore</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+145,998</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.2%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>77,829,462</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:7" data-id="songs:0GEX_sVwUn4">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=0GEX_sVwUn4" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/0GEX_sVwUn4/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">8</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/watch?v=0GEX_sVwUn4" target="_blank" rel="noopener noreferrer">Nightcore - How Do You Do</a></h3>
+    <p class="card-sub">Nightcore Lab NCL</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+142,068</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.9%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>15,459,695</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:8" data-id="songs:BByMzI1YjKA">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=BByMzI1YjKA" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/BByMzI1YjKA/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">9</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/watch?v=BByMzI1YjKA" target="_blank" rel="noopener noreferrer">Nightcore - Pretty Little Psycho</a></h3>
+    <p class="card-sub">ZeroMizKun Nightcore</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+137,795</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.2%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>67,908,788</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--song" style="--i:9" data-id="songs:lVGyb-AlfGA">
+  <a class="card-thumb" href="https://www.youtube.com/watch?v=lVGyb-AlfGA" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+    <img src="https://i.ytimg.com/vi/lVGyb-AlfGA/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
+  </a>
+  <span class="rank" aria-hidden="true">10</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/watch?v=lVGyb-AlfGA" target="_blank" rel="noopener noreferrer">Nightcore - Tattoo - Loreen (Lyrics)</a></h3>
+    <p class="card-sub">RubyChan&#39;s Nightcore</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+131,151</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.3%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>38,334,014</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
@@ -492,218 +744,229 @@
 
   </section>
 
-  <section class="board board--growth" id="breakout" aria-labelledby="breakout-title">
+  <section class="board board--channels" id="channels" aria-labelledby="channels-title">
+    <div class="art-slot art-slot--side" aria-hidden="true" data-art-slot="crimson-channels"></div>
     <div class="board-head">
-      <h2 id="breakout-title">Breakout songs</h2>
-      <p class="board-note">Highest seven-day growth among songs starting with at least <span data-bind="methodology.breakout_min_start_views" data-format="num">1,000</span> views and gaining at least <span data-bind="methodology.breakout_min_views_gained" data-format="num">500</span></p>
+      <h2 id="channels-title">Top channels</h2>
+      <p class="board-note">Largest seven-day gains in each channel's YouTube total view counter</p>
     </div>
-    <ol class="cards cards--growth" data-list="growth">
-<li class="card card--song" style="--i:0" data-id="EoGyMgcWPbI">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=EoGyMgcWPbI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/EoGyMgcWPbI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+    <ol class="cards cards--channels" data-list="channels">
+<li class="card card--channel" style="--i:0" data-id="channels:UCBVVFXMWtQJzneuuWOg6j4g">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/fArjiOmS3nBDsD7DkE7RjBGB45600jPryZZ9E_KGBnDZEILukls59yGB5BF4-SuNiIWs6MYsKA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">1</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/watch?v=EoGyMgcWPbI" target="_blank" rel="noopener noreferrer">Nightcore - Headlights - Alok &amp; Alan Walker ft. KIDDO - (Lyrics)</a></h3>
-    <p class="card-sub">NightcoreChase</p>
+    <h3 class="card-title"><span class="sr-only">Rank 1: </span><a href="https://www.youtube.com/channel/UCBVVFXMWtQJzneuuWOg6j4g" target="_blank" rel="noopener noreferrer">Kenke</a></h3>
+    <p class="card-sub">391,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+4,157.5%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+4,697,798</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+97,701</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+1.0%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>100,051</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>490,975,976</dd></div>
 
     </dl>
-    <p class="move move--entry" title="Not ranked yesterday"><span aria-hidden="true">IN</span><span class="sr-only">Not ranked yesterday</span></p>
 
-  </div>
-</li>
-
-<li class="card card--song" style="--i:1" data-id="E4fIDNh4qMM">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=E4fIDNh4qMM" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/E4fIDNh4qMM/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
-  <span class="rank" aria-hidden="true">2</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/watch?v=E4fIDNh4qMM" target="_blank" rel="noopener noreferrer">♪ Nightcore - Paparazzi → Lady Gaga (Lyrics)</a></h3>
-    <p class="card-sub">Andy Katsuki</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+1,141.4%</dd></div>
-
-      <div class="stat"><dt>7-day gain</dt><dd>+11,791</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>12,824</dd></div>
-
-    </dl>
-    <p class="move move--entry" title="Not ranked yesterday"><span aria-hidden="true">IN</span><span class="sr-only">Not ranked yesterday</span></p>
-
-  </div>
-</li>
-
-<li class="card card--song" style="--i:2" data-id="DOQXB8Kz1Dw">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=DOQXB8Kz1Dw" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/DOQXB8Kz1Dw/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
-  <span class="rank" aria-hidden="true">3</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/watch?v=DOQXB8Kz1Dw" target="_blank" rel="noopener noreferrer">Badass Songs 2026 🔥Top 50 NEFFEX Tracks for Gaming🔥 Ultimate Gaming &amp; Motivation Mix</a></h3>
-    <p class="card-sub">VibeX Mix</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+835.4%</dd></div>
-
-      <div class="stat"><dt>7-day gain</dt><dd>+46,440</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>51,999</dd></div>
-
-    </dl>
-    <p class="move move--down" title="Down 2 from #1 yesterday"><span aria-hidden="true">▼2</span><span class="sr-only">Down 2 from #1 yesterday</span></p>
-
-  </div>
-</li>
-
-<li class="card card--song" style="--i:3" data-id="VH2_ft2KjVA">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=VH2_ft2KjVA" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/VH2_ft2KjVA/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
-  <span class="rank" aria-hidden="true">4</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/watch?v=VH2_ft2KjVA" target="_blank" rel="noopener noreferrer">a very nerdy room tour! welcome to my world</a></h3>
-    <p class="card-sub">luvmamimi</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+413.3%</dd></div>
-
-      <div class="stat"><dt>7-day gain</dt><dd>+44,051</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>54,709</dd></div>
-
-    </dl>
-    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
-
-  </div>
-</li>
-
-<li class="card card--song" style="--i:4" data-id="wbLri2LL-gY">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=wbLri2LL-gY" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/wbLri2LL-gY/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
-  <span class="rank" aria-hidden="true">5</span>
-  <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/watch?v=wbLri2LL-gY" target="_blank" rel="noopener noreferrer">MORAYA (Ultra Slowed)</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
-    <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+347.0%</dd></div>
-
-      <div class="stat"><dt>7-day gain</dt><dd>+7,340</dd></div>
-
-      <div class="stat"><dt>Total views</dt><dd>9,455</dd></div>
-
-    </dl>
     <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:5" data-id="-9ZE0bf1X6w">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=-9ZE0bf1X6w" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/-9ZE0bf1X6w/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+<li class="card card--channel" style="--i:1" data-id="channels:UCXhxZkigzlQMsRSla5vq4ow">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/gBT0Eb4xKnFu-c9xFD3KeVdIftc8GAUPFnR7CiW8izZGNt5ecSW9-W6eRlhq_Gc3gvkpUMnDeg=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">2</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 2: </span><a href="https://www.youtube.com/channel/UCXhxZkigzlQMsRSla5vq4ow" target="_blank" rel="noopener noreferrer">Eiden XII</a></h3>
+    <p class="card-sub">1,260,000 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+2,985,095</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.3%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>889,024,277</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:2" data-id="channels:UCeZje_7vr6CPK9vPQDfV3WA">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/nll0GYpWHTkEcPM_2L07vesrl8-KVLRJKzeXP8a41VVXOHSToEaOw7wA7zNoJbaunMUOpchAXA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">3</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 3: </span><a href="https://www.youtube.com/channel/UCeZje_7vr6CPK9vPQDfV3WA" target="_blank" rel="noopener noreferrer">Syrex</a></h3>
+    <p class="card-sub">1,900,000 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+2,326,948</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>2,019,626,200</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:3" data-id="channels:UCKKP4nA488RovLmzpY6Sv6w">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/ytc/AIdro_l_QN_56zGmh849Wdlpep3PJWE2f38ld7-KxEOKwC6Qqdg=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">4</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 4: </span><a href="https://www.youtube.com/channel/UCKKP4nA488RovLmzpY6Sv6w" target="_blank" rel="noopener noreferrer">Nightcore Venyx</a></h3>
+    <p class="card-sub">202,000 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,964,325</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.6%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>309,657,825</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:4" data-id="channels:UCqX8hO4JWM6IJfEabbZmhUw">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/e2DE8JA-Gz5tfYnyvtkAnlZ9kmIQslpErAp4GpWNx1CtZwmKOZbobbNFsOJbJu4zsA5yTL_TDA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
+  <span class="rank" aria-hidden="true">5</span>
+  <div class="card-body">
+    <h3 class="card-title"><span class="sr-only">Rank 5: </span><a href="https://www.youtube.com/channel/UCqX8hO4JWM6IJfEabbZmhUw" target="_blank" rel="noopener noreferrer">NightcoreReality</a></h3>
+    <p class="card-sub">3,870,000 subscribers</p>
+    <dl class="stats">
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,873,259</dd></div>
+
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
+
+      <div class="stat"><dt>Total views</dt><dd>3,655,140,585</dd></div>
+
+    </dl>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
+
+  </div>
+</li>
+
+<li class="card card--channel" style="--i:5" data-id="channels:UCo4c1M2_6IlWjsGy4m_3GSQ">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/24_Ya4Pv6fbkP-Y2fyDc0Rv6zVN7-jqlC-KrvTnz1UyKMHvQ8FR3V4J1pDQW2swfdd3dyYKWEG8=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">6</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/watch?v=-9ZE0bf1X6w" target="_blank" rel="noopener noreferrer">「Nightcore」Parasite - by Aiyun (Lyric Video)</a></h3>
-    <p class="card-sub">Aiyun</p>
+    <h3 class="card-title"><span class="sr-only">Rank 6: </span><a href="https://www.youtube.com/channel/UCo4c1M2_6IlWjsGy4m_3GSQ" target="_blank" rel="noopener noreferrer">Nightcore Zodiac</a></h3>
+    <p class="card-sub">1,740,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+327.0%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,428,999</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+7,087</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>9,254</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>1,380,222,468</dd></div>
 
     </dl>
-    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:6" data-id="AAhQHBLCCMI">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=AAhQHBLCCMI" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/AAhQHBLCCMI/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+<li class="card card--channel" style="--i:6" data-id="channels:UCPMhsGX1A6aPmpFPRWJUkag">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/hjbikCnewtEB8FeHS0hN9OdfB8_mGuQFB8cN35YbzN-60NCdAPkSmyHl_qzeL_U0xdqGDntA=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">7</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/watch?v=AAhQHBLCCMI" target="_blank" rel="noopener noreferrer">MORAYA</a></h3>
-    <p class="card-sub">TWXNY - Topic</p>
+    <h3 class="card-title"><span class="sr-only">Rank 7: </span><a href="https://www.youtube.com/channel/UCPMhsGX1A6aPmpFPRWJUkag" target="_blank" rel="noopener noreferrer">Sinnon Nightcore</a></h3>
+    <p class="card-sub">2,360,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+311.2%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,169,830</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+10,618</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>14,030</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>1,325,652,966</dd></div>
 
     </dl>
-    <p class="move move--down" title="Down 3 from #4 yesterday"><span aria-hidden="true">▼3</span><span class="sr-only">Down 3 from #4 yesterday</span></p>
+
+    <p class="move move--up" title="Up 2 from #9 yesterday"><span aria-hidden="true">▲2</span><span class="sr-only">Up 2 from #9 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:7" data-id="EZFsD5ISxqU">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=EZFsD5ISxqU" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/EZFsD5ISxqU/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+<li class="card card--channel" style="--i:7" data-id="channels:UCPwndiuAdJMB6OyAs1Ou4dw">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/EUS_kZlhBfMFKInAEbJ3SIu3oBY4zm8HAHuST0lq0xTJQKJihn--DA_D5_dMGMZwpY2CMhMuZvw=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">8</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/watch?v=EZFsD5ISxqU" target="_blank" rel="noopener noreferrer">Nightcore Top 30 Songs of TheFatRat 2026 - Best Of TheFatRat - TheFatRat Mega Mix</a></h3>
-    <p class="card-sub">Kiomi</p>
+    <h3 class="card-title"><span class="sr-only">Rank 8: </span><a href="https://www.youtube.com/channel/UCPwndiuAdJMB6OyAs1Ou4dw" target="_blank" rel="noopener noreferrer">U N D E R D O G S.</a></h3>
+    <p class="card-sub">1,970,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+308.8%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,153,243</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+9,756</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>12,915</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>1,814,635,149</dd></div>
 
     </dl>
-    <p class="move move--down" title="Down 6 from #2 yesterday"><span aria-hidden="true">▼6</span><span class="sr-only">Down 6 from #2 yesterday</span></p>
+
+    <p class="move move--down" title="Down 1 from #7 yesterday"><span aria-hidden="true">▼1</span><span class="sr-only">Down 1 from #7 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:8" data-id="VSQJt-WwhMk">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=VSQJt-WwhMk" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/VSQJt-WwhMk/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+<li class="card card--channel" style="--i:8" data-id="channels:UCl2fdq_CzdrDhauV85aXQDQ">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/_yZ86M5d-K9a9E4J2QwYJjsSNSmUHPkjkF2bIV2O94k5zi6znoMurxgZ1NMlhQKiXiUd0NoTWw=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">9</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/watch?v=VSQJt-WwhMk" target="_blank" rel="noopener noreferrer">「Nightcore」 Classic - MKTO ♡ (Lyrics)</a></h3>
-    <p class="card-sub">Nightcore Venyx</p>
+    <h3 class="card-title"><span class="sr-only">Rank 9: </span><a href="https://www.youtube.com/channel/UCl2fdq_CzdrDhauV85aXQDQ" target="_blank" rel="noopener noreferrer">Zen - Kun</a></h3>
+    <p class="card-sub">2,110,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+296.6%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+1,135,269</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+7,486</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>10,010</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>1,719,711,886</dd></div>
 
     </dl>
-    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
+
+    <p class="move move--down" title="Down 1 from #8 yesterday"><span aria-hidden="true">▼1</span><span class="sr-only">Down 1 from #8 yesterday</span></p>
 
   </div>
 </li>
 
-<li class="card card--song" style="--i:9" data-id="J8JotyLiVQo">
-  <a class="card-thumb" href="https://www.youtube.com/watch?v=J8JotyLiVQo" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-    <img src="https://i.ytimg.com/vi/J8JotyLiVQo/hqdefault.jpg" alt="" width="480" height="360" decoding="async" loading="lazy">
-  </a>
+<li class="card card--channel" style="--i:9" data-id="channels:UCVX4_aohMOOC5hbojezKpeQ">
+  <span class="avatar">
+    <img src="https://yt3.ggpht.com/UbOQj81mzxRbzM-shjJpzrcR3SdJN6KNP8nD1Xr0H_FMIZT2Y-IeiKlZaZ61BW3FhfQlbxJXmg=s240-c-k-c0x00ffffff-no-rj" alt="" width="88" height="88" loading="lazy" decoding="async">
+  </span>
   <span class="rank" aria-hidden="true">10</span>
   <div class="card-body">
-    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/watch?v=J8JotyLiVQo" target="_blank" rel="noopener noreferrer">Nightcore - Smack That (But it hits different) (lyrics)</a></h3>
-    <p class="card-sub">Xsenzo</p>
+    <h3 class="card-title"><span class="sr-only">Rank 10: </span><a href="https://www.youtube.com/channel/UCVX4_aohMOOC5hbojezKpeQ" target="_blank" rel="noopener noreferrer">Nightcore Lab NCL</a></h3>
+    <p class="card-sub">1,910,000 subscribers</p>
     <dl class="stats">
-      <div class="stat stat--accent"><dt>7-day growth</dt><dd>+275.8%</dd></div>
+      <div class="stat stat--accent"><dt>7-day gain</dt><dd>+971,686</dd></div>
 
-      <div class="stat"><dt>7-day gain</dt><dd>+4,250</dd></div>
+      <div class="stat"><dt>Growth</dt><dd>+0.1%</dd></div>
 
-      <div class="stat"><dt>Total views</dt><dd>5,791</dd></div>
+      <div class="stat"><dt>Total views</dt><dd>1,305,367,226</dd></div>
 
     </dl>
-    <p class="move move--new" title="New upload, first full week tracked"><span aria-hidden="true">NEW</span><span class="sr-only">New upload, first full week tracked</span></p>
+
+    <p class="move move--same" title="Same position as yesterday"><span aria-hidden="true">=</span><span class="sr-only">Same position as yesterday</span></p>
 
   </div>
 </li>
@@ -717,10 +980,11 @@
     <div class="art-slot art-slot--closing" aria-hidden="true" data-art-slot="crimson-closing"></div>
     <h2 id="about-title">The week in motion</h2>
     <ul class="summary" data-summary>
-      <li>Top songs: <strong>0</strong> new to the top 10 since yesterday</li>
-      <li>Rising channels: <strong>1</strong> new to the top 10</li>
-      <li>Breakout songs: <strong>6</strong> new to the top 10</li>
-      <li>Biggest climber: <strong>U N D E R D O G S.</strong>, #10 to #8</li>
+      <li>Breakout songs: <strong>4</strong> new to the top 10 since yesterday</li>
+      <li>Rising channels: <strong>2</strong> new to the top 10</li>
+      <li>Top songs: <strong>0</strong> new to the top 10</li>
+      <li>Top channels: <strong>0</strong> new to the top 10</li>
+      <li>Biggest climber: <strong>Kosmilk</strong> in Rising channels, #16 to #10</li>
     </ul>
 
     <div class="closing-grid">
@@ -728,20 +992,22 @@
         <h3>Methodology</h3>
         <p>Rankings cover monitored channels only. For each ranking date (Europe/Madrid), the seven-day gain is the view counter at the cutoff minus the counter seven days earlier, and growth is that gain as a percentage of the starting counter. Both observations must exist and be roughly a week apart (within <span data-bind="methodology.tolerance_hours" data-format="hours">6.0</span> hours); otherwise the entry is left out.</p>
         <p>Missing observations are never treated as zero, a zero baseline has no percentage, new uploads wait until they have a full week of history, and counter corrections that go down are never ranked. Ties are broken by gain and then by YouTube ID. Movement compares against the complete ranking of the previous day, not only its top 10.</p>
-        <p>Channel gains use the channel's public YouTube total view counter, which also counts Shorts and uploads that are not monitored, so they need not match the songs listed above. Shorts are excluded from the song charts; mixes are not classified separately.</p>
+        <p>Breakout songs and Rising channels rank relative growth, so a smaller song or channel that grows faster can rank above a bigger one that gained more views. Top songs and Top channels rank the absolute number of views gained, which favours large, established entries. A song or channel can appear in both kinds of chart.</p>
+        <p>Rising channels only considers channels whose total view counter was already at a minimum baseline when the week started<span data-requires="methodology.rising_channels_min_start_views" data-requires-section="rising_channels" (at least <span data-bind="methodology.rising_channels_min_start_views" data-format="num">100,000</span> total views)</span>; views gained during the week do not count towards it. This keeps tiny starting counters from producing inflated percentages. Its movement compares against the previous day's complete percentage ranking, with that day's own baseline.</p>
+        <p>Channel figures use the channel's public YouTube total view counter, which also counts Shorts and uploads that are not monitored, so they need not match the songs listed above. Shorts are excluded from the song charts; mixes are not classified separately.</p>
       </div>
       <div>
         <h3>Coverage</h3>
         <dl class="coverage">
-          <div><dt>Channels with data</dt><dd data-bind="coverage.channels" data-format="num">557</dd></div>
-          <div><dt>Channels with a full week</dt><dd data-bind="coverage.channels_measured" data-format="num">546</dd></div>
-          <div><dt>Songs observed</dt><dd data-bind="coverage.videos" data-format="num">133,154</dd></div>
-          <div><dt>Songs with a full week</dt><dd data-bind="coverage.videos_measured" data-format="num">130,836</dd></div>
-          <div><dt>New uploads awaiting a week</dt><dd data-bind="coverage.new_uploads" data-format="num">462</dd></div>
-          <div><dt>Shorts excluded</dt><dd data-bind="coverage.excluded_shorts" data-format="num">13,499</dd></div>
-          <div><dt>Downward corrections excluded</dt><dd data-bind="coverage.negative_corrections" data-format="num">279</dd></div>
+          <div><dt>Channels with data</dt><dd data-bind="coverage.channels" data-format="num">517</dd></div>
+          <div><dt>Channels with a full week</dt><dd data-bind="coverage.channels_measured" data-format="num">510</dd></div>
+          <div><dt>Songs observed</dt><dd data-bind="coverage.videos" data-format="num">121,288</dd></div>
+          <div><dt>Songs with a full week</dt><dd data-bind="coverage.videos_measured" data-format="num">120,314</dd></div>
+          <div><dt>New uploads awaiting a week</dt><dd data-bind="coverage.new_uploads" data-format="num">396</dd></div>
+          <div><dt>Shorts excluded</dt><dd data-bind="coverage.excluded_shorts" data-format="num">10,765</dd></div>
+          <div><dt>Downward corrections excluded</dt><dd data-bind="coverage.negative_corrections" data-format="num">261</dd></div>
         </dl>
-        <p class="fine">Window <span data-bind="window.start_date">2026-10-11</span> to <span data-bind="window.end_date">2026-10-18</span>. Data cutoff <span data-bind="data_as_of" data-format="timestamp">18 Oct 2026, 17:44 UTC</span>. Run <code data-bind="collection_run.id" data-format="run">unverified</code>.</p>
+        <p class="fine">Window <span data-bind="window.start_date">2026-10-12</span> to <span data-bind="window.end_date">2026-10-19</span>. Data cutoff <span data-bind="data_as_of" data-format="timestamp">19 Oct 2026, 09:47 UTC</span>. Run <code data-bind="collection_run.id" data-format="run">r20261019-c5-v4</code>.</p>
       </div>
     </div>
   </section>
