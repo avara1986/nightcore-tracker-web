@@ -180,6 +180,17 @@
         typeof snap.rankings !== "object" || !snap.summary || !snap.summary.entered) {
       return false;
     }
+    if (snap.new_channels !== undefined) {
+      if (!Array.isArray(snap.new_channels) || snap.new_channels.length > 10 ||
+          !snap.new_channels.every(function (entry, index) {
+            return entry && entry.rank === index + 1 && typeof entry.channel_id === "string" &&
+              typeof entry.name === "string" && typeof entry.url === "string" &&
+              typeof entry.youtube_created_at === "string" &&
+              /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(entry.youtube_created_at);
+          })) {
+        return false;
+      }
+    }
     return SECTIONS.every(function (section) {
       var entries = snap.rankings[section.name];
       if ((entries === undefined || entries === null) && section.optional) {
@@ -438,6 +449,37 @@
       return li;
     }
 
+    function newChannelCard(entry) {
+      var section = { name: "new_channels" };
+      var li = cardShell(entry, "card card--channel", section);
+      var avatar = el("span", "avatar");
+      var img = image(avatarSources(entry.avatar_url), 88, 88, false);
+      if (img) {
+        avatar.appendChild(img);
+      } else {
+        var fallback = el("span", "avatar-fallback", String(entry.name || "?").charAt(0));
+        fallback.setAttribute("aria-hidden", "true");
+        avatar.appendChild(fallback);
+      }
+      li.appendChild(avatar);
+      li.appendChild(rankBadge(entry));
+      var body = el("div", "card-body");
+      var title = el("h3", "card-title");
+      title.appendChild(el("span", "sr-only", entry.rank + ": "));
+      var link = externalLink(entry.url);
+      link.textContent = String(entry.name);
+      title.appendChild(link);
+      body.appendChild(title);
+      body.appendChild(el("p", "card-sub", "Created on YouTube"));
+      var date = el("p", "channel-created");
+      var time = el("time", null, fmtDate(entry.youtube_created_at));
+      time.setAttribute("datetime", entry.youtube_created_at);
+      date.appendChild(time);
+      body.appendChild(date);
+      li.appendChild(body);
+      return li;
+    }
+
     function channelCard(entry, section) {
       var li = cardShell(entry, "card card--channel", section);
       var avatar = el("span", "avatar");
@@ -536,6 +578,15 @@
       SECTIONS.forEach(function (section) {
         cards = cards.concat(renderList(section, snap));
       });
+      var newestList = main.querySelector('[data-list="new_channels"]');
+      if (newestList) {
+        var newest = Array.isArray(snap.new_channels) ? snap.new_channels : null;
+        var newestCards = (newest || []).map(newChannelCard);
+        replaceChildren(newestList, newestCards);
+        cards = cards.concat(newestCards);
+        main.querySelector("[data-new-channels-empty]").hidden = newest === null || newest.length > 0;
+        main.querySelector("[data-new-channels-unavailable]").hidden = newest !== null;
+      }
       renderSummary(snap);
       main.setAttribute("data-ranking-date", snap.ranking_date);
       prepareReveal(cards);

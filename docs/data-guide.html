@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="theme-color" content="#070818">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="assets/favicon.svg?v=b1ecb16a00" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=cf202ae971">
+<link rel="stylesheet" href="assets/site.css?v=54efa03b06">
 <link rel="alternate" type="application/rss+xml" title="Nightcore Tracker discoveries" href="feed.xml">
 </head>
 <body class="legal-page data-guide-page">
@@ -124,6 +124,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <tr><th scope="row"><code>coverage</code></th><td>object</td><td>Counts for D: channels, channels_measured, videos, videos_measured, new_uploads, excluded_shorts, negative_corrections.</td></tr>
 
         <tr><th scope="row"><code>summary</code></th><td>object</td><td>entered (per chart, null without a comparable previous day) and biggest_climber (or null).</td></tr>
+
+        <tr><th scope="row"><code>new_channels</code></th><td>array (optional)</td><td>Up to 10 monitored channels ordered by YouTube creation timestamp descending, then public channel ID. Fields: rank, channel_id, name, url, avatar_url (or null), youtube_created_at (UTC). No view, subscriber or observation-history threshold. Missing creation dates and dates after D are excluded. Absent in older immutable snapshots; an empty list means no eligible channels. Creation dates are shown in UTC.</td></tr>
 
         <tr><th scope="row"><code>rankings</code></th><td>object</td><td>growth (Breakout songs), rising_channels (Rising channels; null when unavailable, absent in schema version 1), songs (Top songs) and channels (Top channels): ranked lists of at most 10 entries.</td></tr>
 

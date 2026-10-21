@@ -295,7 +295,8 @@ main.is-swapping {
   text-shadow: 0 0 16px rgba(255, 61, 110, 0.55);
 }
 
-.board--channels h2 {
+.board--channels h2,
+.board--new-channels h2 {
   text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
 }
 
@@ -983,4 +984,10 @@ main.is-swapping {
     opacity: 1;
     transform: none;
   }
+}
+
+.channel-created {
+  margin: 0.35rem 0 0;
+  font-weight: 600;
+  color: var(--text);
 }
