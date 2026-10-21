@@ -125,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <tr><th scope="row"><code>summary</code></th><td>object</td><td>entered (per chart, null without a comparable previous day) and biggest_climber (or null).</td></tr>
 
-        <tr><th scope="row"><code>new_channels</code></th><td>array (optional)</td><td>Up to 10 monitored channels ordered by YouTube creation timestamp descending, then public channel ID. Fields: rank, channel_id, name, url, avatar_url (or null), youtube_created_at (UTC). No view, subscriber or observation-history threshold. Missing creation dates and dates after D are excluded. Absent in older immutable snapshots; an empty list means no eligible channels. Creation dates are shown in UTC.</td></tr>
+        <tr><th scope="row"><code>new_channels</code></th><td>array (optional)</td><td>Up to 10 monitored channels ordered by YouTube creation timestamp descending, then public channel ID. Fields: rank, channel_id, name, url, avatar_url (or null), youtube_created_at (UTC). No view, subscriber or observation-history threshold. Missing creation dates and dates after D are excluded. Absent in older immutable snapshots; an empty list means no eligible channels. Creation dates are shown in UTC. The homepage New channels list is refreshed independently from current database metadata on every build and does not change with the ranking date; snapshot entries describe historical metadata only.</td></tr>
 
         <tr><th scope="row"><code>rankings</code></th><td>object</td><td>growth (Breakout songs), rising_channels (Rising channels; null when unavailable, absent in schema version 1), songs (Top songs) and channels (Top channels): ranked lists of at most 10 entries.</td></tr>
 
