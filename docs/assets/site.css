@@ -296,7 +296,8 @@ main.is-swapping {
 }
 
 .board--channels h2,
-.board--new-channels h2 {
+.board--new-channels h2,
+.board--year-channel h2 {
   text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
 }
 
@@ -578,6 +579,35 @@ main.is-swapping {
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
   font-size: 0.9rem;
+}
+
+/* Top channels of the year: the channel heads its songs, which reuse the
+   homepage song cards unchanged. */
+.year-channel-head {
+  --accent: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.year-channel-head .avatar {
+  flex: none;
+}
+
+.year-channel-head .board-note {
+  margin-bottom: 0;
+}
+
+.year-rank {
+  color: var(--cyan);
+  font-variant-numeric: tabular-nums;
+}
+
+.year-nav a[aria-current="page"] {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .archive-list {
