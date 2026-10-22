@@ -6,6 +6,9 @@
  * reveals the scene: avatars drift on a slow current, collide softly through
  * d3-force and can be explored with a d3-zoom camera.
  *
+ * The page has one scene per channel group (active, then inactive); boot()
+ * starts the same controller once per stage, each drawing only its group.
+ *
  * The pure logic (radius scale, world size, seeding, image queue, pinning,
  * JSON checks, tooltip placement) has no DOM dependency and is exported for
  * the Node tests in tests/js/. Channel data is only ever written with
@@ -78,7 +81,10 @@
   var IMAGE_HOSTS = ["i.ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com"];
   var CHANNEL_URL_PREFIX = "https://www.youtube.com/channel/";
   var CHANNEL_ID_RE = /^[A-Za-z0-9_-]{2,64}$/;
-  var CHANNEL_KEYS = ["avatar_url", "channel_id", "name", "subscribers", "url", "views"];
+  var CHANNEL_KEYS = ["avatar_url", "channel_id", "name", "subscribers", "url", "views", "views_date"];
+  // Channel groups of data/channels.json, in page order.
+  var GROUPS = ["active", "inactive"];
+  var DATE_RE = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
   var PIN_REASONS = ["hover", "focus", "select"];
 
   /* --- Radius scale and world ------------------------------------------ */
@@ -262,42 +268,26 @@
     }
   }
 
-  // Return a list of problems; expected holds the page's date, limit, count.
-  function validatePayload(data, expected) {
+  // Problems of one group's channels; prefix names it in the messages.
+  function validateGroup(group, name, data, limit, seen) {
     var errors = [];
-    if (!data || typeof data !== "object" || Array.isArray(data)) {
-      return ["the channel data is not an object"];
+    var prefix = name + ".";
+    if (!group || typeof group !== "object" || Array.isArray(group)) {
+      return [name + " is missing"];
     }
-    if (data.schema_version !== 1) {
-      errors.push("unsupported schema_version");
+    if (!isCount(group.eligible_count)) {
+      errors.push(prefix + "eligible_count is invalid");
     }
-    if (data.snapshot_date !== expected.date) {
-      errors.push("snapshot_date " + data.snapshot_date + " does not match " + expected.date);
-    }
-    var sel = data.selection;
-    if (!sel || typeof sel !== "object") {
-      return errors.concat(["selection is missing"]);
-    }
-    if (sel.limit !== expected.limit || !isCount(sel.limit) || sel.limit < 1) {
-      errors.push("selection.limit does not match the page");
-    }
-    if (!isCount(sel.eligible_count)) {
-      errors.push("selection.eligible_count is invalid");
-    }
-    var channels = data.channels;
+    var channels = group.channels;
     if (!Array.isArray(channels)) {
-      return errors.concat(["channels is not a list"]);
+      return errors.concat([prefix + "channels is not a list"]);
     }
-    if (channels.length !== Math.min(sel.limit, sel.eligible_count)) {
-      errors.push("channels length does not match the selection");
+    if (isCount(limit) && channels.length !== Math.min(limit, group.eligible_count)) {
+      errors.push(prefix + "channels length does not match the selection");
     }
-    if (channels.length !== expected.count) {
-      errors.push("channels length does not match the page");
-    }
-    var seen = {};
     for (var i = 0; i < channels.length; i++) {
       var c = channels[i];
-      var where = "channels[" + i + "]";
+      var where = prefix + "channels[" + i + "]";
       if (!c || typeof c !== "object" || Object.keys(c).sort().join() !== CHANNEL_KEYS.join()) {
         errors.push(where + " has unexpected fields");
         continue;
@@ -322,6 +312,12 @@
       if (!isCount(c.views)) {
         errors.push(where + " views must be a non-negative integer");
       }
+      // Active channels are counted on the data date; inactive ones up to it.
+      var dateOk = typeof c.views_date === "string" && DATE_RE.test(c.views_date) &&
+        (name === "active" ? c.views_date === data.snapshot_date : c.views_date <= data.snapshot_date);
+      if (!dateOk) {
+        errors.push(where + " has an invalid views_date");
+      }
       if (c.subscribers !== null && !isCount(c.subscribers)) {
         errors.push(where + " subscribers must be null or a non-negative integer");
       }
@@ -333,6 +329,48 @@
       }
     }
     return errors;
+  }
+
+  // Return a list of problems; expected holds the page's group, date, limit
+  // and count. Both groups are checked, so a channel can never be in both.
+  function validatePayload(data, expected) {
+    var errors = [];
+    if (!data || typeof data !== "object" || Array.isArray(data)) {
+      return ["the channel data is not an object"];
+    }
+    if (data.schema_version !== 2) {
+      errors.push("unsupported schema_version");
+    }
+    if (data.snapshot_date !== expected.date) {
+      errors.push("snapshot_date " + data.snapshot_date + " does not match " + expected.date);
+    }
+    if (GROUPS.indexOf(expected.group) < 0) {
+      errors.push("unknown channel group " + expected.group);
+    }
+    var sel = data.selection;
+    if (!sel || typeof sel !== "object") {
+      return errors.concat(["selection is missing"]);
+    }
+    if (sel.limit !== expected.limit || !isCount(sel.limit) || sel.limit < 1) {
+      errors.push("selection.limit does not match the page");
+    }
+    if (!isCount(sel.activity_window_days) || sel.activity_window_days < 1) {
+      errors.push("selection.activity_window_days is invalid");
+    }
+    var seen = {};
+    GROUPS.forEach(function (name) {
+      errors = errors.concat(validateGroup(data[name], name, data, sel.limit, seen));
+    });
+    var own = data[expected.group];
+    if (own && Array.isArray(own.channels) && own.channels.length !== expected.count) {
+      errors.push(expected.group + ".channels length does not match the page");
+    }
+    return errors;
+  }
+
+  // What one scene draws from a validated payload: its group's channels.
+  function groupView(data, group) {
+    return { snapshot_date: data.snapshot_date, channels: data[group].channels };
   }
 
   /* --- Avatar sizing (mirrors public_site/images.py) -------------------- */
@@ -659,6 +697,46 @@
       });
   }
 
+  /*
+   * One download per data URL shared by every stage on the page. get() starts
+   * it on first use; a rejected download is forgotten so the next start()
+   * fetches again, and drop() forgets a download explicitly (Try again).
+   */
+  function sharedDownloads() {
+    var cache = {};
+    function drop(url, promise) {
+      if (cache[url] === promise) {
+        delete cache[url];
+      }
+    }
+    return {
+      get: function (url, startDownload) {
+        if (!cache[url]) {
+          var promise = startDownload();
+          cache[url] = promise;
+          promise.then(null, function () {
+            drop(url, promise);
+          });
+        }
+        return cache[url];
+      },
+      drop: drop
+    };
+  }
+
+  // Whether Escape acts on a scene: always when the key event comes from its
+  // own stage, never when it comes from another aquarium stage, and otherwise
+  // (focus elsewhere on the page) only when the scene shows a tooltip or panel.
+  function escapeApplies(ownStage, otherStage, showsDetail) {
+    if (ownStage) {
+      return true;
+    }
+    if (otherStage) {
+      return false;
+    }
+    return showsDetail;
+  }
+
   /* --- Formatting and layout helpers ----------------------------------- */
 
   function fmtNum(value) {
@@ -919,12 +997,17 @@
 
   /* --- Browser controller ---------------------------------------------- */
 
+  // Start one controller per aquarium stage on the page.
   function boot(win) {
-    var doc = win.document;
-    var stage = doc.getElementById("aquarium-stage");
-    if (!stage) {
-      return;
+    var stages = win.document.querySelectorAll(".aquarium-stage[data-group]");
+    var downloads = sharedDownloads();
+    for (var i = 0; i < stages.length; i++) {
+      bootStage(win, stages[i], downloads);
     }
+  }
+
+  function bootStage(win, stage, downloads) {
+    var doc = win.document;
     stage.setAttribute("data-js", "");
 
     function part(role) {
@@ -947,7 +1030,9 @@
       pause: stage.querySelector('[data-action="pause"]'),
       retry: stage.querySelector('[data-action="retry"]')
     };
+    var group = stage.getAttribute("data-group");
     var expected = {
+      group: group,
       date: stage.getAttribute("data-snapshot-date"),
       limit: Number(stage.getAttribute("data-limit")),
       count: Number(stage.getAttribute("data-count"))
@@ -1033,6 +1118,9 @@
       }
     }
 
+    // The shared download this stage last used, dropped by Try again.
+    var lastDownload = null;
+
     function start() {
       generation++;
       var gen = generation;
@@ -1051,10 +1139,13 @@
         fail(gen, "This browser cannot load the channels.");
         return;
       }
-      var download = fetchJson(dataSrc, {
-        timeoutMs: LOADER.dataTimeoutMs,
-        fetchImpl: win.fetch.bind(win)
+      var download = downloads.get(dataSrc, function () {
+        return fetchJson(dataSrc, {
+          timeoutMs: LOADER.dataTimeoutMs,
+          fetchImpl: win.fetch.bind(win)
+        });
       });
+      lastDownload = download;
       settleDataLoad(
         download,
         function (data) {
@@ -1065,12 +1156,13 @@
             failWith(gen, "invalid");
             return;
           }
-          if (!data.channels.length) {
+          var view = groupView(data, group);
+          if (!view.channels.length) {
             setState("empty");
             announce(ui.empty.textContent);
             return;
           }
-          loadAvatars(gen, data);
+          loadAvatars(gen, view);
         },
         function (kind) {
           failWith(gen, kind);
@@ -1144,12 +1236,16 @@
       var svg = doc.createElementNS(SVG_NS, "svg");
       svg.setAttribute("class", "aquarium-svg");
       svg.setAttribute("role", "group");
-      svg.setAttribute("aria-label", "Nightcore channels: " + nodes.length + " channels");
+      svg.setAttribute("aria-label", group === "inactive"
+        ? "Inactive Nightcore channels: " + nodes.length + " channels"
+        : "Active Nightcore channels: " + nodes.length + " channels");
       // Tab goes straight to the avatar links, not to the drawing itself.
       svg.setAttribute("tabindex", "-1");
       var defs = doc.createElementNS(SVG_NS, "defs");
       var clip = doc.createElementNS(SVG_NS, "clipPath");
-      clip.setAttribute("id", "aquarium-clip");
+      // One clip per stage: element IDs must stay unique with two scenes.
+      var clipId = stage.id + "-clip";
+      clip.setAttribute("id", clipId);
       clip.setAttribute("clipPathUnits", "objectBoundingBox");
       var clipCircle = doc.createElementNS(SVG_NS, "circle");
       clipCircle.setAttribute("cx", "0.5");
@@ -1265,7 +1361,7 @@
           image.setAttribute("width", (node.radius * 2).toFixed(2));
           image.setAttribute("height", (node.radius * 2).toFixed(2));
           image.setAttribute("preserveAspectRatio", "xMidYMid slice");
-          image.setAttribute("clip-path", "url(#aquarium-clip)");
+          image.setAttribute("clip-path", "url(#" + clipId + ")");
           image.addEventListener("error", function () {
             // Keep the initials fallback if the image fails after mounting.
             if (image.parentNode) {
@@ -1658,6 +1754,9 @@
       self.fitAll = fitAll;
       self.deselect = deselect;
       self.escape = escape;
+      self.showsDetail = function () {
+        return currentDetail().mode !== "none";
+      };
       return self;
     }
 
@@ -1678,7 +1777,10 @@
         lastPointer = null;
       }
       if (event.key === "Escape" && scene && scene.ready) {
-        scene.escape();
+        var owner = event.target && event.target.closest ? event.target.closest(".aquarium-stage") : null;
+        if (escapeApplies(owner === stage, Boolean(owner) && owner !== stage, scene.showsDetail())) {
+          scene.escape();
+        }
       }
     });
 
@@ -1689,6 +1791,7 @@
       }
       var action = button.getAttribute("data-action");
       if (action === "retry") {
+        downloads.drop(dataSrc, lastDownload);
         start();
         return;
       }
@@ -1788,7 +1891,9 @@
     pin: pin,
     unpin: unpin,
     isPinned: isPinned,
+    GROUPS: GROUPS,
     validatePayload: validatePayload,
+    groupView: groupView,
     AVATAR_PIXELS: AVATAR_PIXELS,
     avatarPixels: avatarPixels,
     sizedAvatarUrl: sizedAvatarUrl,
@@ -1810,6 +1915,8 @@
     detailTarget: detailTarget,
     loadErrorKind: loadErrorKind,
     settleDataLoad: settleDataLoad,
+    sharedDownloads: sharedDownloads,
+    escapeApplies: escapeApplies,
     collisionRadius: collisionRadius,
     createSimulation: createSimulation,
     startMotion: startMotion,

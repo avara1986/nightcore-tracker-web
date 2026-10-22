@@ -284,6 +284,7 @@ main.is-swapping {
 }
 
 .board-head h2,
+.year-channel-head h3,
 .closing h2 {
   margin: 0;
   font-size: clamp(1.5rem, 6vw, 2.25rem);
@@ -297,7 +298,7 @@ main.is-swapping {
 
 .board--channels h2,
 .board--new-channels h2,
-.board--year-channel h2 {
+.year-channel-head h3 {
   text-shadow: 0 0 16px rgba(41, 224, 255, 0.55);
 }
 
@@ -602,6 +603,60 @@ main.is-swapping {
 .year-rank {
   color: var(--cyan);
   font-variant-numeric: tabular-nums;
+}
+
+/* Each year page has two rankings, each headed by its title; an empty one
+   keeps the title with a short note. */
+.year-ranking-title {
+  margin: 1.5rem 0 1rem;
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.year-empty {
+  margin-bottom: 1.5rem;
+}
+
+/* Activity badge of a year page channel: active channels (an upload in the
+   activity window) get a bright pill, inactive ones a quiet outline. */
+.year-activity {
+  margin: 0.2rem 0 0.3rem;
+}
+
+.activity-badge {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.activity-badge--active {
+  color: var(--bg);
+  background: var(--cyan);
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(41, 224, 255, 0.45);
+}
+
+.activity-badge--inactive {
+  color: var(--muted);
+  border: 1px solid var(--line);
+  font-weight: 600;
+}
+
+/* Inactive channels stay readable but step back, so active ones stand out. */
+.board--inactive .year-channel-head h3 {
+  text-shadow: none;
+}
+
+.board--inactive .year-rank {
+  color: var(--muted);
+}
+
+.board--inactive .year-channel-head .avatar {
+  opacity: 0.75;
+  filter: saturate(0.6);
 }
 
 .year-nav a[aria-current="page"] {
