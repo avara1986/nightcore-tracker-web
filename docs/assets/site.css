@@ -435,6 +435,24 @@ main.is-swapping {
   overflow-wrap: anywhere;
 }
 
+/* Breakout channels: first upload above the stats, top song below them. */
+.card-note {
+  margin: -0.2rem 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.card-note--song {
+  margin: 0.4rem 0 0;
+}
+
+.card-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .stats {
   display: flex;
   flex-wrap: wrap;

@@ -28,17 +28,18 @@
   var FILE_RE = /^data\/\d{4}-\d{2}-\d{2}\.json$/;
   var SWAP_MS = 180;
 
-  // Charts in page order. "growth" mode leads with the percentage, "gain"
-  // mode with the absolute gain. Optional charts may be missing from
-  // snapshots published before they existed.
+  // Charts in page order. "growth" mode leads with the percentage (and with
+  // "above usual" for version 3 Breakout songs), "gain" and "young" modes with
+  // the absolute gain. Optional charts may be missing from snapshots published
+  // before they existed.
   var SECTIONS = [
     { name: "growth", title: "Breakout songs", kind: "song", mode: "growth", lead: true, optional: false },
-    { name: "rising_channels", title: "Rising channels", kind: "channel", mode: "growth", lead: false, optional: true },
+    { name: "breakout_channels", title: "Breakout channels", kind: "channel", mode: "young", lead: false, optional: true },
     { name: "songs", title: "Top songs", kind: "song", mode: "gain", lead: false, optional: false },
     { name: "channels", title: "Top channels", kind: "channel", mode: "gain", lead: false, optional: false }
   ];
 
-  var SECTION_TITLES = {};
+  var SECTION_TITLES = { rising_channels: "Rising channels" };
   SECTIONS.forEach(function (section) { SECTION_TITLES[section.name] = section.title; });
 
   /* --- Formatting (mirrors build.py) ----------------------------------- */
@@ -91,8 +92,14 @@
     return Number(m[3]) + " " + MONTHS[Number(m[2]) - 1] + " " + m[1] + ", " + m[4] + ":" + m[5] + " UTC";
   }
 
+  // A span of days as whole average months (548 days is 18), as build.py.
+  function fmtMonths(value) {
+    return typeof value === "number" ? String(Math.round(value * 12 / 365.25)) : "-";
+  }
+
   var FORMATS = {
     num: fmtNum,
+    months: fmtMonths,
     date: fmtDate,
     timestamp: fmtTimestamp,
     hours: function (v) { return Number(v).toFixed(1); },
@@ -133,8 +140,30 @@
     }, obj);
   }
 
+  // What a Breakout song's measured views are, as build.breakout_views_label.
+  function breakoutViewsLabel(entry) {
+    if (entry.phase === "launch") {
+      return "Views in " + entry.age_days + (entry.age_days === 1 ? " day" : " days");
+    }
+    return "7-day views";
+  }
+
   // Card statistics for one entry; the first one is the dominant metric.
   function cardStats(entry, mode) {
+    if (entry.above_expected_pct !== undefined) {
+      return [
+        { label: "Above usual", value: fmtPct(entry.above_expected_pct), accent: true },
+        { label: breakoutViewsLabel(entry), value: fmtNum(entry.measured_views), accent: false },
+        { label: "Usual", value: fmtNum(entry.expected_views), accent: false }
+      ];
+    }
+    if (mode === "young") {
+      return [
+        { label: "7-day gain", value: fmtGain(entry.views_gained), accent: true },
+        { label: "7-day growth", value: fmtPct(entry.growth_pct), accent: false },
+        { label: "Total views", value: fmtNum(entry.views), accent: false }
+      ];
+    }
     var stats = mode === "growth"
       ? [
         { label: "7-day growth", value: fmtPct(entry.growth_pct), accent: true },
@@ -411,6 +440,23 @@
       return li;
     }
 
+    function firstUploadNote(entry) {
+      var p = el("p", "card-note", "First upload ");
+      var time = el("time", null, fmtDate(entry.first_upload_on));
+      time.setAttribute("datetime", String(entry.first_upload_on));
+      p.appendChild(time);
+      return p;
+    }
+
+    function topSongNote(song) {
+      var p = el("p", "card-note card-note--song", "Top song this week: ");
+      var link = externalLink(song.url);
+      link.textContent = String(song.title);
+      p.appendChild(link);
+      p.appendChild(document.createTextNode(" (" + fmtGain(song.views_gained) + ")"));
+      return p;
+    }
+
     function cardBody(entry, name, sub, section) {
       var body = el("div", "card-body");
       var title = el("h3", "card-title");
@@ -420,9 +466,15 @@
       title.appendChild(link);
       body.appendChild(title);
       body.appendChild(el("p", "card-sub", sub));
+      if (typeof entry.first_upload_on === "string") {
+        body.appendChild(firstUploadNote(entry));
+      }
       var dl = el("dl", "stats");
       cardStats(entry, section.mode).forEach(function (spec) { dl.appendChild(stat(spec)); });
       body.appendChild(dl);
+      if (entry.top_song && typeof entry.top_song === "object") {
+        body.appendChild(topSongNote(entry.top_song));
+      }
       body.appendChild(movementBadge(entry));
       return body;
     }
@@ -543,10 +595,6 @@
           node.getAttribute("data-requires-section")
         );
       });
-      var gainNote = main.querySelector("[data-breakout-gain]");
-      if (gainNote) {
-        gainNote.hidden = !(lookup(snap, "methodology.breakout_min_views_gained") > 0);
-      }
       var cards = [];
       SECTIONS.forEach(function (section) {
         cards = cards.concat(renderList(section, snap));
@@ -704,6 +752,8 @@
     fmtNum: fmtNum,
     fmtGain: fmtGain,
     fmtPct: fmtPct,
+    fmtMonths: fmtMonths,
+    breakoutViewsLabel: breakoutViewsLabel,
     fmtShortDate: fmtShortDate,
     fmtDate: fmtDate,
     fmtTimestamp: fmtTimestamp,

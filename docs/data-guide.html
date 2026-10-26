@@ -21,12 +21,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://nightcore-tracker.com/assets/social-preview.jpg?v=e5da961c2d">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nightcore Tracker: breakout songs and rising channels among monitored channels">
+<meta property="og:image:alt" content="Nightcore Tracker: breakout songs and breakout channels among monitored channels">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070818">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="assets/favicon.svg?v=b1ecb16a00" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=fd772c5506">
+<link rel="stylesheet" href="assets/site.css?v=7e5d168e9a">
 <link rel="alternate" type="application/rss+xml" title="Nightcore Tracker discoveries" href="feed.xml">
 </head>
 <body class="legal-page data-guide-page">
@@ -73,7 +73,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <tr><th scope="row"><a href="data/2026-10-26.json"><code>data/YYYY-MM-DD.json</code></a></th><td>Full ranking snapshot of one date (four charts)</td><td>Never, once published</td></tr>
         <tr><th scope="row"><a href="data/channels.json"><code>data/channels.json</code></a></th><td>Channels shown on the channels page, for the latest date</td><td>Every build</td></tr>
         <tr><th scope="row"><a href="data/editions/index.json"><code>data/editions/index.json</code></a></th><td>Every discovery edition with its page, file, hash and absolute URL</td><td>Every build (entries are only added)</td></tr>
-        <tr><th scope="row"><a href="data/editions/2026-10-26.json"><code>data/editions/YYYY-MM-DD.json</code></a></th><td>Discovery edition of one date: Breakout songs and Rising channels</td><td>Never, once published</td></tr>
+        <tr><th scope="row"><a href="data/editions/2026-10-26.json"><code>data/editions/YYYY-MM-DD.json</code></a></th><td>Discovery edition of one date: Breakout songs and Breakout channels (Rising channels in schema version 1)</td><td>Never, once published</td></tr>
         <tr><th scope="row"><a href="feed.xml"><code>feed.xml</code></a></th><td>RSS 2.0 feed of the newest 30 editions</td><td>Every build</td></tr>
       </tbody>
     </table>
@@ -103,12 +103,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </tbody>
     </table>
 
-    <h3 id="snapshot">data/YYYY-MM-DD.json (schema_version 2)</h3>
+    <h3 id="snapshot">data/YYYY-MM-DD.json (schema_version 3)</h3>
     <table class="data-table">
         <thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Meaning</th></tr></thead>
 
       <tbody>
-        <tr><th scope="row"><code>schema_version</code></th><td>integer</td><td>Snapshot format version: 2, or 1 for snapshots published before Rising channels existed (still valid, never rewritten).</td></tr>
+        <tr><th scope="row"><code>schema_version</code></th><td>integer</td><td>Snapshot format version: 3. Older snapshots stay valid and are never rewritten: 1 (three charts, before Rising channels existed) and 2 (Rising channels instead of Breakout channels, and Breakout songs ranked by seven-day growth with breakout_min_start_views, breakout_min_views_gained, rising_channels_min_start_views and rising_channels_metric in methodology).</td></tr>
 
         <tr><th scope="row"><code>timezone</code></th><td>string</td><td>Always Europe/Madrid.</td></tr>
 
@@ -120,7 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <tr><th scope="row"><code>collection_run</code></th><td>object</td><td>id (string or null) and verified (boolean); see Completeness.</td></tr>
 
-        <tr><th scope="row"><code>methodology</code></th><td>object</td><td>Thresholds and metric identifiers used for D (breakout_min_start_views, breakout_min_views_gained, rising_channels_min_start_views, tolerance_hours, channel_metric, rising_channels_metric, content_scope).</td></tr>
+        <tr><th scope="row"><code>methodology</code></th><td>object</td><td>Parameters and metric identifiers used for D: breakout_metric (views_vs_channel_norm), breakout_min_views, breakout_min_lift, breakout_smoothing_views, breakout_launch_days, breakout_per_channel, breakout_channels_metric (young_channel_gain_x_growth), breakout_channel_max_age_days, breakout_channel_min_start_views, channel_metric, content_scope, tolerance_hours and max_window_shift_hours (a window off by more than tolerance_hours but at most max_window_shift_hours from seven days is scaled to a seven-day rate).</td></tr>
 
         <tr><th scope="row"><code>coverage</code></th><td>object</td><td>Counts for D: channels, channels_measured, videos, videos_measured, new_uploads, excluded_shorts, negative_corrections.</td></tr>
 
@@ -128,16 +128,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <tr><th scope="row"><code>new_channels</code></th><td>array (optional)</td><td>Up to 10 monitored channels ordered by YouTube creation timestamp descending, then public channel ID. Fields: rank, channel_id, name, url, avatar_url (or null), youtube_created_at (UTC). No view, subscriber or observation-history threshold. Missing creation dates and dates after D are excluded. Absent in older immutable snapshots; an empty list means no eligible channels. Creation dates are shown in UTC. The homepage New channels list is refreshed independently from current database metadata on every build and does not change with the ranking date; snapshot entries describe historical metadata only.</td></tr>
 
-        <tr><th scope="row"><code>rankings</code></th><td>object</td><td>growth (Breakout songs), rising_channels (Rising channels; null when unavailable, absent in schema version 1), songs (Top songs) and channels (Top channels): ranked lists of at most 10 entries.</td></tr>
+        <tr><th scope="row"><code>rankings</code></th><td>object</td><td>growth (Breakout songs), breakout_channels (Breakout channels; null when no channel week can be formed), songs (Top songs) and channels (Top channels): ranked lists of at most 10 entries.</td></tr>
 
       </tbody>
     </table>
     <p class="fine">Song entries: rank, video_id, title, channel_id, channel_name, url, thumbnail_url, published_on (date or null), views (end counter), views_start, views_gained, growth_pct (null only with a zero baseline), observed_start and observed_end (UTC or null), movement (kind: up, down, same, new_upload, entry or unavailable; previous_rank). Channel entries: rank, channel_id, name, url, avatar_url (or null), views, views_start, views_gained, growth_pct, subscribers (on D, or null), observed_start, observed_end and movement. Channel figures use the channel's total YouTube view counter, which also counts Shorts and uploads that are not monitored.</p>
+    <p class="fine">Breakout songs (growth) add: phase (launch, in the first breakout_launch_days days after upload, or catalog), age_days (days since upload), measured_views (a launch's views so far; a catalog song's seven-day gain with every daily gain capped at three times the median daily gain), expected_views (what the song's own channel usually gets: for a launch, the upper quartile of the views at the same age of its last ten uploads; for a catalog song, the larger of the channel's usual week for songs of its age and 0.85 times the song's own previous week), above_expected_pct (100 * ((measured_views + A) / (expected_views + A) - 1) with A = breakout_smoothing_views, rounded like growth_pct) and score (the ranking order, descending, then video_id). views_start, views_gained, growth_pct and observed_start are null for a launch without a seven-day baseline. At most breakout_per_channel songs per channel. Breakout channels add first_upload_on (the channel's first monitored long-form upload, at most breakout_channel_max_age_days before D) and top_song (video_id, title, url, thumbnail_url and views_gained of its song with the most views gained in the window, or null); they are ordered by views_gained squared divided by views_start, that is the square root of views gained times growth, then views_gained and channel_id.</p>
 
     <h3 id="channels">data/channels.json (schema_version 2)</h3>
     <p>snapshot_date (the manifest's latest date), timezone, collection_run, selection (metric, limit per aquarium, activity_window_days) and two groups, active and inactive, each with eligible_count and channels (channel_id, name, url, avatar_url or null, views, views_date, subscribers or null), ordered by views and then channel_id. A channel is inactive when every stored upload has a known publication date older than activity_window_days before snapshot_date; every other monitored channel is active, and no channel is in both groups. Active channels use the counters observed on snapshot_date (views_date equals it); inactive channels are only collected weekly, so they use their newest counters on or before it, and views_date says which day the views are from. It always describes the latest date only.</p>
 
-    <h3 id="editions">data/editions/YYYY-MM-DD.json (schema_version 1)</h3>
+    <h3 id="editions">data/editions/YYYY-MM-DD.json (schema_version 2)</h3>
     <table class="data-table">
         <thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Meaning</th></tr></thead>
 
@@ -150,11 +151,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <tr><th scope="row"><code>coverage_scope, coverage</code></th><td>string, object</td><td>Always monitored_channels; coverage counts copied from the snapshot.</td></tr>
 
-        <tr><th scope="row"><code>thresholds</code></th><td>object</td><td>Breakout and Rising channels thresholds; rising_channels_min_start_views is null for schema version 1 sources.</td></tr>
+        <tr><th scope="row"><code>thresholds</code></th><td>object</td><td>The snapshot&#39;s breakout_min_views, breakout_min_lift, breakout_smoothing_views, breakout_launch_days, breakout_per_channel, breakout_channel_max_age_days and breakout_channel_min_start_views. Schema version 1 records instead have breakout_min_start_views, breakout_min_views_gained and rising_channels_min_start_views (null for snapshot version 1 sources).</td></tr>
 
         <tr><th scope="row"><code>source</code></th><td>object</td><td>snapshot_file, snapshot_sha256 and snapshot_schema_version of the snapshot it was projected from. The snapshot file leaves the site after the history window; its hash still identifies it.</td></tr>
 
-        <tr><th scope="row"><code>breakout_songs, rising_channels</code></th><td>object</td><td>available (boolean), reason (null, not_in_snapshot or no_observations) and entries (null when unavailable). Entries copy the snapshot&#39;s values and order: rank, video_id, title, channel_id, channel_name, url, channel_url, views_start, views, views_gained, growth_pct, observed_start, observed_end for songs; rank, channel_id, name, url, views_start, views, views_gained, growth_pct, subscribers, observed_start, observed_end for channels.</td></tr>
+        <tr><th scope="row"><code>breakout_songs, breakout_channels</code></th><td>object</td><td>available (boolean), reason (null, not_in_snapshot or no_observations) and entries (null when unavailable). Entries copy the snapshot&#39;s values and order: rank, video_id, title, channel_id, channel_name, url, channel_url, views_start, views, views_gained, growth_pct, observed_start, observed_end, phase, age_days, measured_views, expected_views and above_expected_pct for songs; rank, channel_id, name, url, views_start, views, views_gained, growth_pct, subscribers, observed_start, observed_end, first_upload_on and top_song for channels. Schema version 1 records (from snapshot versions 1 and 2) have rising_channels instead of breakout_channels, and no phase, age_days, measured_views, expected_views, above_expected_pct, first_upload_on or top_song.</td></tr>
 
       </tbody>
     </table>
