@@ -4,13 +4,13 @@
     "verified": true
   },
   "coverage": {
-    "channels": 239,
-    "channels_measured": 225,
-    "excluded_shorts": 11010,
+    "channels": 238,
+    "channels_measured": 224,
+    "excluded_shorts": 11002,
     "negative_corrections": 151,
-    "new_uploads": 414,
-    "videos": 122128,
-    "videos_measured": 119066
+    "new_uploads": 411,
+    "videos": 121753,
+    "videos_measured": 118694
   },
   "data_as_of": "2026-10-26T08:57:53Z",
   "methodology": {
@@ -558,49 +558,23 @@
     ],
     "growth": [
       {
-        "above_expected_pct": 2193.1,
-        "age_days": 7,
-        "channel_id": "UCd_wM-wYUAhDOKNZT8OK3EQ",
-        "channel_name": "Kiomi",
-        "expected_views": 3553,
-        "growth_pct": null,
-        "measured_views": 83668,
-        "movement": {
-          "kind": "up",
-          "previous_rank": 2
-        },
-        "observed_end": "2026-10-26T08:57:25Z",
-        "observed_start": null,
-        "phase": "launch",
-        "published_on": "2026-10-19",
-        "rank": 1,
-        "score": 3.132502,
-        "thumbnail_url": "https://i.ytimg.com/vi/HkOs8hHEqOM/hqdefault.jpg",
-        "title": "Top 30 Songs Of NEFFEX 🔥 Best of NEFFEX 2026 ❄️ Workout Music",
-        "url": "https://www.youtube.com/watch?v=HkOs8hHEqOM",
-        "video_id": "HkOs8hHEqOM",
-        "views": 83668,
-        "views_gained": null,
-        "views_start": null
-      },
-      {
-        "above_expected_pct": 2083.0,
+        "above_expected_pct": 2098.6,
         "age_days": 8,
         "channel_id": "UCUUQ6nGG618e7xZCXAys5xw",
         "channel_name": "_skyvalley",
-        "expected_views": 183,
+        "expected_views": 181,
         "growth_pct": 4723.8,
         "measured_views": 6078,
         "movement": {
-          "kind": "down",
+          "kind": "same",
           "previous_rank": 1
         },
         "observed_end": "2026-10-26T08:57:25Z",
         "observed_start": "2026-10-19T07:57:52Z",
         "phase": "launch",
         "published_on": "2026-10-18",
-        "rank": 2,
-        "score": 3.083303,
+        "rank": 1,
+        "score": 3.090395,
         "thumbnail_url": "https://i.ytimg.com/vi/qyRzyR890UI/hqdefault.jpg",
         "title": "Nightcore - Bumblebee - Bambee (Arvy Nacht Cover) - Lyrics",
         "url": "https://www.youtube.com/watch?v=qyRzyR890UI",
@@ -619,13 +593,13 @@
         "measured_views": 3855,
         "movement": {
           "kind": "same",
-          "previous_rank": 3
+          "previous_rank": 2
         },
         "observed_end": "2026-10-26T08:57:25Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-20",
-        "rank": 3,
+        "rank": 2,
         "score": 2.844657,
         "thumbnail_url": "https://i.ytimg.com/vi/6eC9FUgSfO8/hqdefault.jpg",
         "title": "Jane! - The Long Faces (Nightcore Remix)",
@@ -636,23 +610,23 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 1249.9,
+        "above_expected_pct": 1253.1,
         "age_days": 7,
         "channel_id": "UCflyf1s3d5jHGd0QDBL-4IQ",
         "channel_name": "Nightcore Kingdom",
-        "expected_views": 315,
+        "expected_views": 314,
         "growth_pct": null,
         "measured_views": 5502,
         "movement": {
           "kind": "same",
-          "previous_rank": 4
+          "previous_rank": 3
         },
         "observed_end": "2026-10-26T08:57:25Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-19",
-        "rank": 4,
-        "score": 2.6026,
+        "rank": 3,
+        "score": 2.605013,
         "thumbnail_url": "https://i.ytimg.com/vi/9vgKpyX9Ki4/hqdefault.jpg",
         "title": "Nightcore - K/DA - FIRESTARTER | SPEEDUP",
         "url": "https://www.youtube.com/watch?v=9vgKpyX9Ki4",
@@ -671,14 +645,14 @@
         "measured_views": 22538,
         "movement": {
           "kind": "same",
-          "previous_rank": 5
+          "previous_rank": 4
         },
         "observed_end": "2026-10-26T08:54:25Z",
         "observed_start": "2026-10-19T07:54:43Z",
         "phase": "catalog",
         "published_on": "2026-09-11",
-        "rank": 5,
-        "score": 2.396625,
+        "rank": 4,
+        "score": 2.398496,
         "thumbnail_url": "https://i.ytimg.com/vi/CpDmaf_RN_A/hqdefault.jpg",
         "title": "Nightcore - Teeth | OHM Nightcore",
         "url": "https://www.youtube.com/watch?v=CpDmaf_RN_A",
@@ -688,23 +662,23 @@
         "views_start": 42105
       },
       {
-        "above_expected_pct": 517.3,
+        "above_expected_pct": 519.8,
         "age_days": 10,
         "channel_id": "UCvkJ0g7pFMHVTBvOin2DjoA",
         "channel_name": "Xsenzo",
-        "expected_views": 20983,
+        "expected_views": 20897,
         "growth_pct": 259.5,
         "measured_views": 130044,
         "movement": {
           "kind": "up",
-          "previous_rank": 8
+          "previous_rank": 7
         },
         "observed_end": "2026-10-26T08:57:22Z",
         "observed_start": "2026-10-19T07:57:47Z",
         "phase": "launch",
         "published_on": "2026-10-16",
-        "rank": 6,
-        "score": 1.820175,
+        "rank": 5,
+        "score": 1.824262,
         "thumbnail_url": "https://i.ytimg.com/vi/u3TrBg7_Gto/hqdefault.jpg",
         "title": "Nightcore - Take A Hint (But it hits different) (lyrics)",
         "url": "https://www.youtube.com/watch?v=u3TrBg7_Gto",
@@ -712,32 +686,6 @@
         "views": 130044,
         "views_gained": 93874,
         "views_start": 36170
-      },
-      {
-        "above_expected_pct": 485.4,
-        "age_days": 11,
-        "channel_id": "UC56ynkSJrFx_OYpy8FORcGQ",
-        "channel_name": "RaynderCore",
-        "expected_views": 930,
-        "growth_pct": 76.5,
-        "measured_views": 5930,
-        "movement": {
-          "kind": "up",
-          "previous_rank": 9
-        },
-        "observed_end": "2026-10-26T08:57:17Z",
-        "observed_start": "2026-10-19T07:57:43Z",
-        "phase": "launch",
-        "published_on": "2026-10-15",
-        "rank": 7,
-        "score": 1.767188,
-        "thumbnail_url": "https://i.ytimg.com/vi/D5g4qTup4pw/hqdefault.jpg",
-        "title": "Nightcore - Checkmate (Malfoid) [Lyrics Video]",
-        "url": "https://www.youtube.com/watch?v=D5g4qTup4pw",
-        "video_id": "D5g4qTup4pw",
-        "views": 5930,
-        "views_gained": 2570,
-        "views_start": 3360
       },
       {
         "above_expected_pct": 1377.1,
@@ -749,14 +697,14 @@
         "measured_views": 2869,
         "movement": {
           "kind": "up",
-          "previous_rank": 12
+          "previous_rank": 11
         },
         "observed_end": "2026-10-26T08:47:34Z",
         "observed_start": "2026-10-19T07:47:14Z",
         "phase": "catalog",
         "published_on": "2025-10-29",
-        "rank": 8,
-        "score": 1.765212,
+        "rank": 6,
+        "score": 1.768324,
         "thumbnail_url": "https://i.ytimg.com/vi/iMCvcIGyobA/hqdefault.jpg",
         "title": "Sure Thing (Nightcore / Sped Up) - Miguel [Lyrics]",
         "url": "https://www.youtube.com/watch?v=iMCvcIGyobA",
@@ -764,6 +712,32 @@
         "views": 4816,
         "views_gained": 2869,
         "views_start": 1947
+      },
+      {
+        "above_expected_pct": 486.0,
+        "age_days": 11,
+        "channel_id": "UC56ynkSJrFx_OYpy8FORcGQ",
+        "channel_name": "RaynderCore",
+        "expected_views": 929,
+        "growth_pct": 76.5,
+        "measured_views": 5930,
+        "movement": {
+          "kind": "up",
+          "previous_rank": 8
+        },
+        "observed_end": "2026-10-26T08:57:17Z",
+        "observed_start": "2026-10-19T07:57:43Z",
+        "phase": "launch",
+        "published_on": "2026-10-15",
+        "rank": 7,
+        "score": 1.76816,
+        "thumbnail_url": "https://i.ytimg.com/vi/D5g4qTup4pw/hqdefault.jpg",
+        "title": "Nightcore - Checkmate (Malfoid) [Lyrics Video]",
+        "url": "https://www.youtube.com/watch?v=D5g4qTup4pw",
+        "video_id": "D5g4qTup4pw",
+        "views": 5930,
+        "views_gained": 2570,
+        "views_start": 3360
       },
       {
         "above_expected_pct": 468.4,
@@ -775,13 +749,13 @@
         "measured_views": 4248,
         "movement": {
           "kind": "up",
-          "previous_rank": 10
+          "previous_rank": 9
         },
         "observed_end": "2026-10-26T08:57:33Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-23",
-        "rank": 9,
+        "rank": 8,
         "score": 1.737595,
         "thumbnail_url": "https://i.ytimg.com/vi/mTIM85rqeGA/hqdefault.jpg",
         "title": "Phonk Music for Gym 2026 | Aggressive Drift Music | Hard Workout Beats [No Copyright]",
@@ -792,23 +766,49 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 435.8,
+        "above_expected_pct": 438.1,
+        "age_days": 8,
+        "channel_id": "UCvt3fr6-dvhe69uyuGqfhvA",
+        "channel_name": "Starlight Core",
+        "expected_views": 777,
+        "growth_pct": null,
+        "measured_views": 4619,
+        "movement": {
+          "kind": "up",
+          "previous_rank": 13
+        },
+        "observed_end": "2026-10-26T08:57:30Z",
+        "observed_start": null,
+        "phase": "launch",
+        "published_on": "2026-10-18",
+        "rank": 9,
+        "score": 1.682845,
+        "thumbnail_url": "https://i.ytimg.com/vi/IVFx7P2q-OQ/hqdefault.jpg",
+        "title": "t.A.T.u. - All the Things She Said (Nightcore Remix / Lyrics)",
+        "url": "https://www.youtube.com/watch?v=IVFx7P2q-OQ",
+        "video_id": "IVFx7P2q-OQ",
+        "views": 4619,
+        "views_gained": null,
+        "views_start": null
+      },
+      {
+        "above_expected_pct": 437.3,
         "age_days": 6,
         "channel_id": "UCjv00apY2kP36r5o3Jzs61g",
         "channel_name": "Eric Nightcore",
-        "expected_views": 656,
+        "expected_views": 654,
         "growth_pct": null,
         "measured_views": 3951,
         "movement": {
-          "kind": "up",
-          "previous_rank": 11
+          "kind": "same",
+          "previous_rank": 10
         },
         "observed_end": "2026-10-26T08:57:29Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-20",
         "rank": 10,
-        "score": 1.678678,
+        "score": 1.681327,
         "thumbnail_url": "https://i.ytimg.com/vi/R8PBgMGhsd4/hqdefault.jpg",
         "title": "「𝐍𝐢𝐠𝐡𝐭𝐜𝐨𝐫𝐞」𝐁𝐫𝐨𝐨𝐤𝐥𝐲𝐧𝐛𝐥𝐨𝐨𝐝𝐩𝐨𝐩 𝐗 𝐕𝐚𝐜𝐚𝐭𝐢𝐨𝐧 𝐁𝐢𝐛𝐥𝐞 𝐒𝐜𝐡𝐨𝐨𝐥",
         "url": "https://www.youtube.com/watch?v=R8PBgMGhsd4",
@@ -1024,11 +1024,11 @@
   "schema_version": 3,
   "summary": {
     "biggest_climber": {
-      "from_rank": 9,
-      "id": "UCBVVFXMWtQJzneuuWOg6j4g",
-      "name": "Kenke",
-      "section": "channels",
-      "to_rank": 5
+      "from_rank": 11,
+      "id": "iMCvcIGyobA",
+      "name": "Sure Thing (Nightcore / Sped Up) - Miguel [Lyrics]",
+      "section": "growth",
+      "to_rank": 6
     },
     "entered": {
       "breakout_channels": 1,
