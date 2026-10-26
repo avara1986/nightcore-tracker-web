@@ -595,6 +595,9 @@
           node.getAttribute("data-requires-section")
         );
       });
+      Array.prototype.forEach.call(document.querySelectorAll("[data-legacy-breakout]"), function (node) {
+        node.hidden = lookup(snap, "methodology.breakout_metric") !== undefined;
+      });
       var cards = [];
       SECTIONS.forEach(function (section) {
         cards = cards.concat(renderList(section, snap));
