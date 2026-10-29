@@ -30,10 +30,18 @@
   },
   "new_channels": [
     {
+      "avatar_url": "https://yt3.ggpht.com/XmyZjDaEOXiMx9e5TLkD8GQ1aC8wAOmi0jYefzJlMZclQK9Gso1uqirGxYATneULAgr7tf4b8A=s240-c-k-c0x00ffffff-no-rj",
+      "channel_id": "UCCk05ecIP9C5o9X0rOEeQ7g",
+      "name": "Lucya",
+      "rank": 1,
+      "url": "https://www.youtube.com/channel/UCCk05ecIP9C5o9X0rOEeQ7g",
+      "youtube_created_at": "2026-10-22T04:14:02Z"
+    },
+    {
       "avatar_url": "https://yt3.ggpht.com/No-MihfRy6ZmNrT0IR1_iNK6Cb8sD2TLFj-ebvX86NIxXmol0gIaT96IRZeE5FWqEp4RlEfRmw=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCkWxxT4adtmE1T7IP0-rghQ",
       "name": "Briar Nightcore",
-      "rank": 1,
+      "rank": 2,
       "url": "https://www.youtube.com/channel/UCkWxxT4adtmE1T7IP0-rghQ",
       "youtube_created_at": "2026-10-16T08:05:35Z"
     },
@@ -41,7 +49,7 @@
       "avatar_url": "https://yt3.ggpht.com/GpdW7NjsTF7x0n47dr6CpbWDjmwNoOYgHkEhm3xDYYjl5l4DrXA8vhWphvTWub-WtP6uY5WYGA=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCUwiiCrcm2ZfhvyFYbUWRZg",
       "name": "Moon Nigthcore",
-      "rank": 2,
+      "rank": 3,
       "url": "https://www.youtube.com/channel/UCUwiiCrcm2ZfhvyFYbUWRZg",
       "youtube_created_at": "2026-10-06T12:29:45Z"
     },
@@ -49,7 +57,7 @@
       "avatar_url": "https://yt3.ggpht.com/ubDQf8h7-gntb466vAB9H63LZgENhf6roXDKlUujSV1HgyF-0ZypYgRwtoohLy4FvzIqC63VDw=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCMjq_4xM3wcHV2T_f2Ngpwg",
       "name": "Hazelnuts-Nightcore",
-      "rank": 3,
+      "rank": 4,
       "url": "https://www.youtube.com/channel/UCMjq_4xM3wcHV2T_f2Ngpwg",
       "youtube_created_at": "2026-09-07T09:22:42Z"
     },
@@ -57,7 +65,7 @@
       "avatar_url": "https://yt3.ggpht.com/6ubPk3XRqGyzoVCtUBAjJkRnfRTAJTwcqJiwoGFBMKImY1VIWzXilhKK2-QzC742DqZjR7EwJQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCvOO8Mp81I32hm3VDXgXh6g",
       "name": "Etethia",
-      "rank": 4,
+      "rank": 5,
       "url": "https://www.youtube.com/channel/UCvOO8Mp81I32hm3VDXgXh6g",
       "youtube_created_at": "2026-08-19T20:37:25Z"
     },
@@ -65,7 +73,7 @@
       "avatar_url": "https://yt3.ggpht.com/rTU82xHcjU5QcjvQXTybOsL7G-Nb48o97viseJVN2pYeTPgDrFG3CyPzkeH60_w90JoCaoqTGQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCgUa8N8DPpbh8bPRQuWV6Ew",
       "name": "Kun • Nightcore",
-      "rank": 5,
+      "rank": 6,
       "url": "https://www.youtube.com/channel/UCgUa8N8DPpbh8bPRQuWV6Ew",
       "youtube_created_at": "2026-08-18T09:24:25Z"
     },
@@ -73,7 +81,7 @@
       "avatar_url": "https://yt3.ggpht.com/gYM8RISiUl5hdlcltbMF8LAdjdd6EEMkuMJNvZx65DJaopKwrAGL5RMLVUF9cyT-a9vj7TR55bM=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCn9FXhTlfpk-oVEk7wjD-WA",
       "name": "Regis Nightcore",
-      "rank": 6,
+      "rank": 7,
       "url": "https://www.youtube.com/channel/UCn9FXhTlfpk-oVEk7wjD-WA",
       "youtube_created_at": "2026-08-15T18:07:58Z"
     },
@@ -81,7 +89,7 @@
       "avatar_url": "https://yt3.ggpht.com/xSMOL0P_niGaIXgNErQsnJpM7iDL6Q93hu-WL79pjdeVyfYPHQ4BVkvwi25fjflh7SRpnm0f=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCigcg2NpOhYqp4CHt9zZw3Q",
       "name": "Sen Nightcore - Topic",
-      "rank": 7,
+      "rank": 8,
       "url": "https://www.youtube.com/channel/UCigcg2NpOhYqp4CHt9zZw3Q",
       "youtube_created_at": "2026-08-04T11:26:11Z"
     },
@@ -89,7 +97,7 @@
       "avatar_url": "https://yt3.ggpht.com/laaGQyKHGA9_iiqM84F5LC_g4nI-XocrFnKnLrvNKcRgVfcZXkncaMq7ufCmoH2s-Vk_grbHDg=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCprNH8J7Tn68wap1jFw3EEA",
       "name": "xae_𑣲",
-      "rank": 8,
+      "rank": 9,
       "url": "https://www.youtube.com/channel/UCprNH8J7Tn68wap1jFw3EEA",
       "youtube_created_at": "2026-07-04T21:56:19Z"
     },
@@ -97,17 +105,9 @@
       "avatar_url": "https://yt3.ggpht.com/ErQYBcVW8Wqqgbf1cRvmvgH0oUuQp14uGr8F-oc0LZr5KMS0Fz0O9ziu18ScivnkGiHgWiuwySQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCK8OgY0hTz2p59UovwOIhLA",
       "name": "Eithan VI",
-      "rank": 9,
+      "rank": 10,
       "url": "https://www.youtube.com/channel/UCK8OgY0hTz2p59UovwOIhLA",
       "youtube_created_at": "2026-06-20T16:56:52Z"
-    },
-    {
-      "avatar_url": "https://yt3.ggpht.com/2C2qZ3BPp2afQHbYO8jegselLMXupwhREzAfQZRi4t9qEC-T5DZwNjbh5jLCsu0J741k8FOC=s240-c-k-c0x00ffffff-no-rj",
-      "channel_id": "UC2FvK8jhxNjfrHXTXFzhqWA",
-      "name": "Zempai Music",
-      "rank": 10,
-      "url": "https://www.youtube.com/channel/UC2FvK8jhxNjfrHXTXFzhqWA",
-      "youtube_created_at": "2026-06-18T02:45:36Z"
     }
   ],
   "ranking_date": "2026-10-29",
@@ -558,11 +558,11 @@
     ],
     "growth": [
       {
-        "above_expected_pct": 5664.8,
+        "above_expected_pct": 6292.6,
         "age_days": 11,
         "channel_id": "UCEOJOeaYLE7a0-AsNCWkiFw",
         "channel_name": "Vesra",
-        "expected_views": 735,
+        "expected_views": 653,
         "growth_pct": null,
         "measured_views": 48036,
         "movement": {
@@ -574,7 +574,7 @@
         "phase": "launch",
         "published_on": "2026-10-18",
         "rank": 1,
-        "score": 4.054354,
+        "score": 4.15772,
         "thumbnail_url": "https://i.ytimg.com/vi/V2WRnpid-u8/hqdefault.jpg",
         "title": "Nightcore - In The End (Female Version) (Lyrics)",
         "url": "https://www.youtube.com/watch?v=V2WRnpid-u8",
@@ -600,7 +600,7 @@
         "phase": "catalog",
         "published_on": "2026-04-19",
         "rank": 2,
-        "score": 2.989375,
+        "score": 3.011013,
         "thumbnail_url": "https://i.ytimg.com/vi/ekM0yEJjnO4/hqdefault.jpg",
         "title": "Miss Papaya- Hero [NIGHTCORE]",
         "url": "https://www.youtube.com/watch?v=ekM0yEJjnO4",
@@ -610,11 +610,11 @@
         "views_start": 285811
       },
       {
-        "above_expected_pct": 1723.3,
+        "above_expected_pct": 1731.1,
         "age_days": 9,
         "channel_id": "UCpkR5I-E0bcdE_Tyq9OZI3Q",
         "channel_name": "Bwah Core",
-        "expected_views": 136,
+        "expected_views": 135,
         "growth_pct": 266.4,
         "measured_views": 4203,
         "movement": {
@@ -626,7 +626,7 @@
         "phase": "launch",
         "published_on": "2026-10-20",
         "rank": 3,
-        "score": 2.903236,
+        "score": 2.907482,
         "thumbnail_url": "https://i.ytimg.com/vi/6eC9FUgSfO8/hqdefault.jpg",
         "title": "Jane! - The Long Faces (Nightcore Remix)",
         "url": "https://www.youtube.com/watch?v=6eC9FUgSfO8",
@@ -636,11 +636,11 @@
         "views_start": 1147
       },
       {
-        "above_expected_pct": 1250.7,
+        "above_expected_pct": 1274.9,
         "age_days": 10,
         "channel_id": "UCflyf1s3d5jHGd0QDBL-4IQ",
         "channel_name": "Nightcore Kingdom",
-        "expected_views": 354,
+        "expected_views": 346,
         "growth_pct": 62.5,
         "measured_views": 6032,
         "movement": {
@@ -652,7 +652,7 @@
         "phase": "launch",
         "published_on": "2026-10-19",
         "rank": 4,
-        "score": 2.603179,
+        "score": 2.620957,
         "thumbnail_url": "https://i.ytimg.com/vi/9vgKpyX9Ki4/hqdefault.jpg",
         "title": "Nightcore - K/DA - FIRESTARTER | SPEEDUP",
         "url": "https://www.youtube.com/watch?v=9vgKpyX9Ki4",
@@ -678,7 +678,7 @@
         "phase": "catalog",
         "published_on": "2026-09-11",
         "rank": 5,
-        "score": 2.315794,
+        "score": 2.324832,
         "thumbnail_url": "https://i.ytimg.com/vi/CpDmaf_RN_A/hqdefault.jpg",
         "title": "Nightcore - Teeth | OHM Nightcore",
         "url": "https://www.youtube.com/watch?v=CpDmaf_RN_A",
@@ -714,11 +714,11 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 743.6,
+        "above_expected_pct": 759.2,
         "age_days": 11,
         "channel_id": "UCUUQ6nGG618e7xZCXAys5xw",
         "channel_name": "_skyvalley",
-        "expected_views": 722,
+        "expected_views": 707,
         "growth_pct": 74.3,
         "measured_views": 6834,
         "movement": {
@@ -730,7 +730,7 @@
         "phase": "launch",
         "published_on": "2026-10-18",
         "rank": 7,
-        "score": 2.132452,
+        "score": 2.150868,
         "thumbnail_url": "https://i.ytimg.com/vi/qyRzyR890UI/hqdefault.jpg",
         "title": "Nightcore - Bumblebee - Bambee (Arvy Nacht Cover) - Lyrics",
         "url": "https://www.youtube.com/watch?v=qyRzyR890UI",
@@ -740,11 +740,11 @@
         "views_start": 3921
       },
       {
-        "above_expected_pct": 538.0,
+        "above_expected_pct": 559.8,
         "age_days": 13,
         "channel_id": "UCvkJ0g7pFMHVTBvOin2DjoA",
         "channel_name": "Xsenzo",
-        "expected_views": 24288,
+        "expected_views": 23482,
         "growth_pct": 86.9,
         "measured_views": 155492,
         "movement": {
@@ -756,7 +756,7 @@
         "phase": "launch",
         "published_on": "2026-10-16",
         "rank": 8,
-        "score": 1.853146,
+        "score": 1.886753,
         "thumbnail_url": "https://i.ytimg.com/vi/u3TrBg7_Gto/hqdefault.jpg",
         "title": "Nightcore - Take A Hint (But it hits different) (lyrics)",
         "url": "https://www.youtube.com/watch?v=u3TrBg7_Gto",
@@ -766,11 +766,11 @@
         "views_start": 83186
       },
       {
-        "above_expected_pct": 462.3,
+        "above_expected_pct": 485.7,
         "age_days": 9,
         "channel_id": "UCXhxZkigzlQMsRSla5vq4ow",
         "channel_name": "Eiden XII",
-        "expected_views": 88438,
+        "expected_views": 84904,
         "growth_pct": 430.5,
         "measured_views": 497789,
         "movement": {
@@ -782,7 +782,7 @@
         "phase": "launch",
         "published_on": "2026-10-20",
         "rank": 9,
-        "score": 1.726945,
+        "score": 1.767679,
         "thumbnail_url": "https://i.ytimg.com/vi/yak6hSAVO8s/hqdefault.jpg",
         "title": "Nightcore - E.T. (But it hits hard) (Lyrics)",
         "url": "https://www.youtube.com/watch?v=yak6hSAVO8s",
@@ -792,11 +792,11 @@
         "views_start": 93842
       },
       {
-        "above_expected_pct": 435.2,
+        "above_expected_pct": 445.0,
         "age_days": 9,
         "channel_id": "UCjv00apY2kP36r5o3Jzs61g",
         "channel_name": "Eric Nightcore",
-        "expected_views": 730,
+        "expected_views": 715,
         "growth_pct": 121.3,
         "measured_views": 4342,
         "movement": {
@@ -808,7 +808,7 @@
         "phase": "launch",
         "published_on": "2026-10-20",
         "rank": 10,
-        "score": 1.677434,
+        "score": 1.695672,
         "thumbnail_url": "https://i.ytimg.com/vi/R8PBgMGhsd4/hqdefault.jpg",
         "title": "「𝐍𝐢𝐠𝐡𝐭𝐜𝐨𝐫𝐞」𝐁𝐫𝐨𝐨𝐤𝐥𝐲𝐧𝐛𝐥𝐨𝐨𝐝𝐩𝐨𝐩 𝐗 𝐕𝐚𝐜𝐚𝐭𝐢𝐨𝐧 𝐁𝐢𝐛𝐥𝐞 𝐒𝐜𝐡𝐨𝐨𝐥",
         "url": "https://www.youtube.com/watch?v=R8PBgMGhsd4",

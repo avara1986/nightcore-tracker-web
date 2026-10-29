@@ -219,12 +219,12 @@
     "available": true,
     "entries": [
       {
-        "above_expected_pct": 5664.8,
+        "above_expected_pct": 6292.6,
         "age_days": 11,
         "channel_id": "UCEOJOeaYLE7a0-AsNCWkiFw",
         "channel_name": "Vesra",
         "channel_url": "https://www.youtube.com/channel/UCEOJOeaYLE7a0-AsNCWkiFw",
-        "expected_views": 735,
+        "expected_views": 653,
         "growth_pct": null,
         "measured_views": 48036,
         "observed_end": "2026-10-29T08:57:20Z",
@@ -259,12 +259,12 @@
         "views_start": 285811
       },
       {
-        "above_expected_pct": 1723.3,
+        "above_expected_pct": 1731.1,
         "age_days": 9,
         "channel_id": "UCpkR5I-E0bcdE_Tyq9OZI3Q",
         "channel_name": "Bwah Core",
         "channel_url": "https://www.youtube.com/channel/UCpkR5I-E0bcdE_Tyq9OZI3Q",
-        "expected_views": 136,
+        "expected_views": 135,
         "growth_pct": 266.4,
         "measured_views": 4203,
         "observed_end": "2026-10-29T08:56:51Z",
@@ -279,12 +279,12 @@
         "views_start": 1147
       },
       {
-        "above_expected_pct": 1250.7,
+        "above_expected_pct": 1274.9,
         "age_days": 10,
         "channel_id": "UCflyf1s3d5jHGd0QDBL-4IQ",
         "channel_name": "Nightcore Kingdom",
         "channel_url": "https://www.youtube.com/channel/UCflyf1s3d5jHGd0QDBL-4IQ",
-        "expected_views": 354,
+        "expected_views": 346,
         "growth_pct": 62.5,
         "measured_views": 6032,
         "observed_end": "2026-10-29T08:56:51Z",
@@ -339,12 +339,12 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 743.6,
+        "above_expected_pct": 759.2,
         "age_days": 11,
         "channel_id": "UCUUQ6nGG618e7xZCXAys5xw",
         "channel_name": "_skyvalley",
         "channel_url": "https://www.youtube.com/channel/UCUUQ6nGG618e7xZCXAys5xw",
-        "expected_views": 722,
+        "expected_views": 707,
         "growth_pct": 74.3,
         "measured_views": 6834,
         "observed_end": "2026-10-29T08:56:51Z",
@@ -359,12 +359,12 @@
         "views_start": 3921
       },
       {
-        "above_expected_pct": 538.0,
+        "above_expected_pct": 559.8,
         "age_days": 13,
         "channel_id": "UCvkJ0g7pFMHVTBvOin2DjoA",
         "channel_name": "Xsenzo",
         "channel_url": "https://www.youtube.com/channel/UCvkJ0g7pFMHVTBvOin2DjoA",
-        "expected_views": 24288,
+        "expected_views": 23482,
         "growth_pct": 86.9,
         "measured_views": 155492,
         "observed_end": "2026-10-29T08:56:47Z",
@@ -379,12 +379,12 @@
         "views_start": 83186
       },
       {
-        "above_expected_pct": 462.3,
+        "above_expected_pct": 485.7,
         "age_days": 9,
         "channel_id": "UCXhxZkigzlQMsRSla5vq4ow",
         "channel_name": "Eiden XII",
         "channel_url": "https://www.youtube.com/channel/UCXhxZkigzlQMsRSla5vq4ow",
-        "expected_views": 88438,
+        "expected_views": 84904,
         "growth_pct": 430.5,
         "measured_views": 497789,
         "observed_end": "2026-10-29T08:56:54Z",
@@ -399,12 +399,12 @@
         "views_start": 93842
       },
       {
-        "above_expected_pct": 435.2,
+        "above_expected_pct": 445.0,
         "age_days": 9,
         "channel_id": "UCjv00apY2kP36r5o3Jzs61g",
         "channel_name": "Eric Nightcore",
         "channel_url": "https://www.youtube.com/channel/UCjv00apY2kP36r5o3Jzs61g",
-        "expected_views": 730,
+        "expected_views": 715,
         "growth_pct": 121.3,
         "measured_views": 4342,
         "observed_end": "2026-10-29T08:56:54Z",
@@ -442,7 +442,7 @@
   "source": {
     "snapshot_file": "data/2026-10-29.json",
     "snapshot_schema_version": 3,
-    "snapshot_sha256": "c8241202dba64bf76c307e5db9c7219688ba9bc7826e084c6ece9456c0e4ce11"
+    "snapshot_sha256": "1c2b8774891a1e0c8a3085b1bada18428686839336278b61d573cc649c1275b9"
   },
   "thresholds": {
     "breakout_channel_max_age_days": 548,

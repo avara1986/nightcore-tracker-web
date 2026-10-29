@@ -12,13 +12,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Public data guide | Nightcore Tracker</title>
 <meta name="description" content="Where Nightcore Tracker&#39;s public data lives and what it means: the manifest, dated ranking snapshots, discovery editions, channels and the RSS feed, with field meanings, units, null handling, time zone, cutoff, coverage and completeness status.">
-<link rel="canonical" href="https://nightcore-tracker.com/data-guide.html">
+<link rel="canonical" href="https://tracker.nightcore.com/data-guide.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nightcore Tracker">
 <meta property="og:title" content="Public data guide | Nightcore Tracker">
 <meta property="og:description" content="Where Nightcore Tracker&#39;s public data lives and what it means: the manifest, dated ranking snapshots, discovery editions, channels and the RSS feed, with field meanings, units, null handling, time zone, cutoff, coverage and completeness status.">
-<meta property="og:url" content="https://nightcore-tracker.com/data-guide.html">
-<meta property="og:image" content="https://nightcore-tracker.com/assets/social-preview.jpg?v=e5da961c2d">
+<meta property="og:url" content="https://tracker.nightcore.com/data-guide.html">
+<meta property="og:image" content="https://tracker.nightcore.com/assets/social-preview.jpg?v=e5da961c2d">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nightcore Tracker: breakout songs and breakout channels among monitored channels">
@@ -51,7 +51,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <article class="closing">
     <h2>Public data guide</h2>
     <p>Where Nightcore Tracker&#39;s public data lives and what it means: the manifest, dated ranking snapshots, discovery editions, channels and the RSS feed, with field meanings, units, null handling, time zone, cutoff, coverage and completeness status.</p>
-    <p>Everything below is plain JSON or XML served next to the pages, generated once a day from public YouTube counters. Only these minimized public fields are published; the tracker's database, credentials and private endpoints are never exposed. Relative paths resolve against the site URL <code>https://nightcore-tracker.com/</code>, which the manifest also names.</p>
+    <p>Everything below is plain JSON or XML served next to the pages, generated once a day from public YouTube counters. Only these minimized public fields are published; the tracker's database, credentials and private endpoints are never exposed. Relative paths resolve against the site URL <code>https://tracker.nightcore.com/</code>, which the manifest also names.</p>
 
     <h3>Conventions</h3>
     <ul>
@@ -61,7 +61,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><strong>Missing values.</strong> <code>null</code> means unknown or unavailable, never zero. A ranking that is <code>null</code> (or absent from an older schema) is unavailable, which is different from an empty list (calculated, no eligible entries).</li>
       <li><strong>Coverage.</strong> Rankings cover monitored channels only, not all of YouTube. Shorts are excluded from song charts; mixes are not classified separately.</li>
       <li><strong>Completeness.</strong> <code>collection_run.verified</code> is <code>true</code> only when the day's collection runs completed. An unverified date (for example a forced publication after an incomplete video collection) may be missing observations; its <code>collection_run.id</code> is <code>null</code> and the pages show a warning.</li>
-      <li><strong>Methodology.</strong> <a href="https://nightcore-tracker.com/#about">How the rankings work</a>: seven-day windows, thresholds, tie-breaking and movement.</li>
+      <li><strong>Methodology.</strong> <a href="https://tracker.nightcore.com/#about">How the rankings work</a>: seven-day windows, thresholds, tie-breaking and movement.</li>
       <li><strong>Freshness and retention.</strong> The site is rebuilt daily after collection. Dated snapshots are kept for the latest 5 dates listed in the manifest; edition records are kept permanently. A published snapshot or edition never changes.</li>
     </ul>
 

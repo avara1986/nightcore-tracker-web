@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nightcore-tracker.com/sitemap.xml
+Sitemap: https://tracker.nightcore.com/sitemap.xml
