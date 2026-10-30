@@ -62,10 +62,18 @@
       "youtube_created_at": "2026-09-07T09:22:42Z"
     },
     {
+      "avatar_url": "https://yt3.ggpht.com/VErsEIskIThTgl3nmPm3V2icR6r4VflV2zLFX9qbD00TMUKMMCMPr2b6_S-t3aHTC5nEXC1QGg=s240-c-k-c0x00ffffff-no-rj",
+      "channel_id": "UC-xkvr6EfER-sSvNeGuko1w",
+      "name": "MimiNC",
+      "rank": 5,
+      "url": "https://www.youtube.com/channel/UC-xkvr6EfER-sSvNeGuko1w",
+      "youtube_created_at": "2026-09-06T14:12:22Z"
+    },
+    {
       "avatar_url": "https://yt3.ggpht.com/6ubPk3XRqGyzoVCtUBAjJkRnfRTAJTwcqJiwoGFBMKImY1VIWzXilhKK2-QzC742DqZjR7EwJQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCvOO8Mp81I32hm3VDXgXh6g",
       "name": "Etethia",
-      "rank": 5,
+      "rank": 6,
       "url": "https://www.youtube.com/channel/UCvOO8Mp81I32hm3VDXgXh6g",
       "youtube_created_at": "2026-08-19T20:37:25Z"
     },
@@ -73,7 +81,7 @@
       "avatar_url": "https://yt3.ggpht.com/rTU82xHcjU5QcjvQXTybOsL7G-Nb48o97viseJVN2pYeTPgDrFG3CyPzkeH60_w90JoCaoqTGQ=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCgUa8N8DPpbh8bPRQuWV6Ew",
       "name": "Kun • Nightcore",
-      "rank": 6,
+      "rank": 7,
       "url": "https://www.youtube.com/channel/UCgUa8N8DPpbh8bPRQuWV6Ew",
       "youtube_created_at": "2026-08-18T09:24:25Z"
     },
@@ -81,7 +89,7 @@
       "avatar_url": "https://yt3.ggpht.com/gYM8RISiUl5hdlcltbMF8LAdjdd6EEMkuMJNvZx65DJaopKwrAGL5RMLVUF9cyT-a9vj7TR55bM=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCn9FXhTlfpk-oVEk7wjD-WA",
       "name": "Regis Nightcore",
-      "rank": 7,
+      "rank": 8,
       "url": "https://www.youtube.com/channel/UCn9FXhTlfpk-oVEk7wjD-WA",
       "youtube_created_at": "2026-08-15T18:07:58Z"
     },
@@ -89,25 +97,17 @@
       "avatar_url": "https://yt3.ggpht.com/GGPidsWo6bkVNO2qTv1DCP1K471_hmDJam2Go6nRIONfW-oscaTPdS4Rv6bLno3PwzBtrjh4aXw=s240-c-k-c0x00ffffff-no-rj",
       "channel_id": "UCigcg2NpOhYqp4CHt9zZw3Q",
       "name": "Sen Nightcore - Topic",
-      "rank": 8,
+      "rank": 9,
       "url": "https://www.youtube.com/channel/UCigcg2NpOhYqp4CHt9zZw3Q",
       "youtube_created_at": "2026-08-04T11:26:11Z"
     },
     {
-      "avatar_url": "https://yt3.ggpht.com/laaGQyKHGA9_iiqM84F5LC_g4nI-XocrFnKnLrvNKcRgVfcZXkncaMq7ufCmoH2s-Vk_grbHDg=s240-c-k-c0x00ffffff-no-rj",
-      "channel_id": "UCprNH8J7Tn68wap1jFw3EEA",
-      "name": "xae_𑣲",
-      "rank": 9,
-      "url": "https://www.youtube.com/channel/UCprNH8J7Tn68wap1jFw3EEA",
-      "youtube_created_at": "2026-07-04T21:56:19Z"
-    },
-    {
-      "avatar_url": "https://yt3.ggpht.com/ErQYBcVW8Wqqgbf1cRvmvgH0oUuQp14uGr8F-oc0LZr5KMS0Fz0O9ziu18ScivnkGiHgWiuwySQ=s240-c-k-c0x00ffffff-no-rj",
-      "channel_id": "UCK8OgY0hTz2p59UovwOIhLA",
-      "name": "Eithan VI",
+      "avatar_url": "https://yt3.ggpht.com/5lHKytVi997MMY505I1uaUBGJhfYmTvNgI1G_9bprmTblIMnR_81HzVM5EEW8OOrjnypCsIk2A=s240-c-k-c0x00ffffff-no-rj",
+      "channel_id": "UCDIYlqTVF1WNDSSkzXEXfPw",
+      "name": "LadyMidnight",
       "rank": 10,
-      "url": "https://www.youtube.com/channel/UCK8OgY0hTz2p59UovwOIhLA",
-      "youtube_created_at": "2026-06-20T16:56:52Z"
+      "url": "https://www.youtube.com/channel/UCDIYlqTVF1WNDSSkzXEXfPw",
+      "youtube_created_at": "2026-07-09T20:21:08Z"
     }
   ],
   "ranking_date": "2026-10-30",

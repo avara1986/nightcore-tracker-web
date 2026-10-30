@@ -442,7 +442,7 @@
   "source": {
     "snapshot_file": "data/2026-10-30.json",
     "snapshot_schema_version": 3,
-    "snapshot_sha256": "217096473f70a6a91366c72e5fde0370c708b1a2393b3731972ac46eb66e61a5"
+    "snapshot_sha256": "42b1ea400aab37a84e0849163120f9afd5cce3bae3a102397e8aec9d21636253"
   },
   "thresholds": {
     "breakout_channel_max_age_days": 548,
