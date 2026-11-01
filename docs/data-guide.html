@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="theme-color" content="#070818">
 <meta name="color-scheme" content="dark">
 <link rel="icon" href="assets/favicon.svg?v=b1ecb16a00" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=7e5d168e9a">
+<link rel="stylesheet" href="assets/site.css?v=2d9f7754f0">
 <link rel="alternate" type="application/rss+xml" title="Nightcore Tracker discoveries" href="feed.xml">
 </head>
 <body class="legal-page data-guide-page">
@@ -54,6 +54,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Everything below is plain JSON or XML served next to the pages, generated once a day from public YouTube counters. Only these minimized public fields are published; the tracker's database, credentials and private endpoints are never exposed. Relative paths resolve against the site URL <code>https://tracker.nightcore.com/</code>, which the manifest also names.</p>
 
     <h3>Conventions</h3>
+    <p>Public song rankings require at least one of "Nightcore", "Trance", "speed up", "spedup", "speed-up", "sped-up", "hands-up", "hands up" or "handsup" in the title and always exclude "Slowed" and "Daycore", ignoring capitalization. This rule also applies to the displayed historical rankings, discovery pages, their structured data and the RSS feed. Preserved historical JSON files retain their original contents; refresh the latest date to recalculate its complete rankings using the current policy.</p>
     <ul>
       <li><strong>Time zone.</strong> Every date (<code>YYYY-MM-DD</code>) is a Europe/Madrid calendar day. Timestamps are UTC in the form <code>YYYY-MM-DDTHH:MM:SSZ</code>.</li>
       <li><strong>Cutoff.</strong> <code>data_as_of</code> is the newest observation behind a ranking date: the data cutoff. Rankings do not reflect anything counted after it.</li>

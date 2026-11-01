@@ -454,6 +454,7 @@ main.is-swapping {
 }
 
 .stats {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem 0.9rem;
@@ -462,6 +463,53 @@ main.is-swapping {
 
 .stat {
   min-width: 0;
+}
+
+.stat-help {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dotted currentColor;
+  color: inherit;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: help;
+}
+
+.stat-help:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.stat-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  max-width: min(19rem, calc(100vw - 4rem));
+  padding: 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.6rem;
+  background: #11112e;
+  color: var(--text);
+  box-shadow: 0 8px 24px #0008;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.stat:hover .stat-tooltip,
+.stat:focus-within .stat-tooltip {
+  display: block;
+}
+
+.stat[data-tip-dismissed] .stat-tooltip {
+  display: none;
 }
 
 .stat dt {

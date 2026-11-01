@@ -126,13 +126,47 @@
       case "new_upload":
         return { symbol: "NEW", cls: "new", text: "New upload, first full week tracked" };
       case "entry":
-        return { symbol: "IN", cls: "entry", text: "Not ranked yesterday" };
+        return { symbol: "NEW", cls: "entry", text: "New ranking entry; not ranked yesterday" };
       default:
         return { symbol: "·", cls: "none", text: "No comparison available" };
     }
   }
 
   /* --- Pure chart logic ---------------------------------------------------- */
+
+  function isPublicSongTitle(title) {
+    if (typeof title !== "string") { return false; }
+    var text = title.toLowerCase();
+    var allowed = ["nightcore", "trance", "speed up", "spedup", "speed-up", "sped-up",
+      "hands-up", "hands up", "handsup"];
+    return allowed.some(function (term) { return text.indexOf(term) !== -1; }) &&
+      text.indexOf("slowed") === -1 && text.indexOf("daycore") === -1;
+  }
+
+  // Apply the current title policy to historical data without mutating the cache.
+  function visibleSnapshot(snapshot) {
+    var snap = JSON.parse(JSON.stringify(snapshot));
+    ["growth", "songs"].forEach(function (name) {
+      var original = snap.rankings[name];
+      var entries = original.filter(function (entry) { return isPublicSongTitle(entry.title); });
+      if (entries.length !== original.length) {
+        entries.forEach(function (entry, index) {
+          entry.rank = index + 1;
+          entry.movement = { kind: "unavailable", previous_rank: null };
+        });
+        snap.summary.entered[name] = null;
+        snap.summary.biggest_climber = null;
+      }
+      snap.rankings[name] = entries;
+    });
+    (snap.rankings.breakout_channels || []).forEach(function (entry) {
+      if (entry.top_song && !isPublicSongTitle(entry.top_song.title)) { entry.top_song = null; }
+    });
+    var climber = snap.summary.biggest_climber;
+    if (climber && ["growth", "songs"].indexOf(climber.section) !== -1 &&
+        !isPublicSongTitle(climber.name)) { snap.summary.biggest_climber = null; }
+    return snap;
+  }
 
   function lookup(obj, path) {
     return path.split(".").reduce(function (acc, key) {
@@ -149,6 +183,20 @@
   }
 
   // Card statistics for one entry; the first one is the dominant metric.
+  var BREAKOUT_HELP = {
+    "above": "How far this song is above its channel's expected views at the same age. A small smoothing count prevents tiny baselines from inflating the percentage. This is not week-on-week growth.",
+    "launchViews": "Total views since publication. X is this song's age in calendar days on the ranking date, so different songs show different day counts. New releases are compared at the same age, rather than pretending they all have a full week of history.",
+    "catalogViews": "Views gained in the seven-day window, with unusually large daily spikes capped so a single spike cannot determine the breakout score.",
+    "launchUsual": "Expected views by this age, estimated from this channel's earlier uploads at the same age. Limited channel history is adjusted towards broader averages.",
+    "catalogUsual": "Expected seven-day views: the larger of the channel's usual pace for songs of this age and this song's own previous-week pace. A steady catalog song must accelerate to qualify."
+};
+
+  function breakoutHelp(entry) {
+    var launch = entry.phase === "launch";
+    return [BREAKOUT_HELP.above, launch ? BREAKOUT_HELP.launchViews : BREAKOUT_HELP.catalogViews,
+      launch ? BREAKOUT_HELP.launchUsual : BREAKOUT_HELP.catalogUsual];
+  }
+
   function cardStats(entry, mode) {
     if (entry.above_expected_pct !== undefined) {
       return [
@@ -415,9 +463,25 @@
       return img;
     }
 
-    function stat(spec) {
+    function stat(spec, tipId) {
       var wrap = el("div", spec.accent ? "stat stat--accent" : "stat");
-      wrap.appendChild(el("dt", null, spec.label));
+      var label = el("dt");
+      if (tipId && spec.help) {
+        var button = el("button", "stat-help", spec.label + " ");
+        var info = el("span", null, "ⓘ");
+        info.setAttribute("aria-hidden", "true");
+        button.appendChild(info);
+        button.type = "button";
+        button.setAttribute("aria-describedby", tipId);
+        label.appendChild(button);
+        var tip = el("span", "stat-tooltip", spec.help);
+        tip.id = tipId;
+        tip.setAttribute("role", "tooltip");
+        label.appendChild(tip);
+      } else {
+        label.textContent = spec.label;
+      }
+      wrap.appendChild(label);
       wrap.appendChild(el("dd", null, spec.value));
       return wrap;
     }
@@ -470,7 +534,13 @@
         body.appendChild(firstUploadNote(entry));
       }
       var dl = el("dl", "stats");
-      cardStats(entry, section.mode).forEach(function (spec) { dl.appendChild(stat(spec)); });
+      var tipIds = ["breakout-above-help", "breakout-views-help", "breakout-usual-help"];
+      var help = entry.phase ? breakoutHelp(entry) : [];
+      cardStats(entry, section.mode).forEach(function (spec, index) {
+        var withTip = section.name === "growth" && entry.rank === 1 && help.length;
+        if (withTip) { spec.help = help[index]; }
+        dl.appendChild(stat(spec, withTip ? tipIds[index] : null));
+      });
       body.appendChild(dl);
       if (entry.top_song && typeof entry.top_song === "object") {
         body.appendChild(topSongNote(entry.top_song));
@@ -573,6 +643,7 @@
     }
 
     function render(snap) {
+      snap = visibleSnapshot(snap);
       var warning = document.querySelector("[data-collection-warning]");
       if (warning) {
         warning.hidden = Boolean(snap.collection_run && snap.collection_run.verified);
@@ -746,6 +817,22 @@
       picker.hidden = false;
     }
 
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && event.target.classList.contains("stat-help")) {
+        event.target.closest(".stat").setAttribute("data-tip-dismissed", "");
+      }
+    });
+    document.addEventListener("focusin", function (event) {
+      if (event.target.classList.contains("stat-help")) {
+        event.target.closest(".stat").removeAttribute("data-tip-dismissed");
+      }
+    });
+    document.addEventListener("mouseover", function (event) {
+      var stat = event.target.closest(".stat");
+      if (stat && !stat.contains(event.relatedTarget)) {
+        stat.removeAttribute("data-tip-dismissed");
+      }
+    });
     prepareReveal(Array.prototype.slice.call(main.querySelectorAll(".card")));
   }
 
@@ -766,6 +853,9 @@
     cardKey: cardKey,
     sectionState: sectionState,
     dependentHidden: dependentHidden,
+    isPublicSongTitle: isPublicSongTitle,
+    visibleSnapshot: visibleSnapshot,
+    breakoutHelp: breakoutHelp,
     looksValid: looksValid,
     summaryLines: summaryLines,
     safeUrl: safeUrl,

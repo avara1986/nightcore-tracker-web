@@ -7,12 +7,12 @@
     "channels": 608,
     "channels_measured": 528,
     "excluded_shorts": 12003,
-    "negative_corrections": 185,
-    "new_uploads": 437,
-    "videos": 131701,
-    "videos_measured": 120214
+    "negative_corrections": 168,
+    "new_uploads": 412,
+    "videos": 119531,
+    "videos_measured": 109104
   },
-  "data_as_of": "2026-11-01T09:00:10Z",
+  "data_as_of": "2026-11-01T09:00:09Z",
   "methodology": {
     "breakout_channel_max_age_days": 548,
     "breakout_channel_min_start_views": 100000,
@@ -168,7 +168,7 @@
       {
         "avatar_url": "https://yt3.ggpht.com/GGPidsWo6bkVNO2qTv1DCP1K471_hmDJam2Go6nRIONfW-oscaTPdS4Rv6bLno3PwzBtrjh4aXw=s240-c-k-c0x00ffffff-no-rj",
         "channel_id": "UCigcg2NpOhYqp4CHt9zZw3Q",
-        "first_upload_on": "2026-07-29",
+        "first_upload_on": "2026-08-07",
         "growth_pct": 15.9,
         "movement": {
           "kind": "down",
@@ -220,7 +220,7 @@
       {
         "avatar_url": "https://yt3.ggpht.com/a0wBmFKuf8RtBRQBT2nD7XpN25FISwLJ_2Nx1C1OXOUfAYdfig9IGKDNVuJyA3mJMwvVKb-MFQ=s240-c-k-c0x00ffffff-no-rj",
         "channel_id": "UCO-Zdd5qOX9I5f8eP-qaoCg",
-        "first_upload_on": "2026-05-23",
+        "first_upload_on": "2026-05-25",
         "growth_pct": 13.2,
         "movement": {
           "kind": "down",
@@ -246,7 +246,7 @@
       {
         "avatar_url": "https://yt3.ggpht.com/NPhvTb8CMYTDb6fZhzz182GG3BcaOIoeZ2H7_lWsaEd02cnV48FVx8YSn6x100Ip4eOoD2YxqA=s240-c-k-c0x00ffffff-no-rj",
         "channel_id": "UCMUJWQ-pv2XrHeGGpPwTz2Q",
-        "first_upload_on": "2025-07-20",
+        "first_upload_on": "2026-07-14",
         "growth_pct": 8.0,
         "movement": {
           "kind": "same",
@@ -272,7 +272,7 @@
       {
         "avatar_url": "https://yt3.ggpht.com/8UE4h_MsE1gwsY3YQ1lAF_yJ_ZHQqQaEf0fK6-2-_WcRoGzkVrv835kd_iWWOLn4NI0_qS_Idw=s240-c-k-c0x00ffffff-no-rj",
         "channel_id": "UC4j0CCokiu_n4DL0aTlvvQQ",
-        "first_upload_on": "2026-03-22",
+        "first_upload_on": "2026-03-31",
         "growth_pct": 3.8,
         "movement": {
           "kind": "down",
@@ -296,18 +296,44 @@
         "views_start": 3761802
       },
       {
+        "avatar_url": "https://yt3.ggpht.com/Z_YKPrHlI_-nqZJS-7AvAvSeDqZGx0SAubz4OCYq25eHN6-WrZf0Czm-KtZnWnGbbGp9HQ_4=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCEY5o0kYU6vK7jAfv1H3oCQ",
+        "first_upload_on": "2025-09-28",
+        "growth_pct": 5.7,
+        "movement": {
+          "kind": "down",
+          "previous_rank": 7
+        },
+        "name": "angeldelaferrere2005",
+        "observed_end": "2026-11-01T07:03:09Z",
+        "observed_start": "2026-10-25T07:02:23Z",
+        "rank": 8,
+        "subscribers": 14000,
+        "top_song": {
+          "thumbnail_url": "https://i.ytimg.com/vi/1qPCZ1ydoEM/hqdefault.jpg",
+          "title": "CUMBIA VS NIGHTCORE - 2005 mix DJSET cumbia nightcore exitos",
+          "url": "https://www.youtube.com/watch?v=1qPCZ1ydoEM",
+          "video_id": "1qPCZ1ydoEM",
+          "views_gained": 20950
+        },
+        "url": "https://www.youtube.com/channel/UCEY5o0kYU6vK7jAfv1H3oCQ",
+        "views": 1300344,
+        "views_gained": 70156,
+        "views_start": 1230188
+      },
+      {
         "avatar_url": "https://yt3.ggpht.com/ubDQf8h7-gntb466vAB9H63LZgENhf6roXDKlUujSV1HgyF-0ZypYgRwtoohLy4FvzIqC63VDw=s240-c-k-c0x00ffffff-no-rj",
         "channel_id": "UCMjq_4xM3wcHV2T_f2Ngpwg",
         "first_upload_on": "2026-09-07",
         "growth_pct": 17.0,
         "movement": {
           "kind": "down",
-          "previous_rank": 7
+          "previous_rank": 8
         },
         "name": "Hazelnuts-Nightcore",
         "observed_end": "2026-11-01T07:03:09Z",
         "observed_start": "2026-10-25T07:02:23Z",
-        "rank": 8,
+        "rank": 9,
         "subscribers": 217,
         "top_song": {
           "thumbnail_url": "https://i.ytimg.com/vi/Tr8i6Q5plAA/hqdefault.jpg",
@@ -322,56 +348,30 @@
         "views_start": 130955
       },
       {
-        "avatar_url": "https://yt3.ggpht.com/rTU82xHcjU5QcjvQXTybOsL7G-Nb48o97viseJVN2pYeTPgDrFG3CyPzkeH60_w90JoCaoqTGQ=s240-c-k-c0x00ffffff-no-rj",
-        "channel_id": "UCgUa8N8DPpbh8bPRQuWV6Ew",
-        "first_upload_on": "2026-08-20",
-        "growth_pct": 5.5,
+        "avatar_url": "https://yt3.ggpht.com/rgcX3fQJn-DCIJYhsz_6J0el4gYUv69xWw45I32K9TnhEyTnQT9lrOX2a-YbqfskWnvDS-DT=s240-c-k-c0x00ffffff-no-rj",
+        "channel_id": "UCnCawYHBIeE4zkVlMByfm-Q",
+        "first_upload_on": "2025-08-06",
+        "growth_pct": 3.1,
         "movement": {
-          "kind": "up",
-          "previous_rank": 10
+          "kind": "entry",
+          "previous_rank": null
         },
-        "name": "Kun • Nightcore",
-        "observed_end": "2026-11-01T07:03:09Z",
-        "observed_start": "2026-10-25T07:02:23Z",
-        "rank": 9,
-        "subscribers": 1020,
-        "top_song": {
-          "thumbnail_url": "https://i.ytimg.com/vi/yDFFcVJaGwc/hqdefault.jpg",
-          "title": "Nightcore - Sơn Thủy Trùng Mây x Thủy Chung x Yến Vô Hiết (Vietz x Wi. Remix)",
-          "url": "https://www.youtube.com/watch?v=yDFFcVJaGwc",
-          "video_id": "yDFFcVJaGwc",
-          "views_gained": 36900
-        },
-        "url": "https://www.youtube.com/channel/UCgUa8N8DPpbh8bPRQuWV6Ew",
-        "views": 815841,
-        "views_gained": 42316,
-        "views_start": 773525
-      },
-      {
-        "avatar_url": "https://yt3.ggpht.com/VnMasMEWsiyENULrRFyOZNe6IzZmmsadoIqsr9VKFjbAZjCA9b_Uu6gS0y4x5INQ1kN4Rb7bNtw=s240-c-k-c0x00ffffff-no-rj",
-        "channel_id": "UCIG-ziA7DrKrLGqEOT0C8Wg",
-        "first_upload_on": "2026-04-05",
-        "growth_pct": 2.1,
-        "movement": {
-          "kind": "down",
-          "previous_rank": 9
-        },
-        "name": "ZyroXx",
+        "name": "NAOMI",
         "observed_end": "2026-11-01T07:03:09Z",
         "observed_start": "2026-10-25T07:02:23Z",
         "rank": 10,
-        "subscribers": 3560,
+        "subscribers": 1240,
         "top_song": {
-          "thumbnail_url": "https://i.ytimg.com/vi/nfU4gu3q_JM/hqdefault.jpg",
-          "title": "Nightcore - HEAVENLY JUMPSTYLE (Rock Version)",
-          "url": "https://www.youtube.com/watch?v=nfU4gu3q_JM",
-          "video_id": "nfU4gu3q_JM",
-          "views_gained": 28375
+          "thumbnail_url": "https://i.ytimg.com/vi/sBNZcSp4pxY/hqdefault.jpg",
+          "title": "erika - I don’t know ( Nightcore )",
+          "url": "https://www.youtube.com/watch?v=sBNZcSp4pxY",
+          "video_id": "sBNZcSp4pxY",
+          "views_gained": 94679
         },
-        "url": "https://www.youtube.com/channel/UCIG-ziA7DrKrLGqEOT0C8Wg",
-        "views": 5027324,
-        "views_gained": 103531,
-        "views_start": 4923793
+        "url": "https://www.youtube.com/channel/UCnCawYHBIeE4zkVlMByfm-Q",
+        "views": 3535859,
+        "views_gained": 105106,
+        "views_start": 3430753
       }
     ],
     "channels": [
@@ -558,11 +558,11 @@
     ],
     "growth": [
       {
-        "above_expected_pct": 3885.4,
+        "above_expected_pct": 3702.5,
         "age_days": 10,
         "channel_id": "UCCk05ecIP9C5o9X0rOEeQ7g",
         "channel_name": "Lucya",
-        "expected_views": 586,
+        "expected_views": 619,
         "growth_pct": null,
         "measured_views": 27240,
         "movement": {
@@ -574,7 +574,7 @@
         "phase": "launch",
         "published_on": "2026-10-22",
         "rank": 1,
-        "score": 3.685228,
+        "score": 3.638245,
         "thumbnail_url": "https://i.ytimg.com/vi/jYxWFCZ6tnw/hqdefault.jpg",
         "title": "Nightcore - Monster (Female Version) (Lyrics)",
         "url": "https://www.youtube.com/watch?v=jYxWFCZ6tnw",
@@ -600,7 +600,7 @@
         "phase": "catalog",
         "published_on": "2026-04-19",
         "rank": 2,
-        "score": 3.13215,
+        "score": 3.137139,
         "thumbnail_url": "https://i.ytimg.com/vi/ekM0yEJjnO4/hqdefault.jpg",
         "title": "Miss Papaya- Hero [NIGHTCORE]",
         "url": "https://www.youtube.com/watch?v=ekM0yEJjnO4",
@@ -610,11 +610,11 @@
         "views_start": 307308
       },
       {
-        "above_expected_pct": 1787.1,
+        "above_expected_pct": 1779.3,
         "age_days": 12,
         "channel_id": "UCpkR5I-E0bcdE_Tyq9OZI3Q",
         "channel_name": "Bwah Core",
-        "expected_views": 141,
+        "expected_views": 142,
         "growth_pct": 26.9,
         "measured_views": 4448,
         "movement": {
@@ -626,7 +626,7 @@
         "phase": "launch",
         "published_on": "2026-10-20",
         "rank": 3,
-        "score": 2.937646,
+        "score": 2.933505,
         "thumbnail_url": "https://i.ytimg.com/vi/6eC9FUgSfO8/hqdefault.jpg",
         "title": "Jane! - The Long Faces (Nightcore Remix)",
         "url": "https://www.youtube.com/watch?v=6eC9FUgSfO8",
@@ -636,49 +636,23 @@
         "views_start": 3506
       },
       {
-        "above_expected_pct": 1255.5,
-        "age_days": 6,
-        "channel_id": "UCbrb47MH0QTYDw-y6Z3mYEg",
-        "channel_name": "Aaronier0O",
-        "expected_views": 111,
-        "growth_pct": null,
-        "measured_views": 2760,
-        "movement": {
-          "kind": "up",
-          "previous_rank": 5
-        },
-        "observed_end": "2026-11-01T08:57:21Z",
-        "observed_start": null,
-        "phase": "launch",
-        "published_on": "2026-10-26",
-        "rank": 4,
-        "score": 2.606719,
-        "thumbnail_url": "https://i.ytimg.com/vi/0t09MdGzwbw/hqdefault.jpg",
-        "title": "Anti Nightcore - Moskau (Dschinghis Khan) | Slowed Reverb / Daycore || Aaronier0O",
-        "url": "https://www.youtube.com/watch?v=0t09MdGzwbw",
-        "video_id": "0t09MdGzwbw",
-        "views": 2760,
-        "views_gained": null,
-        "views_start": null
-      },
-      {
-        "above_expected_pct": 1249.9,
+        "above_expected_pct": 1258.5,
         "age_days": 13,
         "channel_id": "UCflyf1s3d5jHGd0QDBL-4IQ",
         "channel_name": "Nightcore Kingdom",
-        "expected_views": 373,
+        "expected_views": 370,
         "growth_pct": 18.0,
         "measured_views": 6285,
         "movement": {
           "kind": "up",
-          "previous_rank": 6
+          "previous_rank": 5
         },
         "observed_end": "2026-11-01T08:56:52Z",
         "observed_start": "2026-10-25T08:56:55Z",
         "phase": "launch",
         "published_on": "2026-10-19",
-        "rank": 5,
-        "score": 2.602611,
+        "rank": 4,
+        "score": 2.608974,
         "thumbnail_url": "https://i.ytimg.com/vi/9vgKpyX9Ki4/hqdefault.jpg",
         "title": "Nightcore - K/DA - FIRESTARTER | SPEEDUP",
         "url": "https://www.youtube.com/watch?v=9vgKpyX9Ki4",
@@ -697,13 +671,13 @@
         "measured_views": 1549,
         "movement": {
           "kind": "up",
-          "previous_rank": 7
+          "previous_rank": 6
         },
         "observed_end": "2026-11-01T08:57:23Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-27",
-        "rank": 6,
+        "rank": 5,
         "score": 2.563737,
         "thumbnail_url": "https://i.ytimg.com/vi/PZdv6-r0-uM/hqdefault.jpg",
         "title": "Nightcore — I Kissed A Girl (Rock Version)",
@@ -723,13 +697,13 @@
         "measured_views": 3652,
         "movement": {
           "kind": "up",
-          "previous_rank": 8
+          "previous_rank": 7
         },
         "observed_end": "2026-11-01T08:57:27Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-29",
-        "rank": 7,
+        "rank": 6,
         "score": 2.519617,
         "thumbnail_url": "https://i.ytimg.com/vi/vVTAS6klzF0/hqdefault.jpg",
         "title": "Nightcore - Hate You (Jim Yosef x RIELL)",
@@ -740,23 +714,23 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 655.8,
+        "above_expected_pct": 652.0,
         "age_days": 13,
         "channel_id": "UCySIxIQNE3HtQ-imZAFD_1w",
         "channel_name": "SatılmışınNightcoreu",
-        "expected_views": 97,
+        "expected_views": 98,
         "growth_pct": null,
         "measured_views": 1389,
         "movement": {
           "kind": "up",
-          "previous_rank": 10
+          "previous_rank": 9
         },
         "observed_end": "2026-11-01T08:59:29Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-19",
-        "rank": 8,
-        "score": 2.022656,
+        "rank": 7,
+        "score": 2.017593,
         "thumbnail_url": "https://i.ytimg.com/vi/dzjzXhrAqTs/hqdefault.jpg",
         "title": "My Beautiful Disaster - Nightcore | Electronic Dark Phonk Song",
         "url": "https://www.youtube.com/watch?v=dzjzXhrAqTs",
@@ -766,23 +740,23 @@
         "views_start": null
       },
       {
-        "above_expected_pct": 607.8,
+        "above_expected_pct": 618.2,
         "age_days": 12,
         "channel_id": "UCXhxZkigzlQMsRSla5vq4ow",
         "channel_name": "Eiden XII",
-        "expected_views": 96693,
+        "expected_views": 95282,
         "growth_pct": 177.3,
         "measured_views": 684966,
         "movement": {
           "kind": "up",
-          "previous_rank": 12
+          "previous_rank": 11
         },
         "observed_end": "2026-11-01T08:56:55Z",
         "observed_start": "2026-10-25T08:56:58Z",
         "phase": "launch",
         "published_on": "2026-10-20",
-        "rank": 9,
-        "score": 1.956941,
+        "rank": 8,
+        "score": 1.971625,
         "thumbnail_url": "https://i.ytimg.com/vi/yak6hSAVO8s/hqdefault.jpg",
         "title": "Nightcore - E.T. (But it hits hard) (Lyrics)",
         "url": "https://www.youtube.com/watch?v=yak6hSAVO8s",
@@ -792,23 +766,23 @@
         "views_start": 246977
       },
       {
-        "above_expected_pct": 587.6,
+        "above_expected_pct": 597.2,
         "age_days": 13,
         "channel_id": "UCk1XP0LYCiabwLG4iDBBUvw",
         "channel_name": "Kiken Akuma",
-        "expected_views": 117,
+        "expected_views": 114,
         "growth_pct": null,
         "measured_views": 1392,
         "movement": {
           "kind": "up",
-          "previous_rank": 11
+          "previous_rank": 10
         },
         "observed_end": "2026-11-01T08:59:23Z",
         "observed_start": null,
         "phase": "launch",
         "published_on": "2026-10-19",
-        "rank": 10,
-        "score": 1.927975,
+        "rank": 9,
+        "score": 1.941897,
         "thumbnail_url": "https://i.ytimg.com/vi/wL4O4Okvqu4/hqdefault.jpg",
         "title": "Nightcore - Midnight [BASS BOOSTED]",
         "url": "https://www.youtube.com/watch?v=wL4O4Okvqu4",
@@ -816,6 +790,32 @@
         "views": 1392,
         "views_gained": null,
         "views_start": null
+      },
+      {
+        "above_expected_pct": 540.9,
+        "age_days": 12,
+        "channel_id": "UCkWxxT4adtmE1T7IP0-rghQ",
+        "channel_name": "Briar Nightcore",
+        "expected_views": 1967,
+        "growth_pct": 200.2,
+        "measured_views": 13147,
+        "movement": {
+          "kind": "up",
+          "previous_rank": 12
+        },
+        "observed_end": "2026-11-01T08:56:57Z",
+        "observed_start": "2026-10-25T08:57:00Z",
+        "phase": "launch",
+        "published_on": "2026-10-20",
+        "rank": 10,
+        "score": 1.857673,
+        "thumbnail_url": "https://i.ytimg.com/vi/n8ZbBQUPJZM/hqdefault.jpg",
+        "title": "Nightcore - Monster (Female Version) (Lyrics)",
+        "url": "https://www.youtube.com/watch?v=n8ZbBQUPJZM",
+        "video_id": "n8ZbBQUPJZM",
+        "views": 13147,
+        "views_gained": 8767,
+        "views_start": 4380
       }
     ],
     "songs": [
@@ -960,37 +960,17 @@
         "views_start": 43119635
       },
       {
-        "channel_id": "UCF0PN8Fa3JtNGiBFVP7dMUg",
-        "channel_name": "Roy Bee - Topic",
-        "growth_pct": 1.1,
-        "movement": {
-          "kind": "up",
-          "previous_rank": 9
-        },
-        "observed_end": "2026-11-01T08:55:33Z",
-        "observed_start": "2026-10-25T08:55:37Z",
-        "published_on": "2014-05-22",
-        "rank": 8,
-        "thumbnail_url": "https://i.ytimg.com/vi/vZXsjw5za1M/hqdefault.jpg",
-        "title": "Kiss Me Again (Radio Edit)",
-        "url": "https://www.youtube.com/watch?v=vZXsjw5za1M",
-        "video_id": "vZXsjw5za1M",
-        "views": 12991752,
-        "views_gained": 138668,
-        "views_start": 12853084
-      },
-      {
         "channel_id": "UC5HUS1c5OK4iES3iRMQnooQ",
         "channel_name": "RubyChan's Nightcore",
         "growth_pct": 0.4,
         "movement": {
           "kind": "up",
-          "previous_rank": 10
+          "previous_rank": 9
         },
         "observed_end": "2026-11-01T08:39:27Z",
         "observed_start": "2026-10-25T08:39:33Z",
         "published_on": "2023-03-19",
-        "rank": 9,
+        "rank": 8,
         "thumbnail_url": "https://i.ytimg.com/vi/lVGyb-AlfGA/hqdefault.jpg",
         "title": "Nightcore - Tattoo - Loreen (Lyrics)",
         "url": "https://www.youtube.com/watch?v=lVGyb-AlfGA",
@@ -1010,7 +990,7 @@
         "observed_end": "2026-11-01T08:33:46Z",
         "observed_start": "2026-10-25T08:33:47Z",
         "published_on": "2019-02-05",
-        "rank": 10,
+        "rank": 9,
         "thumbnail_url": "https://i.ytimg.com/vi/TpIqDm031gg/hqdefault.jpg",
         "title": "Nightcore - Apollo - (Lyrics)",
         "url": "https://www.youtube.com/watch?v=TpIqDm031gg",
@@ -1018,20 +998,40 @@
         "views": 78087862,
         "views_gained": 138414,
         "views_start": 77949448
+      },
+      {
+        "channel_id": "UC38GMKiSwiZQQITrRYuTEOA",
+        "channel_name": "ZeroMizKun Nightcore",
+        "growth_pct": 0.2,
+        "movement": {
+          "kind": "same",
+          "previous_rank": 10
+        },
+        "observed_end": "2026-11-01T08:41:34Z",
+        "observed_start": "2026-10-25T08:41:39Z",
+        "published_on": "2015-08-18",
+        "rank": 10,
+        "thumbnail_url": "https://i.ytimg.com/vi/BByMzI1YjKA/hqdefault.jpg",
+        "title": "Nightcore - Pretty Little Psycho",
+        "url": "https://www.youtube.com/watch?v=BByMzI1YjKA",
+        "video_id": "BByMzI1YjKA",
+        "views": 68153654,
+        "views_gained": 135670,
+        "views_start": 68017984
       }
     ]
   },
   "schema_version": 3,
   "summary": {
     "biggest_climber": {
-      "from_rank": 12,
+      "from_rank": 11,
       "id": "yak6hSAVO8s",
       "name": "Nightcore - E.T. (But it hits hard) (Lyrics)",
       "section": "growth",
-      "to_rank": 9
+      "to_rank": 8
     },
     "entered": {
-      "breakout_channels": 1,
+      "breakout_channels": 2,
       "channels": 2,
       "growth": 2,
       "songs": 0
