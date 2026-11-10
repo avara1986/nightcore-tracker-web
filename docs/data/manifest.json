@@ -1,6 +1,12 @@
 {
-  "data_id": "3685fa32a15bcfc4",
+  "data_id": "0c0ac1893a1936eb",
   "dates": [
+    {
+      "available": true,
+      "date": "2026-11-10",
+      "file": "data/2026-11-10.json",
+      "sha256": "0c0ac1893a1936ebfb3f99e27f7c934a87466f0e1605dcb772c48e88ce9f9951"
+    },
     {
       "available": true,
       "date": "2026-11-09",
@@ -24,17 +30,11 @@
       "date": "2026-11-06",
       "file": "data/2026-11-06.json",
       "sha256": "1c3fc488aad52550da52ff19c446ea5470fc8dff4fdc7f0115bc6e7a29e478f1"
-    },
-    {
-      "available": true,
-      "date": "2026-11-05",
-      "file": "data/2026-11-05.json",
-      "sha256": "edfb57c0a2a1cf285f26e6f4149260e302cdc2bfd4c29c96da0e0de93cb78694"
     }
   ],
   "history_days": 5,
-  "latest": "2026-11-09",
-  "run_id": "r20261109-c51-v52",
+  "latest": "2026-11-10",
+  "run_id": "r20261110-c53-v54",
   "schema_version": 1,
   "site_url": "https://tracker.nightcore.com/",
   "timezone": "Europe/Madrid"
