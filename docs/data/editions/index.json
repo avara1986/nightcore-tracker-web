@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "date": "2026-11-25",
+      "file": "data/editions/2026-11-25.json",
+      "page": "editions/2026-11-25.html",
+      "sha256": "eac84c6494b9b1b083792e94a3fe2d4eee97fa751f2865891414b0ab90b09ab3",
+      "url": "https://tracker.nightcore.com/editions/2026-11-25.html",
+      "verified": true
+    },
+    {
       "date": "2026-11-24",
       "file": "data/editions/2026-11-24.json",
       "page": "editions/2026-11-24.html",
@@ -329,7 +337,7 @@
       "verified": false
     }
   ],
-  "latest": "2026-11-24",
+  "latest": "2026-11-25",
   "schema_version": 1,
   "site_url": "https://tracker.nightcore.com/",
   "timezone": "Europe/Madrid"
